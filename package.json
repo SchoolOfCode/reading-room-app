@@ -1,5 +1,5 @@
 {
-  "name": "reading-room-app",
+  "name": "the_reading_room",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -14,9 +14,6 @@
     "next": "14.0.3"
   },
   "devDependencies": {
-    "autoprefixer": "^10.0.1",
-    "postcss": "^8",
-    "tailwindcss": "^3.3.0",
     "eslint": "^8",
     "eslint-config-next": "14.0.3"
   }
