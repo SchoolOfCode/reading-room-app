@@ -1,4 +1,4 @@
-import { getAvatars } from "../helper_functions/get_avatars";
+import { getAvatars } from "../helper_functions/get_avatars.js";
 
 export async function getAvatarsControllers(req, res) {
     try { 
