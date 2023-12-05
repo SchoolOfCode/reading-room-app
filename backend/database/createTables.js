@@ -11,7 +11,7 @@ export async function createTables() {
     // creating reading_notes table
     await pool.query(`CREATE TABLE reading_notes(
                 id INT GENERATED ALWAYS,
-                date DATE NOT NULL,
+                date DATE DEFAULT CURRENT_DATE,
                 title VARCHAR(225) NOT NULL,
                 author VARCHAR(225) NOT NULL,   
                 notes TEXT NOT NULL,
