@@ -1,7 +1,7 @@
 "use client";
 
 import { Link } from "@chakra-ui/next-js";
-import { Box, VStack } from "@chakra-ui/react";
+import { Box, VStack, flexbox } from "@chakra-ui/react";
 import { Text } from "@chakra-ui/react";
 import { Center, Square, Circle } from "@chakra-ui/react";
 import { Image } from "@chakra-ui/react";
@@ -37,6 +37,8 @@ export default function WelcomePage() {
             </Text>
           </Box>
           <Box
+            display={"flexbox"}
+            textAlign={"center"}
             as="section"
             bg={"#D9D9D6"}
             borderRadius={"lg"}
@@ -44,7 +46,10 @@ export default function WelcomePage() {
             m={"auto"}
             p={"auto"}
           >
-            <Center>GO BACK TO READ!</Center>
+            <Center>
+              Go to the Reading Room <br></br>Book<br></br> and continue
+              reading!{" "}
+            </Center>
           </Box>
         </VStack>
       </Center>
