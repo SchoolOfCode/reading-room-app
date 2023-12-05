@@ -6,6 +6,7 @@ const connectionString = process.env.databaseURL;
 
 // Checking to see if the connection string is not defined
 if (!connectionString) {
+  console.log(connectionString);
   throw new Error(
     "No DB connection string defined - check if .env.local variables are imported correctly"
   );

@@ -2,11 +2,13 @@
   "name": "the_reading_room",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "reset": "node -r next backend/database/resetTables.js"
   },
   "dependencies": {
     "express": "^4.18.2",
