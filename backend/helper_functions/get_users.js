@@ -1,4 +1,4 @@
-import { pool } from '../index.js';
+import { pool } from '../database/index';
 
 // Create a function to GET all users
 export async function getUsers() {
