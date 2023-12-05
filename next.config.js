@@ -1,4 +1,5 @@
+// Converted CommonJS to ES6
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {};
 
-module.exports = nextConfig
+export default nextConfig;
