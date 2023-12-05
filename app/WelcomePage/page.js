@@ -8,12 +8,32 @@ export default function WelcomePage() {
   return (
     <>
       <Center>
-        <VStack spacing={'24px'}>
-          <Box as='section' bg={'#D9D9D6'} borderRadius={'lg'} w={'75%'} marginTop={'5rem'}>
+        <VStack spacing={'30px'}>
+          <Box
+            as='section'
+            bg={'#00b64c'}
+            borderRadius={'lg'}
+            w={'75%'}
+            marginTop={'5rem'}
+            boxShadow={'dark-lg'}
+          >
             <Center>Welcome back USERNAME!</Center>
           </Box>
-          <Image src='https://bit.ly/dan-abramov' alt='Dan Abramov' boxSize={'150'}></Image>
-          <Box as='section' bg={'#D9D9D6'} borderRadius={'lg'} w={'75%'} m={'auto'} p={'0.5rem'}>
+          <Image
+            src='https://bit.ly/dan-abramov'
+            alt='Dan Abramov'
+            boxSize={'150'}
+            boxShadow={'dark-lg'}
+          ></Image>
+          <Box
+            as='section'
+            bg={'#00b64c'}
+            borderRadius={'lg'}
+            w={'75%'}
+            m={'auto'}
+            p={'0.5rem'}
+            boxShadow={'dark-lg'}
+          >
             <Text>
               READING NOTES: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
               tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
@@ -24,11 +44,12 @@ export default function WelcomePage() {
             display={'flexbox'}
             textAlign={'center'}
             as='section'
-            bg={'#D9D9D6'}
+            bg={'#00b64c'}
             borderRadius={'lg'}
             w={'75%'}
             m={'auto'}
             p={'auto'}
+            boxShadow={'dark-lg'}
           >
             <Text>Go to the Reading Room</Text>
             <Center>
