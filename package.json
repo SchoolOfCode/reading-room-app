@@ -8,9 +8,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "reset": "node -r next backend/database/resetTables.js"
+    "reset": "node -r dotenv/config backend/database/resetTables.js"
   },
   "dependencies": {
+    "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "next": "14.0.3",
     "pg": "^8.11.3",
