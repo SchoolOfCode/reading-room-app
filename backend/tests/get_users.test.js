@@ -24,7 +24,7 @@ import {
 // });
 
 // Get all users
-test("GET /users", async function () {
+test("GET/users", async function () {
   // await the 'resetTables' function
   await resetTables();
 
