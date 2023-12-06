@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test:e2e": "playwright test --ui"
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.1.1",
@@ -21,6 +22,7 @@
     "react-icons": "^4.12.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.40.1",
     "eslint": "^8",
     "eslint-config-next": "14.0.3"
   }
