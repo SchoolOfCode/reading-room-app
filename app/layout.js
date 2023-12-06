@@ -4,6 +4,7 @@ import { Providers } from './providers';
 import './globals.css';
 // Importing fonts object and passing it down as a prop
 import { fonts } from './fonts.js';
+import Navbar from './components/Navbar';
 
 export const metadata = {
   title: 'The Reading Room',
@@ -15,6 +16,7 @@ export default function RootLayout({ children }) {
     <html lang='en' className={fonts.bubblegum_sans.className}>
       <body>
         <Providers>{children}</Providers>
+        <Navbar />
       </body>
     </html>
   );

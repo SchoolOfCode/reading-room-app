@@ -20,7 +20,7 @@ export default function Continue() {
     >
       <Text>Go to the Reading Room</Text>
       <Center>
-        <Icon as={FaBookOpen} boxSize={'10'}></Icon>
+        <Icon as={FaBookOpen} boxSize={'10'} alt='Icon of an open book.'></Icon>
       </Center>
       <Text>and continue reading!</Text>
     </Box>
