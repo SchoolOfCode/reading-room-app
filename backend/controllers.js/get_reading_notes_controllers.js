@@ -2,8 +2,8 @@ import { getReadingNotes } from "../helper_functions/get_reading_notes.js";
 
 export async function getReadingNotesControllers(req, res) {
     try { 
-        const getReadingNotes = await getReadingNotes();
-        res.status(200).json({ status: "success", data: getReadingNotes}) 
+        const ReadingNotes = await getReadingNotes();
+        res.status(200).json({ status: "success", data: ReadingNotes}) 
 
 }
 catch (error){
