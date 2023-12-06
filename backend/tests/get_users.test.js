@@ -38,9 +38,10 @@ test("GET /users", async function () {
   // Response header: Content-Type header should contain application/json
   expect(response.body.status).toMatch("success");
 
-  console.log(`response.data = ${response.data})`);
+  console.log(`response.body`);
+  console.log(response.body);
   // expect(Array.isArray(response.body.data)).toContain(true);
-  expect(response.body).toContain({
+  expect(response.body).toStrictEqual({
     status: "success",
     data: [
       {

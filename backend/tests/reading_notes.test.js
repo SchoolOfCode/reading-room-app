@@ -18,4 +18,7 @@ test("Get reading_notes test", async function () {
   //expect status response body
   expext(response.body).toStrictEqual();
   //expect response type to be JSON
-});
+
+    // assert body status 
+    expect(response.body.status).toMatch("success");
+  });
