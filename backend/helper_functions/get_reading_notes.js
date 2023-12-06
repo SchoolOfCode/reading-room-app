@@ -5,7 +5,7 @@ export async function getReadingNotes() {
 
     try {
     //Define the SQL query to fetch all users from the 'users' table
-    const queryText = "SELECT * FROM reading_notes RIGHT JOIN users ON reading_notes.users_id = users.id WHERE users.id = $1";
+    const queryText = "SELECT * FROM reading_notes";
 
     // Use the pool object to send the query to the database
     const result = await pool.query(queryText); 
