@@ -7,6 +7,7 @@ export async function resetTables() {
   await dropTables();
   await createTables();
   await seedTables();
+  console.log("Database successfully reset");
 }
 
-resetTables();
+// resetTables();

@@ -26,7 +26,7 @@ import {
 // Get all users
 test("GET /users", async function () {
   // await the 'resetTables' function
-  await resetTables(userSeedData);
+  await resetTables();
 
   // Send a GET request to the /users endpoint
   // Call `request` and pass in the Express app as an argument
@@ -38,8 +38,21 @@ test("GET /users", async function () {
   // Response header: Content-Type header should contain application/json
   expect(response.body.status).toMatch("success");
 
-  console.log(`response.body.data = ${response.body.data})`);
-  expect(Array.isArray(response.body.data)).toContain(true);
+  console.log(`response.data = ${response.data})`);
+  // expect(Array.isArray(response.body.data)).toContain(true);
+  expect(response.body).toContain({
+    status: "success",
+    data: [
+      {
+        id: 1,
+        nickname: "Auntie Marie",
+      },
+      {
+        id: 2,
+        nickname: "Chad",
+      },
+    ],
+  });
 
   expect(response.headers["content-type"]).toMatch("application/json");
 
