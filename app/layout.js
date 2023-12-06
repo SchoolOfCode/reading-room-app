@@ -1,12 +1,9 @@
-// template for what the pages look like
+// Global layout in common with all pages
 
-import { Inter } from 'next/font/google';
 import { Providers } from './providers';
-import { fonts } from './fonts.js'
 import './globals.css';
-
-// 
-const inter = Inter({ subsets: ['latin'] });
+// Importing fonts object and passing it down as a prop
+import { fonts } from './fonts.js';
 
 export const metadata = {
   title: 'The Reading Room',

@@ -1,15 +1,11 @@
-import { Rubik } from "next/font/google";
-import { Bubblegum_Sans } from "next/font/google"; //
+// Importing Bubblegum Sans from next/font and exporting the fonts object
 
-const rubik = Rubik({
-  subsets: ["latin"],
-  variable: "--font-rubik",
-});
+import { Bubblegum_Sans } from 'next/font/google'; //
 
 const bubblegum_sans = Bubblegum_Sans({
-  subsets: ["latin"],
+  subsets: ['latin'],
   weight: '400',
-  variable: "--font-bubblegum",
+  variable: '--font-bubblegum',
 });
 
 export const fonts = {

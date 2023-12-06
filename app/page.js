@@ -1,8 +1,6 @@
 'use client';
 
 import { Link } from '@chakra-ui/next-js';
-import { Box } from '@chakra-ui/react';
-import { Text } from '@chakra-ui/react';
 
 export default function Home() {
   return (
@@ -15,7 +13,7 @@ export default function Home() {
         </Link>
       </button>
       <button>
-        <Link color='blue.800' _hover={{ color: 'blue.200' }} href='/ReadingRoom'>
+        <Link color='blue.400' _hover={{ color: 'blue.500' }} href='/ReadingRoom'>
           Reading Room Link
         </Link>
       </button>
