@@ -1,20 +1,24 @@
 'use client';
-import { Container } from '@chakra-ui/react'
-import { Icon } from '@chakra-ui/react'
-import { FaBookOpen } from 'react-icons/fa';
-import { BiSolidHomeHeart } from "react-icons/bi";
-import { FaSmile } from "react-icons/fa";
+
+import { Container, Flex, Icon, SimpleGrid } from '@chakra-ui/react';
 import { Link } from '@chakra-ui/next-js';
-
-
-
+import { FaBookOpen, FaSmile } from 'react-icons/fa';
+import { BiSolidHomeHeart } from 'react-icons/bi';
 
 export default function Navbar() {
-  return(
-   <Container>
-  <Link href='/WelcomePage'>
-    <Icon as={BiSolidHomeHeart} ></Icon></Link>
-    <Link href='/ReadingRoom'><Icon as={FaBookOpen}></Icon></Link>
-  <Link href='#'><Icon as={FaSmile} ></Icon></Link>
-  </Container>)
+  return (
+    <Container bg={'red'}>
+      <Flex justify={'space-around'} align={'center'}>
+        <Link href='/WelcomePage'>
+          <Icon as={BiSolidHomeHeart} boxSize={'100'} />
+        </Link>
+        <Link href='/ReadingRoom'>
+          <Icon as={FaBookOpen} boxSize={'97'} />
+        </Link>
+        <Link href='#'>
+          <Icon as={FaSmile} boxSize={'90'} />
+        </Link>
+      </Flex>
+    </Container>
+  );
 }
