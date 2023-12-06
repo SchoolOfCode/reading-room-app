@@ -8,12 +8,11 @@ const connectionString = process.env.databaseURL;
 if (!connectionString) {
   console.log(connectionString);
   throw new Error(
-    "No DB connection string defined - check if .env.local variables are imported correctly"
+    "No DB connection string defined - check if .env variables are imported correctly"
   );
 }
 
 // Export a new instance of pg.Pool, which will be used to interact with the PostgreSQL database
-
 export const pool = new pg.Pool({
   // passing the connectionString through to connect to the DB
   connectionString,

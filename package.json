@@ -9,7 +9,8 @@
     "start": "next start",
     "lint": "next lint",
     "reset": "node -r dotenv/config backend/database/resetTables.js",
-    "server": "nodemon -r dotenv/config backend/server.js"
+    "server": "nodemon -r dotenv/config backend/server.js",
+    "test": "vitest"
   },
   "dependencies": {
     "dotenv": "^16.3.1",
@@ -17,12 +18,14 @@
     "next": "14.0.3",
     "pg": "^8.11.3",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "supertest": "^6.3.3"
   },
   "devDependencies": {
     "eslint": "^8",
     "eslint-config-next": "14.0.3",
     "morgan": "^1.10.0",
-    "nodemon": "^3.0.2"
+    "nodemon": "^3.0.2",
+    "vitest": "^1.0.1"
   }
 }
