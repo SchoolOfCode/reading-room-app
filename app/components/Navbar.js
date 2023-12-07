@@ -15,14 +15,14 @@ export default function Navbar() {
   };
 
   return (
-    <Container bg={'red'} position={'fixed'} bottom={'0'} width={'100%'}>
+    <Container bg={'#f3e5ab'} position={'fixed'} bottom={'0'} width={'100%'}>
       <Flex justify={'space-around'} align={'center'}>
         <Link href='/WelcomePage'>
-          <Icon
+          <Icon outlineColor={'grey'} outline={'dotted'}
             as={BiSolidHomeHeart}
             boxSize={'100'}
             onClick={() => handleSetActivePage('WP')}
-            style={activePage === 'WP' ? { color: 'green' } : { color: 'white' }}
+            style={activePage === 'WP' ? { color: '#00b64c' } : { color: 'white' }}
           />
         </Link>
         <Link href='/ReadingRoom'>
@@ -30,7 +30,7 @@ export default function Navbar() {
             as={FaBookOpen}
             boxSize={'97'}
             onClick={() => handleSetActivePage('RR')}
-            style={activePage === 'RR' ? { color: 'green' } : { color: 'white' }}
+            style={activePage === 'RR' ? { color: '#00b64c' } : { color: '#F34213' }}
           />
         </Link>
         <Link href='#'>
@@ -38,7 +38,7 @@ export default function Navbar() {
             as={FaSmile}
             boxSize={'90'}
             onClick={() => handleSetActivePage('A')}
-            style={activePage === 'A' ? { color: 'green' } : { color: 'white' }}
+            style={activePage === 'A' ? { color: '#00b64c' } : { color: '#E83F6F' }}
           />
         </Link>
       </Flex>
