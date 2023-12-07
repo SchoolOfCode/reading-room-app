@@ -6,6 +6,7 @@
 .pnp.js
 .yarn/install-state.gz
 /.vscode
+package-lock.json
 # testing
 /coverage
 
