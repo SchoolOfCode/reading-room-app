@@ -11,12 +11,14 @@ export const metadata = {
   description: 'Created by The Blurb',
 };
 
+
 export default function RootLayout({ children }) {
+  const [isClicked, setIsClicked] = useState(false);
   return (
     <html lang='en' className={fonts.bubblegum_sans.className}>
       <body>
         <Providers>{children}</Providers>
-        <Navbar />
+        <Navbar isClicked={isClicked} />
       </body>
     </html>
   );
