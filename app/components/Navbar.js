@@ -7,7 +7,7 @@ import { BiSolidHomeHeart } from 'react-icons/bi';
 
 export default function Navbar() {
   return (
-    <Container bg={'red'}>
+    <Container bg={'red'} position={'fixed'} bottom={'0'} width={'100%'} >
       <Flex justify={'space-around'} align={'center'}>
         <Link href='/WelcomePage'>
           <Icon as={BiSolidHomeHeart} boxSize={'100'} />
