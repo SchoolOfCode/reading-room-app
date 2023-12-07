@@ -11,8 +11,13 @@ export const userRoutes = express.Router();
 export const readingRoomRoutes = express.Router();
 export const avatarRoutes = express.Router();
 // write route with HTTP method
-userRoutes.get("/:nickname", getUserByNicknameController);
-userRoutes.get("/:id", getUsersByIdController);
+// userRoutes.get("/:nickname", getUserByNicknameController);
+// userRoutes.get("/:id", getUsersByIdController);
+// userRoutes.get("/", getUsersController);
+
+// Define routes with regular expressions for ID and nickname
+userRoutes.get("/:id(\\d+)", getUsersByIdController); // Matches numeric IDs
+userRoutes.get("/:nickname([a-zA-Z]+)", getUserByNicknameController); // Matches alphanumeric nicknames
 userRoutes.get("/", getUsersController);
 
 readingRoomRoutes.get("/", getReadingNotesControllers);
