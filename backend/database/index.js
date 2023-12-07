@@ -1,10 +1,11 @@
 // importing the node-postgres library
 import pg from "pg";
 
-// retrieving the database connection string from .env.local
+// retrieving the database connection string from .env
 const connectionString =
-  process.env.databaseURL ||
-  "postgres://syzdjgkc:XaS6cN2bqDOMC-JSD4SekxMR6Y-WCWsq@flora.db.elephantsql.com/syzdjgkc";
+  process.env.databaseURL 
+  // REMEMBER TO DELETE THE DATABASE URL
+ || "postgres://syzdjgkc:XaS6cN2bqDOMC-JSD4SekxMR6Y-WCWsq@flora.db.elephantsql.com/syzdjgkc";
 
 // Checking to see if the connection string is not defined
 if (!connectionString) {
