@@ -10,6 +10,8 @@ import request from "supertest";
 test("GET/reading_notes test", async function () {
   // use supertest to send get request to /reading_notes
   const response = await request(app).get("/reading_notes");
+
+  // Accessing today's date via date in res body to equal current date
   let currentDate = response.body.data[0].date;
   console.log(currentDate);
   // assert status code respons
