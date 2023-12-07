@@ -26,9 +26,11 @@ export default function Navbar() {
           />
           <Box
             bg='#00B64C'
-            height='2px'
+            height='5px'
             width='100%'
             mt='2px'
+            mb='10px'
+            borderRadius={'lg'}
             display={activePage === 'WP' ? 'block' : 'none'}
           />
         </Link>
