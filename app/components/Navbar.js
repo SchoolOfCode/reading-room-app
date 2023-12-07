@@ -1,6 +1,6 @@
 'use client';
 
-import { Container, Flex, Icon } from '@chakra-ui/react';
+import { Container, Flex, Icon, Box } from '@chakra-ui/react';
 import { Link } from '@chakra-ui/next-js';
 import { FaBookOpen, FaSmile } from 'react-icons/fa';
 import { BiSolidHomeHeart } from 'react-icons/bi';
@@ -15,31 +15,53 @@ export default function Navbar() {
   };
 
   return (
-    <Container bg={'#f3e5ab'} position={'fixed'} bottom={'0'} width={'100%'}>
+    <Container bg={'#f3e5ab'} position={'fixed'} bottom={'0'} width={'100%'} zIndex={'base'}>
       <Flex justify={'space-around'} align={'center'}>
         <Link href='/WelcomePage'>
-          <Icon outlineColor={'grey'} outline={'dotted'}
+          <Icon
             as={BiSolidHomeHeart}
+            color={'#00b64c'}
             boxSize={'100'}
             onClick={() => handleSetActivePage('WP')}
-            style={activePage === 'WP' ? { color: '#00b64c' } : { color: 'white' }}
           />
+          <Box
+            as='section'
+            w={'10%'}
+            style={activePage === 'WP' ? { bg: '#00b64c' } : { bg: 'gray' }}
+          >
+            xxx
+          </Box>
         </Link>
+
         <Link href='/ReadingRoom'>
           <Icon
             as={FaBookOpen}
+            color={'#F34213'}
             boxSize={'97'}
             onClick={() => handleSetActivePage('RR')}
-            style={activePage === 'RR' ? { color: '#00b64c' } : { color: '#F34213' }}
           />
+          <Box
+            as='section'
+            w={'10%'}
+            style={activePage === 'RR' ? { bg: '#F34213' } : { bg: 'gray' }}
+          >
+            xxx
+          </Box>
         </Link>
         <Link href='#'>
           <Icon
             as={FaSmile}
+            color={'#E83F6F'}
             boxSize={'90'}
             onClick={() => handleSetActivePage('A')}
-            style={activePage === 'A' ? { color: '#00b64c' } : { color: '#E83F6F' }}
           />
+          <Box
+            as='section'
+            w={'10%'}
+            style={activePage === 'A' ? { bg: '#E83F6F' } : { bg: 'gray' }}
+          >
+            xxx
+          </Box>
         </Link>
       </Flex>
     </Container>
