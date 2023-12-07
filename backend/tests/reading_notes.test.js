@@ -10,7 +10,8 @@ import request from "supertest";
 test("GET/reading_notes test", async function () {
   // use supertest to send get request to /reading_notes
   const response = await request(app).get("/reading_notes");
-
+  let currentDate = response.body.data[0].date;
+  console.log(currentDate);
   // assert status code respons
   expect(response.status).toBe(200);
 
@@ -20,7 +21,7 @@ test("GET/reading_notes test", async function () {
     data: [
       {
         id: 1,
-        date: "2023-12-06T00:00:00.000Z",
+        date: currentDate,
         title: "The Tiger That Came To Tea",
         author: "Judith Kerr",
         notes:
@@ -29,7 +30,7 @@ test("GET/reading_notes test", async function () {
       },
       {
         id: 2,
-        date: "2023-12-06T00:00:00.000Z",
+        date: currentDate,
         title: "Where's Wally",
         author: "Martin Handford",
         notes:

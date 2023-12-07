@@ -12,7 +12,7 @@ import { resetTables } from "../database/resetTables.js";
 // test to check the api call for reading_notes
 test("GET/avatar test", async function () {
   // await the 'resetTables' function
-  await resetTables();
+  // await resetTables();
 
   // use supertest to send get request to /reading_notes
   const response = await request(app).get("/avatars");
