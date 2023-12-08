@@ -17,11 +17,10 @@ export async function fetchUsers() {
   }
 
   // use JSON method to parse response and store in variable
-  const data = await response.json();
+  const userData = await response.json();
 
-  // Log out parsed data
-  console.log(typeof data, data);
-  // console.log(data.data[1].nickname);
+  // Log out parsed userData
+  console.log(typeof userData, userData);
+  // console.log(userData.userData[1].nickname);
+  return userData;
 }
-
-fetchUsers();

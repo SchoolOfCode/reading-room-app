@@ -17,11 +17,10 @@ export async function fetchReadingNotes() {
   }
 
   // use JSON method to parse response and store in variable
-  const data = await response.json();
+  const readingNotesData = await response.json();
 
-  // Log out parsed data
-  console.log(typeof data, data);
-  console.log(data.data);
+  // Log out parsed readingNotesData
+  console.log(typeof readingNotesData, readingNotesData);
+  console.log(readingNotesData.readingNotesData);
+  return readingNotesData;
 }
-
-fetchReadingNotes();

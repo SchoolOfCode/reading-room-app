@@ -17,12 +17,10 @@ export async function fetchAvatars() {
   }
 
   // use JSON method to parse response and store in variable
-  const data = await response.json();
+  const avatarData = await response.json();
 
-  // Log out parsed data
-  console.log(typeof data, data);
-  console.log(data.data[0].avatar_img);
-  return data;
+  // Log out parsed avatarData
+  console.log(typeof avatarData, avatarData);
+  console.log(avatarData.avatarData[0].avatar_img);
+  return avatarData;
 }
-
-fetchAvatars();

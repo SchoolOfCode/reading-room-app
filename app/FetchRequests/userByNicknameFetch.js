@@ -21,12 +21,13 @@ export async function fetchUserByNickname(input) {
   }
 
   // use JSON method to parse response and store in variable
-  const data = await response.json();
+  const nicknameData = await response.json();
 
-  // Log out parsed data
-  console.log(typeof data, data);
-  console.log(data);
-  return data;
+  // Log out parsed nicknameData
+  console.log(typeof nicknameData, nicknameData);
+  console.log(nicknameData);
+  const userNickname = nicknameData.data.nickname;
+  console.log(userNickname);
+  return userNickname;
 }
-
-fetchUserByNickname("Chad");
+// fetchUserByNickname("Chad");
