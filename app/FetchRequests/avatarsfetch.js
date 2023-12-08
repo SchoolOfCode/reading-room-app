@@ -22,6 +22,7 @@ export async function fetchAvatars() {
   // Log out parsed data
   console.log(typeof data, data);
   console.log(data.data[0].avatar_img);
+  return data;
 }
 
 fetchAvatars();

@@ -26,6 +26,7 @@ export async function fetchUserByNickname(input) {
   // Log out parsed data
   console.log(typeof data, data);
   console.log(data);
+  return data;
 }
 
 fetchUserByNickname("Chad");
