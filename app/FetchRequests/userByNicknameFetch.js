@@ -1,14 +1,17 @@
 // write async function
-export async function fetchUsers(input) {
+export async function fetchUserByNickname(input) {
   let nickname = input;
   console.log("Fetch function works!!!");
 
   //   declare variable to store HTTP response
-  const response = await fetch(`http://localhost:5002/users/${nickname}`, {
-    headers: {
-      Accept: "application.json",
-    },
-  });
+  const response = await fetch(
+    `http://localhost:5002/users/nickname/${nickname}`,
+    {
+      headers: {
+        Accept: "application.json",
+      },
+    }
+  );
 
   // Log an error if response not(!) ok
   if (!response.ok) {
@@ -22,7 +25,7 @@ export async function fetchUsers(input) {
 
   // Log out parsed data
   console.log(typeof data, data);
-  // console.log(data.data[1].nickname);
+  console.log(data);
 }
 
-fetchUsers();
+fetchUserByNickname("Chad");
