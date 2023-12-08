@@ -5,7 +5,7 @@ export async function seedTables() {
   try {
     // seed users table
     await pool.query(`
-      INSERT INTO users (nickname) VALUES ('Auntie Marie'), ('Chad');
+      INSERT INTO users (nickname) VALUES ('Auntie-Marie'), ('Chad');
     `);
 
     // seed reading_notes table

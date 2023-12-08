@@ -46,7 +46,7 @@ test("GET/users", async function () {
     data: [
       {
         id: 1,
-        nickname: "Auntie Marie",
+        nickname: "Auntie-Marie",
       },
       {
         id: 2,
@@ -101,7 +101,6 @@ test("GET/reading_notes test", async function () {
   // assert body status
   expect(response.body.status).toMatch("success");
 });
-
 
 // get_avatars.test.js
 // test to check the api call for avatars
