@@ -1,5 +1,5 @@
 export const userSeedData = [
-  { nickname: "Auntie Marie" },
+  { nickname: "Auntie-Marie" },
   { nickname: "Chad" },
 ];
 
