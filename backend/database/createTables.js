@@ -6,7 +6,7 @@ export async function createTables() {
     await pool.query(`
         CREATE TABLE IF NOT EXISTS users(
           id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-          nickname VARCHAR(100) NOT NULL
+          nickname VARCHAR(100) NOT NULL CHECK (nickname NOT LIKE '% %')
         );`);
 
     // creating reading_notes table
