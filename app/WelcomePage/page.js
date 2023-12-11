@@ -11,8 +11,8 @@ import Continue from './components/Continue.js';
 export default function WelcomePage() {
   return (
     <VStack as='main' spacing={12}>
-      <Welcome />
       <Avatar />
+      <Welcome />
       <ReadingNotes />
       <Continue />
     </VStack>
