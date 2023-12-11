@@ -21,7 +21,7 @@ export async function seedTables() {
       INSERT INTO avatars (avatar_img, users_id)
       VALUES
         ('https://mrmen.com/cdn/shop/t/37/assets/svg--character--mr-happy.svg?v=32825736591941550291695746657', 1),
-        ('https://media.gettyimages.com/id/647313230/photo/bearded-and-tattooed-hipster-coffee-shop-owner-posing.jpg?s=612x612&w=gi&k=20&c=9qVr9QG4tgT9xOa8G1algKbRCtlIwTeTk0B6V5wfm3k=', 2);
+        ('https://mrmen.com/cdn/shop/t/37/assets/svg--character--mr-tickle.svg?v=32825736591941550291695746657', 2);
     `);
     console.log("Tables successfully populated!");
 

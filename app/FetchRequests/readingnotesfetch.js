@@ -22,5 +22,12 @@ export async function fetchReadingNotes() {
   // Log out parsed readingNotesData
   console.log(typeof readingNotesData, readingNotesData);
   console.log(readingNotesData.readingNotesData);
-  return readingNotesData;
+
+  const chadData = {
+    title: readingNotesData.data[1].title,
+    author: readingNotesData.data[1].author,
+    note: readingNotesData.data[1].notes,
+    users_id: readingNotesData.data[1].users_id,
+  };
+  return chadData;
 }

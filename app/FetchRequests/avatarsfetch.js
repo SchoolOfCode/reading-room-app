@@ -21,6 +21,10 @@ export async function fetchAvatars() {
 
   // Log out parsed avatarData
   console.log(typeof avatarData, avatarData);
-  console.log(avatarData.avatarData[0].avatar_img);
-  return avatarData;
+  // console.log(avatarData.avatarData[0].avatar_img);
+  const chadAvatarData = {
+    avatar: avatarData.data[1].avatar_img,
+    users_id: avatarData.data[1].users_id,
+  };
+  return chadAvatarData;
 }
