@@ -31,3 +31,4 @@ export async function fetchReadingNotes() {
   };
   return chadData;
 }
+// return latest data, where users_id = Chad's ID - 2
