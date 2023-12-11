@@ -132,7 +132,9 @@ export default function Home() {
 				</h1> 
 				<h2 style={styles.title}>Want A Challenge? - Time Your Reading</h2>
 				<div style={styles.time}> 
-					{time.seconds}s 
+				{time.hours}:
+				{time.minutes}: 
+				{time.seconds}
 				</div> 
 				<div style={styles.buttons}> 
 					{running ? ( 
