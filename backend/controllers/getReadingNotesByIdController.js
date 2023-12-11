@@ -10,7 +10,7 @@ export async function getReadingNotesByIdController(req, res) {
     res.status(500).json({
       status: "error",
       message:
-        "Error getting reading notes . See get_reading_notes_controllers.js",
+        "Error getting reading notes . See getReadingNotesByNicknameControlle.js",
     });
   }
 }

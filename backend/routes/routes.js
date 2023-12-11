@@ -5,6 +5,7 @@ import { getUsersByIdController } from "../controllers/get_users_by_id_controlle
 import { getUserByNicknameController } from "../controllers/get_user_by_nickname_controller.js";
 import { getReadingNotesControllers } from "../controllers/get_reading_notes_controller.js";
 import { getReadingNotesByIdController } from "../controllers/GetReadingNotesByIdController.js";
+import { getReadingNotesByNicknameController } from "../controllers/getReadingNotesByNicknameController.js";
 import { createReadingNotesControllers } from "../controllers/post_reading_notes_controller.js";
 import { getAvatarsControllers } from "../controllers/get_avatars_controller.js";
 // Save a variable to express.Router() for easy access
@@ -18,6 +19,10 @@ userRoutes.get("/nickname/:nickname", getUserByNicknameController);
 
 readingRoomRoutes.get("/", getReadingNotesControllers);
 readingRoomRoutes.get("/id/:id", getReadingNotesByIdController);
+readingRoomRoutes.get(
+  "/nickname/:nickname",
+  getReadingNotesByNicknameController
+);
 readingRoomRoutes.post("/", createReadingNotesControllers);
 
 avatarRoutes.get("/", getAvatarsControllers);
