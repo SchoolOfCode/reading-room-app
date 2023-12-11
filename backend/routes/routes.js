@@ -15,6 +15,10 @@ userRoutes.get("/", getUsersController);
 userRoutes.get("/id/:id", getUsersByIdController);
 userRoutes.get("/nickname/:nickname", getUserByNicknameController);
 
+readingRoomRoutes.get("/", getReadingNotesControllers);
+readingRoomRoutes.post("/", createReadingNotesControllers);
+
+avatarRoutes.get("/", getAvatarsControllers);
 // userRoutes.get("/", getUsersController);
 // userRoutes.get("/:id", getUsersByIdController);
 // userRoutes.get("/:nickname", getUserByNicknameController);
@@ -23,7 +27,3 @@ userRoutes.get("/nickname/:nickname", getUserByNicknameController);
 // userRoutes.get("/:id(\\d+)", getUsersByIdController); // Matches numeric IDs
 // userRoutes.get("/:nickname([a-zA-Z]+)", getUserByNicknameController); // Matches alphanumeric nicknames
 // userRoutes.get("/", getUsersController);
-
-readingRoomRoutes.get("/", getReadingNotesControllers);
-readingRoomRoutes.post("/", createReadingNotesControllers);
-avatarRoutes.get("/", getAvatarsControllers);

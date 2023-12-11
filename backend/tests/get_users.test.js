@@ -127,7 +127,7 @@ test("GET/avatar test", async function () {
       {
         id: 2,
         avatar_img:
-          "https://mrmen.com/cdn/shop/t/37/assets/svg--character--mr-tickle.svg?v=32825736591941550291695746657",
+          "https://media.gettyimages.com/id/647313230/photo/bearded-and-tattooed-hipster-coffee-shop-owner-posing.jpg?s=612x612&w=gi&k=20&c=9qVr9QG4tgT9xOa8G1algKbRCtlIwTeTk0B6V5wfm3k=",
         users_id: 2,
       },
     ],
