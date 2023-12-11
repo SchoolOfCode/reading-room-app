@@ -135,12 +135,12 @@ export default function Home() {
 					Stopwatch
 				</h1> 
 				<h2 style={styles.title}>Want A Challenge? - Time Your Reading</h2>
-				{/* <div style={styles.time}> 
+				{/* <div style={styles.time}>
 				{time.hours}:
 				{time.minutes}: 
 				{time.seconds}
-				</div>  */}
-				<p style={styles.time}>{formattedHours.hours}:{formattedMinutes.minutes}:{formattedSeconds.seconds}</p>
+				</div> */}
+				<p style={styles.time}>{formattedHours}:{formattedMinutes}:{formattedSeconds}</p>
 				<div style={styles.buttons}> 
 					{running ? ( 
 						<button style={{ ...styles.button, ...styles.pauseButton }} onClick={pauseStopwatch}> 
