@@ -5,16 +5,22 @@
 import { Box, Center } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import { fetchUserByNickname } from "../../FetchRequests/userByNicknameFetch.js";
+import { Spinner } from "@chakra-ui/react";
 
 //
 export default function Welcome() {
   // declaring username state
-  const [username, setUsername] = useState("nickname");
+  const [username, setUsername] = useState(null);
   // using useEffect to make the fetch request
   useEffect(() => {
     let sessionUsername = fetchUserByNickname("Chad");
     setUsername(sessionUsername);
   }, []);
+
+  if (username === null) {
+    // Return a spinner or a default loading state while avatar is being fetched
+    return <Spinner />;
+  }
   return (
     <Box
       as="section"

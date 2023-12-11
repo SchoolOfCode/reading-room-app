@@ -2,7 +2,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { fetchReadingNotes } from "../../FetchRequests/readingNotesFetch.js";
-
+import { Spinner } from "@chakra-ui/react";
 import { Box, Text } from "@chakra-ui/react";
 
 export default function ReadingNotes() {
@@ -26,6 +26,10 @@ export default function ReadingNotes() {
       }
     })();
   }, []); // Empty dependency array to run effect only once on mount
+
+  if (title === "Your new favourite book") {
+    return <Spinner />;
+  }
 
   return (
     <Box

@@ -7,7 +7,7 @@ import { fetchAvatars } from "../../FetchRequests/avatarsFetch.js";
 import { Spinner } from "@chakra-ui/react";
 
 export default function Avatar() {
-  const [avatar, setAvatar] = useState(null); // Start with null or a default avatar URL
+  const [avatar, setAvatar] = useState(null);
 
   useEffect(() => {
     (async () => {
