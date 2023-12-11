@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 // Define component for the submit form
 const BookForm = () => {
@@ -39,6 +39,19 @@ const BookForm = () => {
       console.error('Error adding note:', error);
     }
   };
+
+  // Clear form after submission and redirect to Welcome Page
+  useEffect(() => {
+    let timeoutId = null;
+
+    if (submissionMessage) {
+      timeoutId = setTimeout(() => {
+        window.location.href = 'https://reading-room-app.vercel.app/WelcomePage';
+      }, 3000);
+    }
+
+    return () => clearTimeout(timeoutId);
+  }, [submissionMessage]);
 
   return (
     <div>
