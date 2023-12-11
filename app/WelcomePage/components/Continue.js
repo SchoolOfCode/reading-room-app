@@ -2,12 +2,16 @@
 
 "use client";
 
-import { Button } from "@chakra-ui/react";
+import { Button, Text } from "@chakra-ui/react";
+import { Link } from "@chakra-ui/next-js";
 
 export default function Continue() {
   return (
-    <Button colorScheme={"blackAlpha"}>
-      Go to the Reading Room
-    </Button>
+    <>
+      <Text mb={"-45px"}>Grab your Favourite book</Text>
+      <Link href="/ReadingRoom">
+        <Button colorScheme={"blackAlpha"}>Go to the Reading Room</Button>
+      </Link>
+    </>
   );
 }
