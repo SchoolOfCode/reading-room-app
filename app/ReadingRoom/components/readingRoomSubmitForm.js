@@ -9,6 +9,9 @@ const BookForm = () => {
   const [author, setAuthor] = useState('');
   const [notes, setNotes] = useState('');
 
+  // Success message once user submits the form
+  const [submissionMessage, setSubmissionMessage] = useState('');
+
   const handleSubmit = async (e) => {
     e.preventDefault(); // This line prevents the default form submission behavior
 
@@ -28,11 +31,12 @@ const BookForm = () => {
       if (response.ok) {
         const result = await response.json();
         console.log(result);
+        setSubmissionMessage('You are a champ! Keep up the good work.');
       } else {
-        console.error('Failed to add book');
+        console.error('Failed to add note. Try later, please.');
       }
     } catch (error) {
-      console.error('Error adding book:', error);
+      console.error('Error adding note:', error);
     }
   };
 
@@ -72,6 +76,8 @@ const BookForm = () => {
           required
         ></textarea>
         <br />
+
+        {submissionMessage && <p style={{ color: 'green' }}>{submissionMessage}</p>}
 
         <input type="submit" value="Submit" />
       </form>
