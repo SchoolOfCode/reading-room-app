@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { Container, Input, Textarea, Heading } from '@chakra-ui/react';
 
 // Define component for the submit form
 const BookForm = () => {
@@ -54,47 +55,50 @@ const BookForm = () => {
   }, [submissionMessage]);
 
   return (
-    <div>
-      <h1>Add a New Note</h1>
+    <Container>
+      <Heading>Add a New Note</Heading>
       <form onSubmit={handleSubmit}>
         <label htmlFor="title">Title:</label>
-        <input
+        <Input
           type="text"
           id="title"
           name="title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
+          color="black"
           required
         />
         <br />
 
         <label htmlFor="author">Author:</label>
-        <input
+        <Input
           type="text"
           id="author"
           name="author"
           value={author}
           onChange={(e) => setAuthor(e.target.value)}
+          color="black"
           required
         />
         <br />
 
         <label htmlFor="notes">Notes:</label>
-        <textarea
+        <Textarea
           id="notes"
           name="notes"
           value={notes}
           onChange={(e) => setNotes(e.target.value)}
           rows="4"
+          color="black"
           required
-        ></textarea>
+        ></Textarea>
         <br />
 
         {submissionMessage && <p style={{ color: 'green' }}>{submissionMessage}</p>}
 
         <input type="submit" value="Submit" />
       </form>
-    </div>
+    </Container>
   );
 };
 
