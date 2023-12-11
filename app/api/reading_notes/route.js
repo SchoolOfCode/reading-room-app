@@ -1,0 +1,37 @@
+// Importing the "pool" object from the database connection module
+import { pool } from '@/backend/database/index.js';
+
+// Handler function for the POST request
+export async function POST(request) {
+  try {
+    // Extracting the "title", "author", and "notes" properties from the JSON body of the request
+    const { title, author, notes } = await request.json();
+
+    // SQL query to insert the reading note into the "reading_notes" table and return the newly created note
+    const queryText =
+      'INSERT INTO reading_notes (title, author, notes) VALUES ($1, $2, $3) RETURNING *';
+
+    // Executing the SQL query using the "pool" object and passing the required parameters
+    const result = await pool.query(queryText, [title, author, notes]);
+
+    // Extracting the first row (the newly created note) from the query result
+    const createdNote = result.rows[0];
+
+    // Returning a successful response with the created note as JSON
+    return new Response(JSON.stringify({ status: 'success', data: createdNote }), {
+      headers: { 'Content-Type': 'application/json' },
+    });
+  } catch (error) {
+    // Handling any errors that occur during the execution of the POST request
+    console.error('Error originated in POST request:', error);
+
+    // Returning an error response with an appropriate error message
+    return new Response(
+      JSON.stringify({ status: 'error', message: 'Error creating reading notes' }),
+      {
+        status: 500,
+        headers: { 'Content-Type': 'application/json' },
+      }
+    );
+  }
+}
