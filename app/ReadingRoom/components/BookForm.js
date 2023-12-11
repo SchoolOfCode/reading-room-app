@@ -1,16 +1,19 @@
 'use client';
 
+import { Center, VStack } from '@chakra-ui/react';
 import { useState, useEffect } from 'react';
-import { Container, Input, Textarea, Heading } from '@chakra-ui/react';
 
 // Define component for the submit form
-const BookForm = () => {
+const BookForm = ({ onClose }) => {
   // State variables to store the form input values
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const [notes, setNotes] = useState('');
 
-  // Success message once user submits the form
+  // State variable to track which input is selected
+  const [selectedInput, setSelectedInput] = useState(null);
+
+  // Success message once the user submits the form
   const [submissionMessage, setSubmissionMessage] = useState('');
 
   const handleSubmit = async (e) => {
@@ -36,6 +39,8 @@ const BookForm = () => {
       } else {
         console.error('Failed to add note. Try later, please.');
       }
+
+      onClose();
     } catch (error) {
       console.error('Error adding note:', error);
     }
@@ -55,50 +60,62 @@ const BookForm = () => {
   }, [submissionMessage]);
 
   return (
-    <Container>
-      <Heading>Add a New Note</Heading>
+    <Center align="stretch" p={4} borderRadius="md" boxShadow="md" bgColor="#00a4b4">
+      <h1>Add a New Note</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="title">Title:</label>
-        <Input
+        <input
           type="text"
           id="title"
           name="title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          color="black"
+          onFocus={() => setSelectedInput('title')}
+          style={{
+            color: 'black',
+            border: selectedInput === 'title' ? '2px solid violet' : '1px solid gray',
+          }}
           required
         />
         <br />
 
         <label htmlFor="author">Author:</label>
-        <Input
+        <input
           type="text"
           id="author"
           name="author"
           value={author}
           onChange={(e) => setAuthor(e.target.value)}
-          color="black"
+          onFocus={() => setSelectedInput('author')}
+          style={{
+            color: 'black',
+            border: selectedInput === 'author' ? '2px solid violet' : '1px solid gray',
+          }}
           required
         />
         <br />
 
         <label htmlFor="notes">Notes:</label>
-        <Textarea
+        <textarea
           id="notes"
           name="notes"
           value={notes}
           onChange={(e) => setNotes(e.target.value)}
+          onFocus={() => setSelectedInput('notes')}
+          style={{
+            color: 'black',
+            border: selectedInput === 'notes' ? '2px solid violet' : '1px solid gray',
+          }}
           rows="4"
-          color="black"
           required
-        ></Textarea>
+        ></textarea>
         <br />
 
         {submissionMessage && <p style={{ color: 'green' }}>{submissionMessage}</p>}
 
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Submit" style={{ color: 'black' }} />
       </form>
-    </Container>
+    </Center>
   );
 };
 
