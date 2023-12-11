@@ -1,26 +1,54 @@
-// Welcome Page tailored for logged in user
-
 "use client";
-
-import { VStack } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
+import { VStack, Spinner } from "@chakra-ui/react";
 import Welcome from "./components/Welcome.js";
 import Avatar from "./components/Avatar.js";
 import ReadingNotes from "./components/ReadingNotes.js";
 import Continue from "./components/Continue.js";
+import { fetchReadingNotes } from "../FetchRequests/fetchAllDataByNickname.js";
 
 export default function WelcomePage() {
+  const [sessionNotes, setSessionNotes] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const userInput = prompt("What's your nickname?");
+        if (userInput) {
+          const notes = await fetchReadingNotes(userInput);
+          setSessionNotes(notes);
+        }
+      } catch (error) {
+        setError(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return <Spinner />;
+  }
+
+  if (error) {
+    return <div>Error fetching reading notes: {error.message}</div>;
+  }
+
+  const {
+    status,
+    data: [{ id, date, title, author, notes, users_id, nickname, avatar_img }],
+  } = sessionNotes;
+
   return (
     <VStack as="main" spacing={12}>
-      <Welcome />
-      <Avatar />
-      <ReadingNotes />
+      <Welcome nickname={nickname} />
+      <Avatar avatar={avatar_img} />
+      <ReadingNotes title={title} author={author} notes={notes} />
       <Continue />
     </VStack>
   );
 }
-
-// make fetch request here, pass the data down as props to the relevant components
-// render the reactive information in the components
-// have the url take in the input based of a user prompt
-// insert Chakra loading wheel here, and return that if something is null.
-// Reading room will not need any GET gunctionality, only POST, so will work nicely

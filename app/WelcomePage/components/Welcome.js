@@ -8,19 +8,19 @@ import { fetchUserByNickname } from "../../FetchRequests/userByNicknameFetch.js"
 import { Spinner } from "@chakra-ui/react";
 
 //
-export default function Welcome() {
+export default function Welcome({ nickname }) {
   // declaring username state
-  const [username, setUsername] = useState(null);
+  // const [username, setUsername] = useState(null);
   // using useEffect to make the fetch request
-  useEffect(() => {
-    let sessionUsername = fetchUserByNickname("Chad");
-    setUsername(sessionUsername);
-  }, []);
+  // useEffect(() => {
+  //   let sessionUsername = fetchUserByNickname("Chad");
+  //   setUsername(sessionUsername);
+  // }, []);
 
-  if (username === null) {
-    // Return a spinner or a default loading state while avatar is being fetched
-    return <Spinner />;
-  }
+  // if (username === null) {
+  //   // Return a spinner or a default loading state while avatar is being fetched
+  //   return <Spinner />;
+  // }
   return (
     <Box
       as="section"
@@ -30,7 +30,7 @@ export default function Welcome() {
       marginTop={"5rem"}
       boxShadow={"dark-lg"}
     >
-      <Center as="h3">Welcome back {username}!</Center>
+      <Center as="h3">Welcome back {nickname}!</Center>
     </Box>
   );
 }
