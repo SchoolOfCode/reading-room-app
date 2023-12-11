@@ -60,110 +60,102 @@ const styles = {
 		backgroundColor: '#F3E5AB', 
 	}, 
 }; 
-
-export default function Home() { 
+export default function Home() {
 	const [time, setTime] = useState({ hours: 0, minutes: 0, seconds: 0 });
-	const [running, setRunning] = useState(false); 
-	const intervalRef = useRef(null); 
-	const startTimeRef = useRef(0); 
+	const [running, setRunning] = useState(false);
+	const intervalRef = useRef(null);
+	const startTimeRef = useRef(0);
 
-	const startStopwatch = () => { 
-		startTimeRef.current = Date.now() - (time.hours * 3600 + time.minutes * 60 + time.seconds) * 1000;
-		intervalRef.current = setInterval(() => { 
+	const startStopwatch = () => {
+		startTimeRef.current =
+			Date.now() -
+			(time.hours * 3600 + time.minutes * 60 + time.seconds) * 1000;
+		intervalRef.current = setInterval(() => {
 			setTime(prevTime => {
-				  const seconds = prevTime.seconds + 1;
-				  const minutes = prevTime.minutes + Math.floor(seconds / 60);
-				  const hours = prevTime.hours + Math.floor(minutes / 60);
-  return {
-    hours: hours,
-    minutes: minutes % 60,
-    seconds: seconds % 60
-  };
-});
-		setRunning(true); 
-	}; 
+				const seconds = prevTime.seconds + 1;
+				const minutes = prevTime.minutes + Math.floor(seconds / 60);
+				const hours = prevTime.hours + Math.floor(minutes / 60);
+				return {
+					hours: hours,
+					minutes: minutes % 60,
+					seconds: seconds % 60
+				};
+			});
+		}, 1000);
+		setRunning(true);
+	};
 
-	const pauseStopwatch = () => { 
-		clearInterval(intervalRef.current); 
-		setRunning(false); 
-	}; 
+	const pauseStopwatch = () => {
+		clearInterval(intervalRef.current);
+		setRunning(false);
+	};
 
-	const resetStopwatch = () => { 
-		clearInterval(intervalRef.current); 
-		setTime(0); 
-		setRunning(false); 
-	}; 
+	const resetStopwatch = () => {
+		clearInterval(intervalRef.current);
+		setTime({ hours: 0, minutes: 0, seconds: 0 });
+		setRunning(false);
+	};
 
-	const resumeStopwatch = () => { 
-		startTimeRef.current = Date.now() - time * 1000; 
-		intervalRef.current = setInterval(() => { 
-			setTime(Math.floor((Date.now() - 
-				startTimeRef.current) / 1000)); 
-		}, 1000); 
-		//		startTimeRef.current = Date.now() - (time.hours * 3600 + time.minutes * 60 + time.seconds) * 1000;
-// 		intervalRef.current = setInterval(() => { 
-// 			setTime(prevTime => {
-// 				  const seconds = prevTime.seconds + 1;
-// 				  const minutes = prevTime.minutes + Math.floor(seconds / 60);
-// 				  const hours = prevTime.hours + Math.floor(minutes / 60);
-//   return {
-//     hours: hours,
-//     minutes: minutes % 60,
-//     seconds: seconds % 60
-//   };
-// });
-		setRunning(true); 
-	}; 
+	const resumeStopwatch = () => {
+		startTimeRef.current =
+			Date.now() -
+			(time.hours * 3600 + time.minutes * 60 + time.seconds) * 1000;
+		intervalRef.current = setInterval(() => {
+			setTime(prevTime => {
+				const seconds = prevTime.seconds + 1;
+				const minutes = prevTime.minutes + Math.floor(seconds / 60);
+				const hours = prevTime.hours + Math.floor(minutes / 60);
+				return {
+					hours: hours,
+					minutes: minutes % 60,
+					seconds: seconds % 60
+				};
+			});
+		}, 1000);
+		setRunning(true);
+	};
 
-	useEffect(() => { 
-		if (running) { 
-			startStopwatch(); 
-		} 
-		return () => { 
-			clearInterval(intervalRef.current); 
-		}; 
-	}, [running]); 
+	useEffect(() => {
+		if (running) {
+			startStopwatch();
+		}
+		return () => {
+			clearInterval(intervalRef.current);
+		};
+	}, [running]);
 
 	return ( 
 		<Box>
-		<div style={styles.container}> 
-			<h1 style={styles.title}> 
-				Stopwatch
-			</h1> 
-			<h2 style={styles.title}>Want A Challenge? - Time Your Reading</h2>
-			<div style={styles.time}> 
-				{time}s 
-			</div> 
-			<div style={styles.buttons}> 
-				{running ? ( 
-					<button style={{ ...styles.button, 
-									...styles.pauseButton }} 
-							onClick={pauseStopwatch}> 
-						Pause 
-					</button> 
-				) : ( 
-					<> 
-						<button style={{ ...styles.button, 
-										...styles.startButton }} 
-								onClick={startStopwatch}> 
-							Start 
+			<div style={styles.container}> 
+				<h1 style={styles.title}> 
+					Stopwatch
+				</h1> 
+				<h2 style={styles.title}>Want A Challenge? - Time Your Reading</h2>
+				<div style={styles.time}> 
+					{time.seconds}s 
+				</div> 
+				<div style={styles.buttons}> 
+					{running ? ( 
+						<button style={{ ...styles.button, ...styles.pauseButton }} onClick={pauseStopwatch}> 
+							Pause 
 						</button> 
-						<button style={{ ...styles.button, 
-										...styles.resetButton }} 
-								onClick={resetStopwatch}> 
-							Reset 
+					) : ( 
+						<> 
+							<button style={{ ...styles.button, ...styles.startButton }} onClick={startStopwatch}> 
+								Start 
+							</button> 
+							<button style={{ ...styles.button, ...styles.resetButton }} onClick={resetStopwatch}> 
+								Reset 
+							</button> 
+						</> 
+					)} 
+					{!running && ( 
+						<button style={{ ...styles.button, ...styles.resumeButton }} onClick={resumeStopwatch}> 
+							Resume 
 						</button> 
-					</> 
-				)} 
-				{!running && ( 
-					<button style={{ ...styles.button, 
-									...styles.resumeButton }} 
-							onClick={resumeStopwatch}> 
-						Resume 
-					</button> 
-				)}
+					)}
+				</div> 
 			</div> 
-		</div> 
 		</Box>
 	); 
 }
