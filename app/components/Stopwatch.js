@@ -115,6 +115,10 @@ export default function Home() {
 		setRunning(true);
 	};
 
+	const formattedSeconds = `${time.seconds}`.padStart(2, '0');
+	const formattedMinutes = `${time.minutes}`.padStart(2, '0');
+	const formattedHours = `${time.hours}`.padStart(2, '0');
+
 	useEffect(() => {
 		if (running) {
 			startStopwatch();
@@ -131,11 +135,12 @@ export default function Home() {
 					Stopwatch
 				</h1> 
 				<h2 style={styles.title}>Want A Challenge? - Time Your Reading</h2>
-				<div style={styles.time}> 
+				{/* <div style={styles.time}> 
 				{time.hours}:
 				{time.minutes}: 
 				{time.seconds}
-				</div> 
+				</div>  */}
+				<p style={styles.time}>{formattedHours.hours}:{formattedMinutes.minutes}:{formattedSeconds.seconds}</p>
 				<div style={styles.buttons}> 
 					{running ? ( 
 						<button style={{ ...styles.button, ...styles.pauseButton }} onClick={pauseStopwatch}> 
