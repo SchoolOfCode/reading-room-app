@@ -1,5 +1,8 @@
 // index.js 
+'use client'
 import { useState, useRef, useEffect } from 'react'; 
+import { Container, Flex, Icon, Box } from '@chakra-ui/react';
+import { Link } from '@chakra-ui/next-js';
 
 const styles = { 
 	container: { 
@@ -10,17 +13,11 @@ const styles = {
 		minHeight: '100vh', 
 	}, 
 	title: { 
-		fontSize: '36px', 
+		fontSize: '25px', 
 		color: '#333', 
 		marginBottom: '10px', 
 		fontFamily: 'Arial, sans-serif', 
-	}, 
-	subtitle: { 
-		fontSize: '24px', 
-		marginBottom: '20px', 
-		color: '#555', 
-		fontFamily: 'Arial, sans-serif', 
-	}, 
+	},  
 	time: { 
 		fontSize: '64px', 
 		color: '#333', 
@@ -35,7 +32,7 @@ const styles = {
 		padding: '10px 20px', 
 		borderRadius: '5px', 
 		fontSize: '16px', 
-		color: 'white', 
+		color: 'whitesmoke', 
 		cursor: 'pointer', 
 		border: 'none', 
 		outline: 'none', 
@@ -101,11 +98,8 @@ export default function Home() {
 	return ( 
 		<div style={styles.container}> 
 			<h1 style={styles.title}> 
-				Geeksforgeeks 
+				Want A Challenge? - Time Your Reading 
 			</h1> 
-			<h2 style={styles.subtitle}> 
-				Stop Watch App 
-			</h2> 
 			<div style={styles.time}> 
 				{time}s 
 			</div> 
