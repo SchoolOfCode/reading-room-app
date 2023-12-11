@@ -5,7 +5,7 @@ export async function fetchUsers() {
   //   declare variable to store HTTP response
   const response = await fetch("http://localhost:5002/users", {
     headers: {
-      Accept: "application.json",
+      Accept: "application/json",
     },
   });
 

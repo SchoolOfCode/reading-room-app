@@ -5,7 +5,7 @@ export async function fetchReadingNotes() {
   //   declare variable to store HTTP response
   const response = await fetch("http://localhost:5002/reading_notes", {
     headers: {
-      Accept: "application.json",
+      Accept: "application/json",
     },
   });
 

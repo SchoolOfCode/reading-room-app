@@ -8,7 +8,7 @@ export async function fetchUserByNickname(input) {
       `http://localhost:5002/users/nickname/${nickname}`,
       {
         headers: {
-          Accept: "application.json",
+          Accept: "application/json",
         },
       }
     );
