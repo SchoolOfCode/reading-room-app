@@ -1,13 +1,21 @@
 // Importing Bubblegum Sans from next/font and exporting the fonts object
 
-import { Bubblegum_Sans } from 'next/font/google'; //
+import { Architects_Daughter, Abel } from 'next/font/google'; //
 
-const bubblegum_sans = Bubblegum_Sans({
+const architects_daughter = Architects_Daughter({
   subsets: ['latin'],
   weight: '400',
-  variable: '--font-bubblegum',
+  variable: '--font-architects_daughter',
 });
 
+const abel = Abel({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-abel',
+});
+
+
 export const fonts = {
-  bubblegum_sans,
+  architects_daughter,
+  abel
 };

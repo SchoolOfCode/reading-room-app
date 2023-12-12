@@ -7,6 +7,7 @@ import ReadingNotes from "./components/ReadingNotes.js";
 import Continue from "./components/Continue.js";
 import { fetchReadingNotes } from "../FetchRequests/fetchAllDataByNickname.js";
 
+
 export default function WelcomePage() {
   // declaring state for sessionNotes, loading or not and to set error if needed
   const [sessionNotes, setSessionNotes] = useState(null);
@@ -44,8 +45,10 @@ export default function WelcomePage() {
     data: [{ id, date, title, author, notes, users_id, nickname, avatar_img }],
   } = sessionNotes;
 
+
   return (
     <VStack as="main" spacing={12}>
+
       <Welcome nickname={nickname} />
       <Avatar avatar={avatar_img} />
       <ReadingNotes title={title} author={author} notes={notes} />

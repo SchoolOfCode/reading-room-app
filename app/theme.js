@@ -4,7 +4,7 @@ import { extendTheme } from '@chakra-ui/react';
 
 export const theme = extendTheme({
   fonts: {
-    heading: 'var(--font-bubblegum_sans)',
-    body: 'var(--font-bubblegum_sans)',
+    heading: 'var(--font-architects_daughter)',
+    body: 'var(--font-abel)',
   },
 });
