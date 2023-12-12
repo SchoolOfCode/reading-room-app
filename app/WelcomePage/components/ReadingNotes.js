@@ -1,25 +1,33 @@
 // Box showing latest reading notes from logged in user
 
-'use client';
+"use client";
 
-import { Box, Text } from '@chakra-ui/react';
+import { Text, Icon } from "@chakra-ui/react";
+import { BiSolidHomeHeart } from 'react-icons/bi';
+import { FaQuoteRight, FaQuoteLeft } from "react-icons/fa";
 
 export default function ReadingNotes() {
   return (
-    <Box
-      as='section'
-      bg={'#00b64c'}
-      borderRadius={'lg'}
-      w={'75%'}
-      m={'auto'}
-      p={'0.5rem'}
-      boxShadow={'dark-lg'}
-    >
-      <Text>
-        READING NOTES: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    <>
+      <Text m={"1rem"}>
+        <b>Summary yesterdays:</b> Wow you read for "stopWatchTime" minutes...
+        <br></br>
+      <Icon
+            as={FaQuoteLeft}
+            color='#1f1f1f'
+            boxSize={'30'}
+            placement="left"
+            onClick={() => handleSetActivePage('WP')}
+          />
+        <br></br> "Readers previous note"
       </Text>
-    </Box>
+            <Icon
+            as={FaQuoteRight}
+            color='#1f1f1f'
+            boxSize={'30'}
+            placement="right"
+            onClick={() => handleSetActivePage('WP')}
+          />
+    </>
   );
 }

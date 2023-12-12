@@ -1,28 +1,17 @@
 // Message inviting the user to continue their reading
 
-'use client';
+"use client";
 
-import { Box, Text, Center, Icon } from '@chakra-ui/react';
-import { FaBookOpen } from 'react-icons/fa';
+import { Button, Text } from "@chakra-ui/react";
+import { Link } from "@chakra-ui/next-js";
 
 export default function Continue() {
   return (
-    <Box
-      display={'flexbox'}
-      textAlign={'center'}
-      as='section'
-      bg={'#00b64c'}
-      borderRadius={'lg'}
-      w={'75%'}
-      m={'auto'}
-      p={'auto'}
-      boxShadow={'dark-lg'}
-    >
-      <Text>Go to the Reading Room</Text>
-      <Center>
-        <Icon as={FaBookOpen} boxSize={'10'} alt='Icon of an open book.'></Icon>
-      </Center>
-      <Text>and continue reading!</Text>
-    </Box>
+    <>
+      <Text mb={"-45px"}>Grab your Favourite book</Text>
+      <Link href="/ReadingRoom">
+        <Button colorScheme={"blackAlpha"}>Go to the Reading Room</Button>
+      </Link>
+    </>
   );
 }

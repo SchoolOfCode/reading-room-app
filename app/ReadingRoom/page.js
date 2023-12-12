@@ -5,23 +5,28 @@
 import BookForm from './components/readingRoomSubmitForm';
 
 import Link from "next/link";
-import Home from "../components/Stopwatch.js"
+import StopWatch from "../components/Stopwatch.js";
+import { VStack, Button } from "@chakra-ui/react";
 
 
 export default function ReadingRoom() {
   return (
     <>
-      <h1>Welcome to the Reading Room</h1>
-
-      <BookForm />
-
-      <Home></Home>
-
-      <button>
-        <Link className="returnButton" href="/">
-          Return Home
-        </Link>
-      </button>
+      <VStack spacing={4}>
+        <h1>Welcome to the Reading Room</h1>
+        <BookForm />
+        <StopWatch></StopWatch>
+        <Button colorScheme={"blackAlpha"}>
+          <Link className="returnButton" href="/Avatar">
+            Go to your Avatar
+          </Link>
+        </Button>
+        <button>
+          <Link className="returnButton" href="/">
+            Return Home
+          </Link>
+        </button>
+      </VStack>
     </>
   );
 }

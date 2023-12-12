@@ -1,164 +1,167 @@
-// index.js 
-'use client'
-import { useState, useRef, useEffect } from 'react'; 
-import { Container, Flex, Icon, Box } from '@chakra-ui/react';
-import { Link } from '@chakra-ui/next-js';
+// // index.js
+"use client";
 
-const styles = { 
-	container: { 
-		display: 'flex', 
-		flexDirection: 'column', 
-		alignItems: 'center', 
-		justifyContent: 'center', 
-		minHeight: '100vh', 
-	}, 
-	title: { 
-		fontSize: '25px', 
-		color: 'whitesmoke', 
-		marginBottom: '10px', 
-		fontFamily: 'Arial, sans-serif', 
-	},  
-	subtitle: {
-		fontSize: '15px', 
-		color: 'whitesmoke', 
-		marginBottom: '10px', 
-		fontFamily: 'Arial, sans-serif', 
-	},
-	time: { 
-		fontSize: '64px', 
-		color: 'whitesmoke', 
-		fontWeight: 'bold', 
-		marginBottom: '20px', 
-		border: '2px solid whitesmoke', 
-		borderRadius: '5px',
-		padding: '5px', 
-	}, 
-	buttons: { 
-		display: 'flex', 
-		gap: '20px',
-	}, 
-	button: { 
-		padding: '10px 20px', 
-		borderRadius: '5px', 
-		fontSize: '16px', 
-		color: '#F34213', 
-		cursor: 'pointer', 
-		border: 'none', 
-		outline: 'none', 
-		boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)', 
-	}, 
-	startButton: { 
-		backgroundColor: '#F3E5AB', 
-	}, 
-	resetButton: { 
-		backgroundColor: '#F3E5AB', 
-	}, 
-	resumeButton: { 
-		backgroundColor: '#F3E5AB', 
-	}, 
-	pauseButton: { 
-		backgroundColor: '#F3E5AB', 
-	}, 
-}; 
-export default function Home() {
-	const [time, setTime] = useState({ hours: 0, minutes: 0, seconds: 0 });
-	const [running, setRunning] = useState(false);
-	const intervalRef = useRef(null);
-	const startTimeRef = useRef(0);
+import { useState, useRef, useEffect } from "react";
+import { Container, Flex, Heading, Text, Button } from "@chakra-ui/react";
 
-	const startStopwatch = () => {
-		startTimeRef.current =
-			Date.now() -
-			(time.hours * 3600 + time.minutes * 60 + time.seconds) * 1000;
-		intervalRef.current = setInterval(() => {
-			setTime(prevTime => {
-				const seconds = prevTime.seconds + 1;
-				const minutes = prevTime.minutes + Math.floor(seconds / 60);
-				const hours = prevTime.hours + Math.floor(minutes / 60);
-				return {
-					hours: hours,
-					minutes: minutes % 60,
-					seconds: seconds % 60
-				};
-			});
-		}, 1000);
-		setRunning(true);
-	};
+//function to create useState hook to create a state variable named time and a function setTime to update its value.
+// Create object in use useState with 3 pair (hours, minutes, seconds)
+const StopWatch = () => {
+  const [time, setTime] = useState({ hours: 0, minutes: 0, seconds: 0 });
+  const [running, setRunning] = useState(false);
+  const intervalRef = useRef(null);
+  const startTimeRef = useRef(0);
 
-	const pauseStopwatch = () => {
-		clearInterval(intervalRef.current);
-		setRunning(false);
-	};
+  //create a mutable useRef function to reference the current time to the nearest second
+  const startStopwatch = () => {
+    startTimeRef.current =
+      Date.now() -
+      (time.hours * 3600 + time.minutes * 60 + time.seconds) * 1000;
+		//create a mutable useRef function to reference the current interval
+    intervalRef.current = setInterval(() => {
+      setTime((prevTime) => {
+        const seconds = prevTime.seconds + 1;
+        const minutes = prevTime.minutes + Math.floor(seconds / 60);
+        const hours = prevTime.hours + Math.floor(minutes / 60);
+        return {
+          hours: hours,
+          minutes: minutes % 60,
+          seconds: seconds % 60,
+        };
+      });
+    }, 1000);
+		//Updates the running state to true to indicate that the stopwatch is running.
+    setRunning(true);
+  };
 
-	const resetStopwatch = () => {
-		clearInterval(intervalRef.current);
-		setTime({ hours: 0, minutes: 0, seconds: 0 });
-		setRunning(false);
-	};
+  // Function that use state to pause and resume the timer
+  const pauseStopwatch = () => {
+    clearInterval(intervalRef.current);
+    setRunning(false);
+  };
 
-	const resumeStopwatch = () => {
-		startTimeRef.current =
-			Date.now() -
-			(time.hours * 3600 + time.minutes * 60 + time.seconds) * 1000;
-		intervalRef.current = setInterval(() => {
-			setTime(prevTime => {
-				const seconds = prevTime.seconds + 1;
-				const minutes = prevTime.minutes + Math.floor(seconds / 60);
-				const hours = prevTime.hours + Math.floor(minutes / 60);
-				return {
-					hours: hours,
-					minutes: minutes % 60,
-					seconds: seconds % 60
-				};
-			});
-		}, 1000);
-		setRunning(true);
-	};
+  const resetStopwatch = () => {
+    clearInterval(intervalRef.current);
+    setTime({ hours: 0, minutes: 0, seconds: 0 });
+    setRunning(false);
+  };
 
-	useEffect(() => {
-		if (running) {
-			startStopwatch();
-		}
-		return () => {
-			clearInterval(intervalRef.current);
-		};
-	}, [running]);
+  const resumeStopwatch = () => {
+    startTimeRef.current =
+      Date.now() -
+      (time.hours * 3600 + time.minutes * 60 + time.seconds) * 1000;
+    intervalRef.current = setInterval(() => {
+      setTime((prevTime) => {
+        const seconds = prevTime.seconds + 1;
+        const minutes = prevTime.minutes + Math.floor(seconds / 60);
+        const hours = prevTime.hours + Math.floor(minutes / 60);
+        return {
+          hours: hours,
+          minutes: minutes % 60,
+          seconds: seconds % 60,
+        };
+      });
+    }, 1000);
+    setRunning(true);
+  };
 
-	return ( 
-		<Box>
-			<div style={styles.container}> 
-				<h1 style={styles.title}> 
-					Stopwatch
-				</h1> 
-				<h2 style={styles.title}>Want A Challenge? - Time Your Reading</h2>
-				<div style={styles.time}> 
-				{time.hours}:
-				{time.minutes}: 
-				{time.seconds}
-				</div> 
-				<div style={styles.buttons}> 
-					{running ? ( 
-						<button style={{ ...styles.button, ...styles.pauseButton }} onClick={pauseStopwatch}> 
-							Pause 
-						</button> 
-					) : ( 
-						<> 
-							<button style={{ ...styles.button, ...styles.startButton }} onClick={startStopwatch}> 
-								Start 
-							</button> 
-							<button style={{ ...styles.button, ...styles.resetButton }} onClick={resetStopwatch}> 
-								Reset 
-							</button> 
-						</> 
-					)} 
-					{!running && ( 
-						<button style={{ ...styles.button, ...styles.resumeButton }} onClick={resumeStopwatch}> 
-							Resume 
-						</button> 
-					)}
-				</div> 
-			</div> 
-		</Box>
-	); 
-}
+  // Declare number of place values for each measure of time
+  const formattedSeconds = `${time.seconds}`.padStart(2, "0");
+  const formattedMinutes = `${time.minutes}`.padStart(2, "0");
+  const formattedHours = `${time.hours}`.padStart(2, "0");
 
+  // Function with in useEffect Hook the structure the compoment
+  useEffect(() => {
+    if (running) {
+      startStopwatch();
+    }
+    return () => {
+      clearInterval(intervalRef.current);
+    };
+  }, [running]);
+
+  return (
+    <Container centerContent>
+      <Heading as="h1" fontSize="25px" color="#1f1f1f">
+        Stopwatch
+      </Heading>
+      <Text fontSize="15px" color="#1f1f1f" marginBottom="10px">
+        Want A Challenge? - Time Your Reading
+      </Text>
+      <Text
+        fontSize="64px"
+        color="#1f1f1f"
+        fontWeight="bold"
+        marginBottom="20px"
+        border="2px solid #1f1f1f"
+        borderRadius="5px"
+        padding="5px"
+      >
+        {formattedHours}:{formattedMinutes}:{formattedSeconds}
+      </Text>
+      <Flex gap="20px">
+        {running ? (
+          <Button
+            style={{
+              padding: "10px 20px",
+              borderRadius: "5px",
+              fontSize: "16px",
+              color: "#F34213",
+              cursor: "pointer",
+              backgroundColor: "#F3E5AB",
+            }}
+            onClick={pauseStopwatch}
+          >
+            Pause
+          </Button>
+        ) : (
+          <>
+            <Button
+              style={{
+                padding: "10px 20px",
+                borderRadius: "5px",
+                fontSize: "16px",
+                color: "#F34213",
+                cursor: "pointer",
+                backgroundColor: "#F3E5AB",
+              }}
+              onClick={startStopwatch}
+            >
+              Start
+            </Button>
+            <Button
+              style={{
+                padding: "10px 20px",
+                borderRadius: "5px",
+                fontSize: "16px",
+                color: "#F34213",
+                cursor: "pointer",
+                backgroundColor: "#F3E5AB",
+              }}
+              onClick={resetStopwatch}
+            >
+              Reset
+            </Button>
+          </>
+        )}
+        {!running && (
+          <Button
+            style={{
+              padding: "10px 20px",
+              borderRadius: "5px",
+              fontSize: "16px",
+              color: "#F34213",
+              cursor: "pointer",
+              backgroundColor: "#F3E5AB",
+            }}
+            onClick={resumeStopwatch}
+          >
+            Resume
+          </Button>
+        )}
+      </Flex>
+    </Container>
+  );
+};
+
+export default StopWatch;
