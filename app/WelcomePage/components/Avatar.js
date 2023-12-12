@@ -2,10 +2,7 @@
 
 "use client";
 
-import { useState, useEffect } from "react";
 import { Image } from "@chakra-ui/react";
-import { fetchAvatars } from "../../FetchRequests/avatarsFetch.js";
-import { Spinner } from "@chakra-ui/react";
 
 export default function Avatar({ avatar }) {
   return (
