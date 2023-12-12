@@ -9,22 +9,23 @@ import { FaQuoteRight, FaQuoteLeft } from "react-icons/fa";
 export default function ReadingNotes() {
   return (
     <>
+      <Text m={"1rem"}>
+        <b>Summary yesterdays:</b> Wow you read for "stopWatchTime" minutes...
+        <br></br>
       <Icon
-            as={FaQuoteRight}
+            as={FaQuoteLeft}
             color='#1f1f1f'
             boxSize={'30'}
             placement="left"
             onClick={() => handleSetActivePage('WP')}
           />
-      <Text m={"1rem"}>
-        <b>Summary yesterdays:</b> Wow you read for "stopWatchTime" minutes...
-        <br></br>
         <br></br> "Readers previous note"
       </Text>
             <Icon
-            as={FaQuoteLeft}
+            as={FaQuoteRight}
             color='#1f1f1f'
             boxSize={'30'}
+            placement="right"
             onClick={() => handleSetActivePage('WP')}
           />
     </>
