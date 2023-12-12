@@ -17,6 +17,7 @@ const StopWatch = () => {
     startTimeRef.current =
       Date.now() -
       (time.hours * 3600 + time.minutes * 60 + time.seconds) * 1000;
+		//create a mutable useRef function to reference the current interval
     intervalRef.current = setInterval(() => {
       setTime((prevTime) => {
         const seconds = prevTime.seconds + 1;
@@ -29,6 +30,7 @@ const StopWatch = () => {
         };
       });
     }, 1000);
+		//Updates the running state to true to indicate that the stopwatch is running.
     setRunning(true);
   };
 
