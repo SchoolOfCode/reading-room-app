@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from 'react'; 
 import { Container, Flex, Icon, Box } from '@chakra-ui/react';
 import { Link } from '@chakra-ui/next-js';
+import { VStack } from "@chakra-ui/react";
 
 const styles = { 
 	container: { 
@@ -13,23 +14,26 @@ const styles = {
 		minHeight: '100vh', 
 	}, 
 	title: { 
+		display: 'flex',
 		fontSize: '25px', 
-		color: 'whitesmoke', 
+		color: '#1f1f1f', 
 		marginBottom: '10px', 
 		fontFamily: 'Arial, sans-serif', 
 	},  
 	subtitle: {
+		display: 'flex',
 		fontSize: '15px', 
-		color: 'whitesmoke', 
+		color: '#1f1f1f', 
 		marginBottom: '10px', 
 		fontFamily: 'Arial, sans-serif', 
 	},
 	time: { 
+		display: 'flex',
 		fontSize: '64px', 
-		color: 'whitesmoke', 
+		color: '#1f1f1f', 
 		fontWeight: 'bold', 
 		marginBottom: '20px', 
-		border: '2px solid whitesmoke', 
+		border: '2px solid #1f1f1f', 
 		borderRadius: '5px',
 		padding: '5px', 
 	}, 
