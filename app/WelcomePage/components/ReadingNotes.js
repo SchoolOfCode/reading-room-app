@@ -1,7 +1,7 @@
 // Box showing latest reading notes from logged in user
 "use client";
 import { useState, useEffect } from "react";
-import { fetchReadingNotes } from "../../FetchRequests/readingNotesFetch.js";
+// import { fetchReadingNotes } from "../../FetchRequests/readingNotesFetch.js";
 import { Spinner } from "@chakra-ui/react";
 import { Box, Text } from "@chakra-ui/react";
 
