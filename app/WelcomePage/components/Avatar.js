@@ -2,13 +2,16 @@
 
 "use client";
 
+import { useState, useEffect } from "react";
 import { Image } from "@chakra-ui/react";
+import { fetchAvatars } from "../../FetchRequests/avatarsFetch.js";
+import { Spinner } from "@chakra-ui/react";
 
-export default function Avatar() {
+export default function Avatar({ avatar }) {
   return (
     <Image
-      src="https://bit.ly/dan-abramov"
-      alt="Dan Abramov"
+      src={avatar}
+      alt="User Avatar"
       boxSize={"200"}
       boxShadow={"dark-lg"}
       borderRadius={"full"}
