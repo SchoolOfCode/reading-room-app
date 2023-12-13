@@ -1,5 +1,3 @@
-import { Heading } from '@chakra-ui/react';
-import { fonts } from './fonts.js';
 import Link from 'next/link';
 import { createClient } from '@/utils/supabase/server';
 import { headers, cookies } from 'next/headers';
