@@ -81,7 +81,7 @@ const StopWatch = () => {
   }, [running]);
 
   return (
-    <Container centerContent>
+    <Container centerContent bg='#FFD6A5'>
       <Heading as="h1" fontSize="25px" color="#1f1f1f">
         Stopwatch
       </Heading>
