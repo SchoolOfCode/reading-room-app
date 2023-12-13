@@ -1,15 +1,19 @@
 'use client';
 
+import { Center, VStack } from '@chakra-ui/react';
 import { useState, useEffect } from 'react';
 
 // Define component for the submit form
-const BookForm = () => {
+const BookForm = ({ onClose }) => {
   // State variables to store the form input values
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const [notes, setNotes] = useState('');
 
-  // Success message once user submits the form
+  // State variable to track which input is selected
+  const [selectedInput, setSelectedInput] = useState(null);
+
+  // Success message once the user submits the form
   const [submissionMessage, setSubmissionMessage] = useState('');
 
   const handleSubmit = async (e) => {
@@ -35,6 +39,8 @@ const BookForm = () => {
       } else {
         console.error('Failed to add note. Try later, please.');
       }
+
+      onClose();
     } catch (error) {
       console.error('Error adding note:', error);
     }
@@ -54,7 +60,7 @@ const BookForm = () => {
   }, [submissionMessage]);
 
   return (
-    <div>
+    <Center align="stretch" p={4} borderRadius="md" boxShadow="md" bgColor="#00a4b4">
       <h1>Add a New Note</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="title">Title:</label>
@@ -64,6 +70,11 @@ const BookForm = () => {
           name="title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
+          onFocus={() => setSelectedInput('title')}
+          style={{
+            color: 'black',
+            border: selectedInput === 'title' ? '2px solid violet' : '1px solid gray',
+          }}
           required
         />
         <br />
@@ -75,6 +86,11 @@ const BookForm = () => {
           name="author"
           value={author}
           onChange={(e) => setAuthor(e.target.value)}
+          onFocus={() => setSelectedInput('author')}
+          style={{
+            color: 'black',
+            border: selectedInput === 'author' ? '2px solid violet' : '1px solid gray',
+          }}
           required
         />
         <br />
@@ -85,6 +101,11 @@ const BookForm = () => {
           name="notes"
           value={notes}
           onChange={(e) => setNotes(e.target.value)}
+          onFocus={() => setSelectedInput('notes')}
+          style={{
+            color: 'black',
+            border: selectedInput === 'notes' ? '2px solid violet' : '1px solid gray',
+          }}
           rows="4"
           required
         ></textarea>
@@ -92,9 +113,9 @@ const BookForm = () => {
 
         {submissionMessage && <p style={{ color: 'green' }}>{submissionMessage}</p>}
 
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Submit" style={{ color: 'black' }} />
       </form>
-    </div>
+    </Center>
   );
 };
 
