@@ -1,21 +1,22 @@
-// Importing Bubblegum Sans from next/font and exporting the fonts object
+// Importing Arvo and Lato from next/font and exporting the fonts object
 
-import { Architects_Daughter, Abel } from 'next/font/google'; //
+import { Arvo, Lato } from 'next/font/google'; //
 
-const architects_daughter = Architects_Daughter({
+const arvo = Arvo({
   subsets: ['latin'],
-  weight: '400',
-  variable: '--font-architects_daughter',
+  weight: ['400', '700'],
+  style: ['normal', 'italic'],
+  variable: '--font-arvo',
 });
 
-const abel = Abel({
+const lato = Lato({
   subsets: ['latin'],
-  weight: '400',
-  variable: '--font-abel',
+  weight: ['100', '300', '400', '700', '900'],
+  style: ['normal', 'italic'],
+  variable: '--font-lato',
 });
-
 
 export const fonts = {
-  architects_daughter,
-  abel
+  arvo,
+  lato,
 };
