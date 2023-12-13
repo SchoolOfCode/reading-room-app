@@ -10,7 +10,9 @@ import Continue from "./components/Continue.js";
 
 export default function WelcomePage() {
   return (
-    <VStack as="main" spacing={12}>
+    <VStack as="main" spacing={12} bg="#CAFFBF" p={3}
+    m={0}
+    minHeight="100vh">
       <Avatar />
       <Welcome />
       <ReadingNotes />

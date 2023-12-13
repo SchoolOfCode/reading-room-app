@@ -6,6 +6,7 @@ import { FaBookOpen, FaSmile } from 'react-icons/fa';
 import { BiSolidHomeHeart } from 'react-icons/bi';
 import { useState } from 'react';
 
+
 export default function Navbar() {
   const [activePage, setActivePage] = useState('');
 
