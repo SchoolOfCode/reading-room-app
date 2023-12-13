@@ -15,52 +15,51 @@ export default function Navbar() {
   };
 
   return (
-    <Container bg={'#F3E5AB'} position={'fixed'} bottom={'0'} width={'100%'}>
-      <Flex justify={'space-around'} align={'center'}>
-        <Link href='/WelcomePage'>
+    <Container bg="#DDD9D1" position="fixed" bottom="0" width="100%" height="75px">
+      <Flex justify="space-around" align="center">
+        <Link href="/WelcomePage">
           <Icon
             as={BiSolidHomeHeart}
-            color='#00B64C'
-            boxSize={'100'}
+            color="#747474"
+            boxSize={50} // Adjust icons height here
             onClick={() => handleSetActivePage('WP')}
           />
           <Box
-            bg='#00B64C'
-            height='5px'
-            width='100%'
-            mt='2px'
-            mb='10px'
-            borderRadius={'lg'}
+            bg="#CAFFBF"
+            height="5px"
+            width="100%"
+            mt="2px"
+            borderRadius="lg"
             display={activePage === 'WP' ? 'block' : 'none'}
           />
         </Link>
-        <Link href='/ReadingRoom'>
+        <Link href="/ReadingRoom">
           <Icon
             as={FaBookOpen}
-            color='#F34213'
-            boxSize={'97'}
+            color="#747474"
+            boxSize={50} // Adjust icons height here
             onClick={() => handleSetActivePage('RR')}
           />
           <Box
-            bg='#F34213'
-            height='2px'
-            width='100%'
-            mt='2px'
+            bg="#FFD6A5"
+            height="5px"
+            width="100%"
+            mt="2px"
             display={activePage === 'RR' ? 'block' : 'none'}
           />
         </Link>
-        <Link href='#'>
+        <Link href="#">
           <Icon
             as={FaSmile}
-            color='#E83F6F'
-            boxSize={'90'}
+            color="#747474"
+            boxSize={50} // Adjust icons height here
             onClick={() => handleSetActivePage('A')}
           />
           <Box
-            bg='#E83F6F'
-            height='2px'
-            width='100%'
-            mt='2px'
+            bg="#FDFFAB"
+            height="2px"
+            width="100%"
+            mt="2px"
             display={activePage === 'A' ? 'block' : 'none'}
           />
         </Link>
