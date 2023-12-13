@@ -1,10 +1,10 @@
 'use client'
 import { Image, VStack } from "@chakra-ui/react";
 
-export default function AvatarWearingCap (){
+export default function Sunhat (){
   return (
       <Image
-        src="Miffy_cap.png" alt="Avatar wearing a cap"
+        src="sunhat.png" alt="sunhat accessory"
       ></Image>
     );
   }
