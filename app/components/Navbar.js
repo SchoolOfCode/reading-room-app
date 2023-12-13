@@ -2,9 +2,13 @@
 
 import { Container, Flex, Icon, Box } from '@chakra-ui/react';
 import { Link } from '@chakra-ui/next-js';
-import { TiHome } from 'react-icons/ti';
-import { FaBookOpen } from 'react-icons/fa';
-import { FaPaw } from 'react-icons/fa';
+// import { FaBookOpen,FaPaw, FaHome } from 'react-icons/fa';
+// import { FaBookOpen } from 'react-icons/fa6';
+
+// Ideas for icons
+import { HiBuildingStorefront } from 'react-icons/hi2';
+import { GiPawPrint } from 'react-icons/gi';
+import { GiSpellBook } from 'react-icons/gi';
 import { useState } from 'react';
 
 export default function Navbar() {
@@ -20,9 +24,9 @@ export default function Navbar() {
       <Flex justify="space-around" align="center">
         <Link href="/WelcomePage" height="75px">
           <Icon
-            as={TiHome}
+            as={HiBuildingStorefront}
             color="#747474"
-            boxSize={52} // Adjust icons height here
+            boxSize={50} // Adjust icons height here
             onClick={() => handleSetActivePage('WP')}
           />
           <Box
@@ -34,8 +38,9 @@ export default function Navbar() {
         </Link>
         <Link href="/ReadingRoom" height="75px">
           <Icon
-            as={FaBookOpen}
+            as={GiSpellBook}
             color="#747474"
+            width="50px"
             boxSize={50} // Adjust icons height here
             onClick={() => handleSetActivePage('RR')}
           />
@@ -49,7 +54,7 @@ export default function Navbar() {
         </Link>
         <Link href="#" height="75px">
           <Icon
-            as={FaPaw}
+            as={GiPawPrint}
             color="#747474"
             boxSize={50} // Adjust icons height here
             onClick={() => handleSetActivePage('A')}
