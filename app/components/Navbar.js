@@ -2,8 +2,9 @@
 
 import { Container, Flex, Icon, Box } from '@chakra-ui/react';
 import { Link } from '@chakra-ui/next-js';
-import { FaBookOpen, FaSmile } from 'react-icons/fa';
-import { BiSolidHomeHeart } from 'react-icons/bi';
+import { TiHome } from 'react-icons/ti';
+import { FaBookOpen } from 'react-icons/fa';
+import { FaPaw } from 'react-icons/fa';
 import { useState } from 'react';
 
 export default function Navbar() {
@@ -19,13 +20,14 @@ export default function Navbar() {
       <Flex justify="space-around" align="center">
         <Link href="/WelcomePage">
           <Icon
-            as={BiSolidHomeHeart}
+            as={TiHome}
             color="#747474"
             boxSize={50} // Adjust icons height here
             onClick={() => handleSetActivePage('WP')}
           />
           <Box
             bg="#CAFFBF"
+            border="1px solid #747474" // Added border due to light colours blending to the background
             height="5px"
             width="100%"
             mt="2px"
@@ -42,6 +44,7 @@ export default function Navbar() {
           />
           <Box
             bg="#FFD6A5"
+            border="1px solid #747474"
             height="5px"
             width="100%"
             mt="2px"
@@ -50,14 +53,15 @@ export default function Navbar() {
         </Link>
         <Link href="#">
           <Icon
-            as={FaSmile}
+            as={FaPaw}
             color="#747474"
             boxSize={50} // Adjust icons height here
             onClick={() => handleSetActivePage('A')}
           />
           <Box
             bg="#FDFFAB"
-            height="2px"
+            border="1px solid #747474"
+            height="5px"
             width="100%"
             mt="2px"
             display={activePage === 'A' ? 'block' : 'none'}
