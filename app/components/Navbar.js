@@ -52,7 +52,7 @@ export default function Navbar() {
             display={activePage === 'RR' ? 'block' : 'none'}
           />
         </Link>
-        <Link href="#" height="75px">
+        <Link href='/Avatar' height="75px">
           <Icon
             as={GiPawPrint}
             color="#747474"

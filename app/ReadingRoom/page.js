@@ -2,11 +2,10 @@
 'use client';
 
 
-import BookForm from './components/readingRoomSubmitForm';
-
+import ReadThoughtsButton from './components/ReadThoughtsButton';
 import Link from "next/link";
 import StopWatch from "../components/Stopwatch.js";
-import { VStack, Button } from "@chakra-ui/react";
+import { VStack, Button, Center } from "@chakra-ui/react";
 
 
 export default function ReadingRoom() {
@@ -14,7 +13,7 @@ export default function ReadingRoom() {
     <>
       <VStack spacing={4}>
         <h1>Welcome to the Reading Room</h1>
-        <BookForm />
+        <ReadThoughtsButton />
         <StopWatch></StopWatch>
         <Button colorScheme={"blackAlpha"}>
           <Link className="returnButton" href="/Avatar">

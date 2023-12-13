@@ -13,8 +13,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${fonts.architects_daughter.className} ${fonts.abel.className}`}>
-      {/*how to use bith heading and body as attribute  */}
+    <html lang='en' className={`${fonts.arvo.className} ${fonts.lato.className}`}>
       <body>
         <Providers>{children}</Providers>
         <Navbar />
