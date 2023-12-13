@@ -4,6 +4,7 @@ import BookForm from "./readingRoomSubmitForm";
 import Link from "next/link";
 import StopWatch from "../../components/Stopwatch.js";
 import { VStack, Button, Heading, Container } from "@chakra-ui/react";
+import { fonts } from "../../fonts.js";
 
 export default function ReadingRoom() {
   return (
@@ -16,7 +17,9 @@ export default function ReadingRoom() {
         </Button>
       </Container>
       <VStack as="main" spacing={10} bg="#FFD6A5" minHeight="100vh">
-        <Heading mt={10}>Welcome to the Reading Room</Heading>
+        <Heading m={5} className={fonts.architects_daughter.className}>
+          Welcome to the Reading Room
+        </Heading>
         <BookForm />
         <StopWatch></StopWatch>
       </VStack>
