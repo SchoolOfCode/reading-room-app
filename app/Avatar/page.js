@@ -11,19 +11,19 @@ import Backdrop from "./components/Backdrop.js";
 // import AvatarWearingScarf from "./components/MiffyScarf.js";
 // import AvatarWearingSunhat from "./components/MiffySunhat.js";
 // import AvatarWearingTopHat from "./components/MiffyTopHat.js";
-import Shades from "./components/shades.js";
-import PixelShades from "./components/pixelshades.js";
-import LoveHeartShades from "./components/loveheartShades.js";
-import Cap from "./components/cap.js";
+import Shades from "./components/Shades.js";
+import PixelShades from "./components/Pixelshades.js";
+import LoveHeartShades from "./components/LoveheartShades.js";
+import Cap from "./components/Cap.js";
 // import Scarf from "./components/scarf.js";
-import TopHat from "./components/tophat.js";
-import Sunhat from "./components/sunhat.js";
+import TopHat from "./components/Tophat.js";
+import Sunhat from "./components/Sunhat.js";
 ``;
 
 export default function AvatarPage() {
   return (
     <>
-      <Box as="main" spacing={4} bg="#FDFFAB" alignItems="center" justifyContent="center">
+      <Box as="main" spacing={4} alignItems="center" justifyContent="center">
         <h1>The Reward Room</h1>
         <br></br>
         <h2 >Well done!</h2>
