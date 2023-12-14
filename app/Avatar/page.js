@@ -18,12 +18,12 @@ import Cap from "./components/cap.js";
 // import Scarf from "./components/scarf.js";
 import TopHat from "./components/tophat.js";
 import Sunhat from "./components/sunhat.js";
-``;
+import styles from './Avatar.module.css';
 
 export default function AvatarPage() {
   return (
-    <>
-      <Box as="main" spacing={4} bg="#FDFFAB" alignItems="center" justifyContent="center">
+    <div className={styles.Avatar_page}>
+      <Box as="main" spacing={4} alignItems="center" justifyContent="center">
         <h1>The Reward Room</h1>
         <br></br>
         <h2 >Well done!</h2>
@@ -70,6 +70,6 @@ export default function AvatarPage() {
         </Box>
         {/* N.B. reward items and corresponding avatar wearing the item will need to be added */}
       </Box>
-    </>
+    </div>
   );
 }
