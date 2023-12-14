@@ -2,7 +2,7 @@
 
 // import { useState, useEffect } from "react";
 // import { Container, Flex, Heading, Text, Button } from "@chakra-ui/react";
-import { VStack, Flex, Spacer, Box } from "@chakra-ui/react";
+import {Flex, Spacer, Box, Image } from "@chakra-ui/react";
 import Avatar from "./components/Avatar.js";
 import Backdrop from "./components/Backdrop.js";
 // import AvatarWearingCap from "./components/MiffyCap.js";
@@ -26,38 +26,46 @@ export default function AvatarPage() {
       <Box as="main" spacing={4} bg="#FDFFAB">
         <h1>Well done!</h1>
         <h2>Choose a Reward and see your avatar update!</h2>
+        {/* accessory components put inside a flex box to create responsive design with equal spacing. Also user spacer */}
         <Flex>
-          <Box w="100px" h="20px">
+          <Box boxsize="sm" >
             <Shades></Shades>
           </Box>
           <Spacer></Spacer>
-          <Box w="100px" h="20px">
+          <Box boxsize="sm">
             <PixelShades></PixelShades>
           </Box>
           <Spacer></Spacer>
-          <Box w="100px" h="20px">
+          <Box boxsize="sm">
             <LoveHeartShades></LoveHeartShades>
           </Box>
           <Spacer></Spacer>
         </Flex>
         <Flex>
-          <Box w="100px" h="20px">
-          <Cap></Cap>
+          <Box boxsize="sm">
+            <Cap></Cap>
           </Box>
           <Spacer></Spacer>
-          <Box w="100px" h="20px">
-          <Sunhat></Sunhat>
+          <Box boxsize="sm">
+            <Sunhat></Sunhat>
           </Box>
           <Spacer></Spacer>
-          <Box w="100px" h="20px">
-          <TopHat></TopHat>
+          <Box boxsize="sm">
+            <TopHat></TopHat>
           </Box>
           <Spacer></Spacer>
         </Flex>
-        
-        
-        <Avatar></Avatar>
-        <Backdrop></Backdrop>
+        <Flex>
+          <Box boxsize="sm">
+            <Avatar></Avatar>
+          </Box>
+        </Flex>
+        <Spacer></Spacer>
+        <Box boxsize="sm">
+        <Flex>
+          <Backdrop></Backdrop>
+        </Flex>
+        </Box>
         {/* N.B. reward items and corresponding avatar wearing the item will need to be added */}
       </Box>
     </>
