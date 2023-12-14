@@ -24,7 +24,7 @@ export default function Welcome({ nickname }) {
       <div className={styles.pageWrapper}>
         <div className={styles.container}>
           <Heading as="h1" size="xl" className={fonts.arvo.className}>
-            Welcome back USERNAME!
+            Welcome back nickname!
           </Heading>
           {/* Other content */}
         </div>
