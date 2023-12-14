@@ -11,11 +11,12 @@ import Backdrop from "./components/Backdrop.js";
 // import AvatarWearingScarf from "./components/MiffyScarf.js";
 // import AvatarWearingSunhat from "./components/MiffySunhat.js";
 // import AvatarWearingTopHat from "./components/MiffyTopHat.js";
-import Shades from "./components/shades.js";
-import PixelShades from "./components/pixelshades.js";
-import LoveHeartShades from "./components/loveheartShades.js";
-import Cap from "./components/cap.js";
+import Shades from "./components/Shades.js";
+import PixelShades from "./components/Pixelshades.js";
+import LoveHeartShades from "./components/LoveheartShades.js";
+import Cap from "./components/Cap.js";
 // import Scarf from "./components/scarf.js";
+
 import TopHat from "./components/tophat.js";
 import Sunhat from "./components/sunhat.js";
 import styles from './Avatar.module.css';
