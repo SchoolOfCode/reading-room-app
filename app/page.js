@@ -1,6 +1,7 @@
-import { fonts } from './fonts.js';
-import React from 'react';
-import Head from 'next/head';
+// import { fonts } from './fonts.js';
+
+import Image from 'next/image';
+import LogoReadingRoom from '../public/RaadingRoomLogo.png';
 
 const Home = () => {
   const containerStyle = {
@@ -30,8 +31,6 @@ const Home = () => {
   };
 
   const logoImageStyle = {
-    width: '80px',
-    height: '80px',
     objectFit: 'cover',
     marginBottom: '10px',
   };
@@ -82,25 +81,19 @@ const Home = () => {
   };
 
   const blurbImageStyle = {
-    width: '80px',
-    height: '80px',
     objectFit: 'cover',
     marginBottom: '50px',
   };
 
   return (
     <div style={containerStyle}>
-      <Head>
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&display=swap"
-        />
-      </Head>
       <div style={contentBoxStyle}>
         <div style={vStackStyle}>
-          <img
-            src="../public/RaadingRoomLogo.png"
+          <Image
+            src={LogoReadingRoom}
             alt="The Reading Room Logo"
+            height={80}
+            width={80}
             fallbackSrc="https://ibb.co/pKDxgyG"
             style={logoImageStyle}
             loading="lazy"
@@ -123,8 +116,11 @@ const Home = () => {
         <div style={vStackStyle}>
           <img
             src="The Blurb"
-            /* Image not working cos not present in public folder*/ alt="The Blurb"
+            /* Image not working cos not present in public folder*/
+            alt="The Blurb"
             style={blurbImageStyle}
+            height={80}
+            width={80}
             loading="lazy"
           />
         </div>
