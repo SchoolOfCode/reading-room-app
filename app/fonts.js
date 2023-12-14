@@ -1,6 +1,6 @@
 // Importing Arvo and Lato from next/font and exporting the fonts object
 
-import { Arvo, Lato } from 'next/font/google'; //
+import { Arvo, Lato } from 'next/font/google';
 
 const arvo = Arvo({
   subsets: ['latin'],
