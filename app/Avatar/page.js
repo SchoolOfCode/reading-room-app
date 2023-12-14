@@ -17,8 +17,8 @@ import LoveHeartShades from "./components/LoveheartShades.js";
 import Cap from "./components/Cap.js";
 // import Scarf from "./components/scarf.js";
 
-import TopHat from "./components/tophat.js";
-import Sunhat from "./components/sunhat.js";
+import TopHat from "./components/Tophat.js";
+import Sunhat from "./components/Sunhat.js";
 import styles from './Avatar.module.css';
 
 export default function AvatarPage() {
