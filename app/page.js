@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import LogoReadingRoom from '../public/RaadingRoomLogo.png';
 
-const Home = () => {
+export default function Login() {
   const containerStyle = {
     backgroundColor: '#9BF6FF',
     height: '100vh',
@@ -92,9 +92,8 @@ const Home = () => {
           <Image
             src={LogoReadingRoom}
             alt="The Reading Room Logo"
-            height={80}
-            width={80}
-            fallbackSrc="https://ibb.co/pKDxgyG"
+            height={'80px'}
+            width={'80px'}
             style={logoImageStyle}
             loading="lazy"
           />
@@ -127,9 +126,7 @@ const Home = () => {
       </div>
     </div>
   );
-};
-
-export default Home;
+}
 
 // CHAKRA UI CODE
 // 'use client';
