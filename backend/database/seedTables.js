@@ -8,21 +8,35 @@ export async function seedTables() {
       INSERT INTO users (nickname) VALUES ('Auntie-Marie'), ('Chad');
     `);
 
-    // seed reading_notes table
-    await pool.query(`
+    // get the UUIDs for the inserted users
+    const result = await pool.query(`
+      SELECT id FROM users;
+    `);
+    const user1Id = result.rows[0].id;
+    const user2Id = result.rows[1].id;
+
+    // seed reading_notes table with UUID values
+    await pool.query(
+      `
       INSERT INTO reading_notes(title, author, notes, users_id)
       VALUES 
-        ('The Tiger That Came To Tea', 'Judith Kerr', 'The tiger that came to tea is a great book for young readers. The story is about a tiger who comes for tea.', 1),
-        ('Where''s Wally', 'Martin Handford', 'This is a great book for children. I''m really struggling to find Wally on the third page though!', 2);
-    `);
+        ('The Tiger That Came To Tea', 'Judith Kerr', 'The tiger that came to tea is a great book for young readers. The story is about a tiger who comes for tea.', $1),
+        ('Where''s Wally', 'Martin Handford', 'This is a great book for children. I''m really struggling to find Wally on the third page though!', $2);
+    `,
+      [user1Id, user2Id]
+    );
 
     // Seed Avatars
-    await pool.query(`
+    await pool.query(
+      `
       INSERT INTO avatars (avatar_img, users_id)
       VALUES
-        ('https://mrmen.com/cdn/shop/t/37/assets/svg--character--mr-happy.svg?v=32825736591941550291695746657', 1),
-        ('https://mrmen.com/cdn/shop/t/37/assets/svg--character--mr-tickle.svg?v=32825736591941550291695746657', 2);
-    `);
+        ('https://mrmen.com/cdn/shop/t/37/assets/svg--character--mr-happy.svg?v=32825736591941550291695746657', $1),
+        ('https://mrmen.com/cdn/shop/t/37/assets/svg--character--mr-tickle.svg?v=32825736591941550291695746657', $2);
+    `,
+      [user1Id, user2Id]
+    );
+
     console.log("Tables successfully populated!");
 
     // error handling
