@@ -47,12 +47,13 @@ export default function WelcomePage() {
 
 
   return (
-    <VStack as="main" spacing={12}>
-
-      <Welcome nickname={nickname} />
-      <Avatar avatar={avatar_img} />
-      <ReadingNotes title={title} author={author} notes={notes} />
-      <Continue />
+    <VStack as="main" spacing={12} bg="#CAFFBF" p={3}
+    m={0}
+    minHeight="100vh">
+      <Avatar avatar ={avatar_img}/>
+      <Welcome nickname={nickname} />      
+      <ReadingNotes title={title} author={author} notes={notes} />    
+     <Continue />
     </VStack>
   );
 }

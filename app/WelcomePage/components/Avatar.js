@@ -1,11 +1,15 @@
-// Image of the avatar chosen by logged in user
-
-"use client";
-
-import { Image } from "@chakra-ui/react";
+import { Image, Box } from "@chakra-ui/react";
 
 export default function Avatar({ avatar }) {
   return (
+
+    <Box
+      bg='#CAFFBF'
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      border= "0"
+    >
     <Image
       src={avatar}
       alt="User Avatar"
@@ -14,5 +18,8 @@ export default function Avatar({ avatar }) {
       borderRadius={"full"}
       mt={"50px"}
     ></Image>
+      
+    </Box>
+
   );
 }

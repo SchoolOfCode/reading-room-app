@@ -11,6 +11,7 @@ import { GiPawPrint } from 'react-icons/gi';
 import { GiSpellBook } from 'react-icons/gi';
 import { useState } from 'react';
 
+
 export default function Navbar() {
   const [activePage, setActivePage] = useState('');
 
