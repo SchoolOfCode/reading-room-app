@@ -1,6 +1,6 @@
 "use client";
 
-import BookForm from "./components/readingRoomSubmitForm";
+import BookForm from "./components/BookForm.js";
 import Link from "next/link";
 import StopWatch from "../components/Stopwatch.js";
 import { VStack, Button, Heading, Container } from "@chakra-ui/react";
