@@ -23,7 +23,7 @@ import Sunhat from "./components/sunhat.js";
 export default function AvatarPage() {
   return (
     <>
-      <Box as="main" spacing={4} bg="#FDFFAB" alignItems="center" justifyContent="center">
+      <Box as="main" spacing={4} alignItems="center" justifyContent="center">
         <h1>The Reward Room</h1>
         <br></br>
         <h2 >Well done!</h2>
