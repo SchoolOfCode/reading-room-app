@@ -1,10 +1,16 @@
 "use client";
 
-import { Container, Flex, Icon, Box } from "@chakra-ui/react";
-import { Link } from "@chakra-ui/next-js";
-import { FaBookOpen, FaSmile } from "react-icons/fa";
-import { BiSolidHomeHeart } from "react-icons/bi";
-import { useState } from "react";
+import { Container, Flex, Icon, Box } from '@chakra-ui/react';
+import { Link } from '@chakra-ui/next-js';
+// import { FaBookOpen,FaPaw, FaHome } from 'react-icons/fa';
+// import { FaBookOpen } from 'react-icons/fa6';
+
+// Ideas for icons
+import { HiBuildingStorefront } from 'react-icons/hi2';
+import { GiPawPrint } from 'react-icons/gi';
+import { GiSpellBook } from 'react-icons/gi';
+import { useState } from 'react';
+
 
 export default function Navbar() {
   const [activePage, setActivePage] = useState("");
@@ -15,53 +21,52 @@ export default function Navbar() {
   };
 
   return (
-    <Container bg={"#F3E5AB"} position={"fixed"} bottom={"0"} width={"100%"}>
-      <Flex justify={"space-around"} align={"center"}>
-        <Link href="/WelcomePage">
+    <Container bg="#DDD9D1" position="fixed" bottom="0" width="100%" height="75px" pt="5px">
+      <Flex justify="space-around" align="center">
+        <Link href="/WelcomePage" height="75px">
           <Icon
-            as={BiSolidHomeHeart}
-            color="#00B64C"
-            boxSize={"100"}
-            onClick={() => handleSetActivePage("WP")}
+            as={HiBuildingStorefront}
+            color="#747474"
+            boxSize={50} // Adjust icons height here
+            onClick={() => handleSetActivePage('WP')}
           />
           <Box
-            bg="#00B64C"
+            bg="#CAFFBF"
+            border="1px solid #747474" // Added border due to light colours blending to the background
             height="5px"
-            width="100%"
-            mt="2px"
-            mb="10px"
-            borderRadius={"lg"}
-            display={activePage === "WP" ? "block" : "none"}
+            display={activePage === 'WP' ? 'block' : 'none'}
           />
         </Link>
-        <Link href="/ReadingRoom/components">
+        <Link href="/ReadingRoom" height="75px">
           <Icon
-            as={FaBookOpen}
-            color="#F34213"
-            boxSize={"97"}
-            onClick={() => handleSetActivePage("RR")}
+            as={GiSpellBook}
+            color="#747474"
+            width="50px"
+            boxSize={50} // Adjust icons height here
+            onClick={() => handleSetActivePage('RR')}
           />
           <Box
-            bg="#F34213"
-            height="2px"
-            width="100%"
+            bg="#FFD6A5"
+            border="1px solid #747474"
+            height="5px"
             mt="2px"
-            display={activePage === "RR" ? "block" : "none"}
+            display={activePage === 'RR' ? 'block' : 'none'}
           />
         </Link>
-        <Link href="/Avatar">
+
+        <Link href='/Avatar' height="75px">
           <Icon
-            as={FaSmile}
-            color="#E83F6F"
-            boxSize={"90"}
-            onClick={() => handleSetActivePage("A")}
+            as={GiPawPrint}
+            color="#747474"
+            boxSize={50} // Adjust icons height here
+            onClick={() => handleSetActivePage('A')}
           />
           <Box
-            bg="#E83F6F"
-            height="2px"
-            width="100%"
+            bg="#FDFFAB"
+            border="1px solid #747474"
+            height="5px"
             mt="2px"
-            display={activePage === "A" ? "block" : "none"}
+            display={activePage === 'A' ? 'block' : 'none'}
           />
         </Link>
       </Flex>

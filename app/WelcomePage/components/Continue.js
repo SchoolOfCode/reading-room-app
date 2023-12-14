@@ -4,14 +4,15 @@
 
 import { Button, Text } from "@chakra-ui/react";
 import { Link } from "@chakra-ui/next-js";
+import styles from '../../welcomePage.module.css';
 
 export default function Continue() {
   return (
     <>
+    <pageWrapper>
       <Text mb={"-45px"}>Grab your Favourite book</Text>
-      <Link href="/ReadingRoom">
-        <Button colorScheme={"blackAlpha"}>Go to the Reading Room</Button>
-      </Link>
+       </pageWrapper>
     </>
+    
   );
 }

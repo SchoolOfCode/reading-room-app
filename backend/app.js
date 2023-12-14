@@ -1,6 +1,7 @@
 // import the required modules
 import express from "express";
 import morgan from "morgan";
+import cors from "cors";
 import {
   userRoutes,
   readingRoomRoutes,
@@ -8,6 +9,7 @@ import {
 } from "./routes/routes.js";
 //initialise the express app
 const app = express();
+app.use(cors());
 
 // Retrieve the port from the environment variable
 const PORT = process.env.port || 5003;
