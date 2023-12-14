@@ -1,4 +1,4 @@
-import { createServerClient } from '@supabase/ssr';
+import { createServerClient } from "@supabase/ssr";
 export const createClient = (cookieStore) => {
   return createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL,
@@ -7,7 +7,9 @@ export const createClient = (cookieStore) => {
       cookies: {
         get(name) {
           var _a;
-          return (_a = cookieStore.get(name)) === null || _a === void 0 ? void 0 : _a.value;
+          return (_a = cookieStore.get(name)) === null || _a === void 0
+            ? void 0
+            : _a.value;
         },
         set(name, value, options) {
           try {
@@ -20,7 +22,7 @@ export const createClient = (cookieStore) => {
         },
         remove(name, options) {
           try {
-            cookieStore.set(Object.assign({ name, value: '' }, options));
+            cookieStore.set(Object.assign({ name, value: "" }, options));
           } catch (error) {
             // The `delete` method was called from a Server Component.
             // This can be ignored if you have middleware refreshing
