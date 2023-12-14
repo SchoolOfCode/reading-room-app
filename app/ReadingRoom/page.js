@@ -1,30 +1,27 @@
+"use client";
 
-'use client';
-
-
-import ReadThoughtsButton from './components/ReadThoughtsButton';
+import BookForm from "./components/BookForm.js";
 import Link from "next/link";
 import StopWatch from "../components/Stopwatch.js";
-import { VStack, Button, Center } from "@chakra-ui/react";
-
+import { VStack, Button, Heading, Container } from "@chakra-ui/react";
+import { fonts } from "../fonts.js";
 
 export default function ReadingRoom() {
   return (
     <>
-      <VStack spacing={4}>
-        <h1>Welcome to the Reading Room</h1>
-        <ReadThoughtsButton />
-        <StopWatch></StopWatch>
-        <Button colorScheme={"blackAlpha"}>
-          <Link className="returnButton" href="/Avatar">
-            Go to your Avatar
+      <Container bg="#FFD6A5" minW="100%" align="right" p={5}>
+        <Button>
+          <Link className="returnButton" href="/">
+            Log out
           </Link>
         </Button>
-        <button>
-          <Link className="returnButton" href="/">
-            Return Home
-          </Link>
-        </button>
+      </Container>
+      <VStack as="main" spacing={10} bg="#FFD6A5" minHeight="100vh">
+        <Heading m={5} className={fonts.arvo.className}>
+          Welcome to the Reading Room
+        </Heading>
+        <BookForm />
+        <StopWatch></StopWatch>
       </VStack>
     </>
   );

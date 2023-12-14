@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { Container, Flex, Icon, Box } from '@chakra-ui/react';
 import { Link } from '@chakra-ui/next-js';
@@ -13,7 +13,7 @@ import { useState } from 'react';
 
 
 export default function Navbar() {
-  const [activePage, setActivePage] = useState('');
+  const [activePage, setActivePage] = useState("");
 
   // Function to update the activePage state
   const handleSetActivePage = (page) => {
