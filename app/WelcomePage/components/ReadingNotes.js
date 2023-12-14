@@ -1,9 +1,9 @@
+
   // Box showing latest reading notes from logged in user
 
   "use client";
 
   import { Text, Icon } from "@chakra-ui/react";
-  import { BiSolidHomeHeart } from 'react-icons/bi';
   import { FaQuoteRight, FaQuoteLeft } from "react-icons/fa";
   import styles from 'app/welcomePage.module.css';
 
@@ -13,7 +13,9 @@
       <div className={styles.pageWrapper}>
       <pageWrapper>
         <Text m={"1rem"} border='0'>
-          <b>Summary yesterdays:</b> Wow you read for "stopWatchTime" minutes...
+          <b>Summary yesterdays:</b> Last time you read '{title}' by '{author}'. You wrote '{notes}
+        ' - keep going, you're doing great!
+        </Text>
           <br></br>
         <Icon
               as={FaQuoteLeft}
@@ -22,8 +24,7 @@
               placement="left"
               onClick={() => handleSetActivePage('WP')}
             />
-          <br></br> "Readers previous note"
-        </Text>
+          <br></br> 
               <Icon
               as={FaQuoteRight}
               color='#1f1f1f'
@@ -36,3 +37,4 @@
       </>
     );
   }
+

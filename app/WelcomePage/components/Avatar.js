@@ -1,7 +1,8 @@
 import { Image, Box } from "@chakra-ui/react";
 
-export default function Avatar() {
+export default function Avatar({ avatar }) {
   return (
+
     <Box
       bg='#CAFFBF'
       display="flex"
@@ -9,14 +10,16 @@ export default function Avatar() {
       alignItems="center"
       border= "0"
     >
-      <Image
-        src="https://bit.ly/dan-abramov"
-        alt="Dan Abramov"
-        boxSize="200px"
-        boxShadow="dark-lg"
-        mt="50px"
-        borderRadius="full"
-      />
+    <Image
+      src={avatar}
+      alt="User Avatar"
+      boxSize={"200"}
+      boxShadow={"dark-lg"}
+      borderRadius={"full"}
+      mt={"50px"}
+    ></Image>
+      
     </Box>
+
   );
 }
