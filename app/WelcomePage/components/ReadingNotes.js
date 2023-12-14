@@ -7,7 +7,7 @@
   import { FaQuoteRight, FaQuoteLeft } from "react-icons/fa";
   import styles from '../../welcomePage.module.css';
 
-  export default function ReadingNotes() {
+  export default function ReadingNotes({title, author, notes}) {
     return (
       <>
       <div className={styles.pageWrapper}>
@@ -37,4 +37,3 @@
       </>
     );
   }
-
