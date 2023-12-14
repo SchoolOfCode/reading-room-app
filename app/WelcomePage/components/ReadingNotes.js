@@ -5,7 +5,7 @@
 
   import { Text, Icon } from "@chakra-ui/react";
   import { FaQuoteRight, FaQuoteLeft } from "react-icons/fa";
-  import styles from 'app/welcomePage.module.css';
+  import styles from '../../welcomePage.module.css';
 
   export default function ReadingNotes() {
     return (
