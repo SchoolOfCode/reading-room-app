@@ -1,14 +1,38 @@
+
+'use client';
+import { Box, Heading } from "@chakra-ui/react";
+import { fonts } from "../../fonts.js";
+import styles from '../../welcomePage.module.css';
+
 // Box showing welcoome message to the logged in user
 
-"use client";
 
-import { Box, Center, Heading } from "@chakra-ui/react";
-import { fonts } from "../../fonts.js";
 
-export default function Welcome() {
+
+export default function Welcome({ nickname }) {
+
+
   return (
-    <Heading as="h1" size="xl" className={fonts.architects_daughter.className}>
-      Welcome back USERNAME!
-    </Heading>
+
+    <Box
+      bg="#CAFFBF" 
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      border='0'
+    >
+      <div className={styles.pageWrapper}>
+        <div className={styles.container}>
+          <Heading as="h1" size="xl" className={fonts.arvo.className}>
+            Welcome back nickname!
+          </Heading>
+          {/* Other content */}
+        </div>
+      </div>
+    </Box>
+
   );
 }
+
+// declare state for username & reading note
+// Use useEffect to call the Fetch request, and update the state with the result of that fetch request

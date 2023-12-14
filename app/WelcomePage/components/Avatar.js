@@ -1,18 +1,25 @@
-// Image of the avatar chosen by logged in user
+import { Image, Box } from "@chakra-ui/react";
 
-"use client";
-
-import { Image } from "@chakra-ui/react";
-
-export default function Avatar() {
+export default function Avatar({ avatar }) {
   return (
+
+    <Box
+      bg='#CAFFBF'
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      border= "0"
+    >
     <Image
-      src="https://bit.ly/dan-abramov"
-      alt="Dan Abramov"
+      src={avatar}
+      alt="User Avatar"
       boxSize={"200"}
       boxShadow={"dark-lg"}
       borderRadius={"full"}
       mt={"50px"}
     ></Image>
+      
+    </Box>
+
   );
 }
