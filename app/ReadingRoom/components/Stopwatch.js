@@ -1,4 +1,4 @@
-// // index.js
+// index.js
 "use client";
 
 import { useState, useRef, useEffect } from "react";
@@ -17,7 +17,7 @@ const StopWatch = () => {
     startTimeRef.current =
       Date.now() -
       (time.hours * 3600 + time.minutes * 60 + time.seconds) * 1000;
-		//create a mutable useRef function to reference the current interval
+    //create a mutable useRef function to reference the current interval
     intervalRef.current = setInterval(() => {
       setTime((prevTime) => {
         const seconds = prevTime.seconds + 1;
@@ -30,7 +30,7 @@ const StopWatch = () => {
         };
       });
     }, 1000);
-		//Updates the running state to true to indicate that the stopwatch is running.
+    //Updates the running state to true to indicate that the stopwatch is running.
     setRunning(true);
   };
 
@@ -81,7 +81,7 @@ const StopWatch = () => {
   }, [running]);
 
   return (
-    <Container centerContent>
+    <Container centerContent bg="#FFD6A5">
       <Heading as="h1" fontSize="25px" color="#1f1f1f">
         Stopwatch
       </Heading>
