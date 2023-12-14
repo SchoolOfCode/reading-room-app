@@ -1,5 +1,6 @@
 import { fonts } from './fonts.js';
 import React from 'react';
+import Head from 'next/head';
 
 const Home = () => {
   const containerStyle = {
@@ -63,6 +64,7 @@ const Home = () => {
     padding: '10px',
     borderRadius: '5px',
     border: '1px solid #ccc',
+    marginBottom: '5px',
   };
 
   const buttonStyle = {
@@ -88,6 +90,12 @@ const Home = () => {
 
   return (
     <div style={containerStyle}>
+      <Head>
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&display=swap"
+        />
+      </Head>
       <div style={contentBoxStyle}>
         <div style={vStackStyle}>
           <img
@@ -113,7 +121,12 @@ const Home = () => {
       </div>
       <div style={blurbBoxStyle}>
         <div style={vStackStyle}>
-          <img src="The Blurb" alt="The Blurb" style={blurbImageStyle} loading="lazy" />
+          <img
+            src="The Blurb"
+            /* Image not working cos not present in public folder*/ alt="The Blurb"
+            style={blurbImageStyle}
+            loading="lazy"
+          />
         </div>
       </div>
     </div>
