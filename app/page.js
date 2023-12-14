@@ -15,6 +15,7 @@ import {
   Center,
 } from '@chakra-ui/react';
 import { fonts } from './fonts';
+import { Link } from '@chakra-ui/next-js';
 
 export default function Home() {
   return (
@@ -52,9 +53,17 @@ export default function Home() {
             <FormLabel>Password</FormLabel>
             <Input rounded="none" variant="filled" type="password" />
           </FormControl>
-          <Button rounded="none" w="full" color="white" colorScheme="blackAlpha" borderRadius="5px">
-            Login
-          </Button>
+          <Link href="/WelcomePage">
+            <Button
+              rounded="none"
+              w="full"
+              color="white"
+              colorScheme="blackAlpha"
+              borderRadius="5px"
+            >
+              Login
+            </Button>
+          </Link>
         </VStack>
       </Box>
       <Box w={['full', 'md']}>

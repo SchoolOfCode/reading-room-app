@@ -1,3 +1,5 @@
+// DO NOT DELETE THIS FILE FOR THE LOVE OF GOD
+
 'use client';
 
 import { Center, VStack } from '@chakra-ui/react';
