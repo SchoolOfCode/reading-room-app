@@ -1,8 +1,8 @@
 "use client";
 
-// import { useState, useEffect } from "react";
-// import { Container, Flex, Heading, Text, Button } from "@chakra-ui/react";
+import { useState, useEffect } from "react";``
 import {Flex, Spacer, Box, Image } from "@chakra-ui/react";
+// import { fonts } from './fonts.js';
 import Avatar from "./components/Avatar.js";
 import Backdrop from "./components/Backdrop.js";
 // import AvatarWearingCap from "./components/MiffyCap.js";
@@ -23,8 +23,10 @@ import Sunhat from "./components/sunhat.js";
 export default function AvatarPage() {
   return (
     <>
-      <Box as="main" spacing={4} bg="#FDFFAB">
-        <h1>Well done!</h1>
+      <Box as="main" spacing={4} bg="#FDFFAB" alignItems="center" justifyContent="center">
+        <h1>The Reward Room</h1>
+        <br></br>
+        <h2 >Well done!</h2>
         <h2>Choose a Reward and see your avatar update!</h2>
         {/* accessory components put inside a flex box to create responsive design with equal spacing. Also user spacer */}
         <Flex>
