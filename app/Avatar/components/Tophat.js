@@ -1,10 +1,6 @@
-'use client'
-import { Image, VStack } from "@chakra-ui/react";
+'use client';
+import { Image, VStack } from '@chakra-ui/react';
 
-export default function TopHat (){
-  return (
-      <Image
-        src="tophat.png" alt="tophat accessory"
-      ></Image>
-    );
-  }
+export default function TopHat() {
+  return <Image src='tophat.png' alt='tophat accessory' width={'15rem'}></Image>;
+}

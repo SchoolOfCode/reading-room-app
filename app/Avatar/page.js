@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { fonts } from '../fonts.js';
-import { Flex, Spacer, Box, Image, Heading } from '@chakra-ui/react';
+import { Flex, Spacer, Box, Image, Heading, Center, Divider } from '@chakra-ui/react';
 // import { fonts } from './fonts.js';
 import Avatar from './components/Avatar.js';
 import Backdrop from './components/Backdrop.js';
@@ -24,9 +24,11 @@ export default function AvatarPage() {
   return (
     <>
       <Box as='main' spacing={4} alignItems='center' justifyContent='center'>
-        <Heading as='h1' size='xl' className={fonts.arvo.className}>
-          The Reward Room
-        </Heading>
+        <Center>
+          <Heading as='h1' size='xl' className={fonts.arvo.className} mt={'1.9rem'}>
+            The Reward Room
+          </Heading>
+        </Center>
         <Spacer></Spacer>
         <Heading as='h2' size='l' className={fonts.arvo.className}>
           Well done!

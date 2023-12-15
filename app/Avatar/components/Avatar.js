@@ -13,7 +13,7 @@ export default function Avatar() {
         height={'8rem'}
         zIndex={'1'}
         position={'fixed'}
-        bottom={'6rem'}
+        bottom={'5rem'}
         left={'5rem'}
       ></Image>
     </VStack>
