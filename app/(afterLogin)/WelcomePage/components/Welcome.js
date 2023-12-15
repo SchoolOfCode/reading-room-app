@@ -1,6 +1,6 @@
 'use client';
 import { Box, Heading } from '@chakra-ui/react';
-import { fonts } from '../../fonts.js';
+import { fonts } from '../../../fonts';
 import styles from '../welcomePage.module.css';
 
 // Box showing welcoome message to the logged in user

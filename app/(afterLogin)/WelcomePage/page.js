@@ -1,12 +1,11 @@
-"use client";
-import { useEffect, useState } from "react";
-import { VStack, Spinner } from "@chakra-ui/react";
-import Welcome from "./components/Welcome.js";
-import Avatar from "./components/Avatar.js";
-import ReadingNotes from "./components/ReadingNotes.js";
-import Continue from "./components/Continue.js";
-import { fetchReadingNotes } from "../FetchRequests/fetchAllDataByNickname.js";
-
+'use client';
+import { useEffect, useState } from 'react';
+import { VStack, Spinner } from '@chakra-ui/react';
+import Welcome from './components/Welcome.js';
+import Avatar from './components/Avatar.js';
+import ReadingNotes from './components/ReadingNotes.js';
+import Continue from './components/Continue.js';
+import { fetchReadingNotes } from '../../FetchRequests/fetchAllDataByNickname.js';
 
 export default function WelcomePage() {
   // declaring state for sessionNotes, loading or not and to set error if needed
@@ -45,15 +44,12 @@ export default function WelcomePage() {
     data: [{ id, date, title, author, notes, users_id, nickname, avatar_img }],
   } = sessionNotes;
 
-
   return (
-    <VStack as="main" spacing={12} bg="#CAFFBF" p={3}
-    m={0}
-    minHeight="100vh">
-      <Avatar avatar ={avatar_img}/>
-      <Welcome nickname={nickname} />      
-      <ReadingNotes title={title} author={author} notes={notes} />    
-     <Continue />
+    <VStack as='main' spacing={12} bg='#CAFFBF' p={3} m={0} minHeight='100vh'>
+      <Avatar avatar={avatar_img} />
+      <Welcome nickname={nickname} />
+      <ReadingNotes title={title} author={author} notes={notes} />
+      <Continue />
     </VStack>
   );
 }
