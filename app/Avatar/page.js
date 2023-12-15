@@ -22,7 +22,6 @@ import Sunhat from './components/Sunhat.js';
 
 export default function AvatarPage() {
   return (
-    <>
       <Box as='main' spacing={4} alignItems='center' justifyContent='center'>
         <Center>
           <Heading as='h1' size='xl' className={fonts.arvo.className} mt={'1.9rem'}>
