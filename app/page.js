@@ -41,6 +41,7 @@ export default function Home({ searchParams }) {
     });
 
     if (error) {
+      console.log(error);
       return redirect("/?message=Could not authenticate user");
     }
 
