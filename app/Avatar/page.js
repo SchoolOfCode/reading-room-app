@@ -73,6 +73,6 @@ export default function AvatarPage() {
         
         {/* N.B. reward items and corresponding avatar wearing the item will need to be added */}
       </Box>
-    </div>
+    
   );
 }
