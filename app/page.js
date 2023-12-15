@@ -1,8 +1,9 @@
 import Link from "next/link";
-import { createClient } from "@/utils/supabase/server";
 import { headers, cookies } from "next/headers";
+import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
-export default function Home({ searchParams }) {
+
+export default function Login({ searchParams }) {
   const signIn = async (formData) => {
     "use server";
 
@@ -17,10 +18,10 @@ export default function Home({ searchParams }) {
     });
 
     if (error) {
-      return redirect("/?message=Could not authenticate user");
+      return redirect("/login?message=Could not authenticate user");
     }
 
-    return redirect("/WelcomePage");
+    return redirect("/");
   };
 
   const signUp = async (formData) => {
@@ -41,11 +42,10 @@ export default function Home({ searchParams }) {
     });
 
     if (error) {
-      console.log(error);
-      return redirect("/?message=Could not authenticate user");
+      return redirect("/login?message=Could not authenticate user");
     }
 
-    return redirect("/?message=Check email to continue sign in process");
+    return redirect("/login?message=Check email to continue sign in process");
   };
 
   return (
@@ -67,11 +67,3 @@ export default function Home({ searchParams }) {
     </div>
   );
 }
-
-// export default function Home() {
-//   return (
-//     <Heading as="h1" size="xl" className={fonts.architects_daughter.className}>
-//       The Reading Room Login Page
-//     </Heading>
-//   );
-// }
