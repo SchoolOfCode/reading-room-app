@@ -27,7 +27,7 @@ export default function AvatarPage() {
         <Heading as='h1' size='xl' className={fonts.arvo.className}>
           The Reward Room
         </Heading>
-        <br></br>
+        <Spacer></Spacer>
         <Heading as='h2' size='l' className={fonts.arvo.className}>
           Well done!
         </Heading>
@@ -65,15 +65,15 @@ export default function AvatarPage() {
         </Flex>
         <Flex>
           <Box boxsize='sm'>
+            <Backdrop></Backdrop>
             <Avatar></Avatar>
           </Box>
         </Flex>
-        <Spacer></Spacer>
+        {/* <Spacer></Spacer>
         <Box boxsize='sm'>
           <Flex>
-            <Backdrop></Backdrop>
           </Flex>
-        </Box>
+        </Box> */}
         {/* N.B. reward items and corresponding avatar wearing the item will need to be added */}
       </Box>
     </>
