@@ -70,11 +70,7 @@ export default function AvatarPage() {
             <Avatar></Avatar>
           </Box>
         </Flex>
-        {/* <Spacer></Spacer>
-        <Box boxsize='sm'>
-          <Flex>
-          </Flex>
-        </Box> */}
+        
         {/* N.B. reward items and corresponding avatar wearing the item will need to be added */}
       </Box>
     </div>
