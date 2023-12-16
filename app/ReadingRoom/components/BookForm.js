@@ -4,17 +4,32 @@
 
 import { Center, VStack } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
-
+import { getCurrentUser } from "./getCurrentUser.js";
 // Define component for the submit form
 const BookForm = ({ onClose }) => {
   // State variables to store the form input values
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [notes, setNotes] = useState("");
+  const [users_id, setUsers_id] = useState("");
+
+  const setUser = async () => {
+    const user = await getCurrentUser();
+    setUsers_id(user.id);
+    console.log(`users_id currently set as: ${user}`);
+    console.log(user.id);
+  };
+
+  useEffect(() => {
+    setUser();
+  }, []);
+
+  useEffect(() => {
+    console.log(users_id);
+  }, [users_id]);
 
   // State variable to track which input is selected
   const [selectedInput, setSelectedInput] = useState(null);
-
   // Success message once the user submits the form
   const [submissionMessage, setSubmissionMessage] = useState("");
 
@@ -30,7 +45,7 @@ const BookForm = ({ onClose }) => {
           "Content-Type": "application/json",
         },
         // Convert form data to JSON and include it in the request body
-        body: JSON.stringify({ title, author, notes }),
+        body: JSON.stringify({ title, author, notes, users_id }),
       });
 
       // If request successful, parse the response JSON and log the result

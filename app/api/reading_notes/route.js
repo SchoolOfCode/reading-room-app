@@ -6,7 +6,7 @@ export async function POST(request) {
   try {
     console.log(users_id);
     // Extracting the "title", "author", and "notes" properties from the JSON body of the request
-    const { title, author, notes } = await request.json();
+    const { title, author, notes, users_id } = await request.json();
 
     // SQL query to insert the reading note into the "reading_notes" table and return the newly created note
     const queryText =
