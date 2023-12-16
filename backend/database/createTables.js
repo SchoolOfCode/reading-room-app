@@ -8,7 +8,7 @@ export async function createTables() {
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
 CREATE TABLE IF NOT EXISTS users (
-    id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+    id UUID PRIMARY KEY REFERENCES auth.users(id),
     nickname VARCHAR(100) NOT NULL CHECK (nickname NOT LIKE '% %')
 );
 `);
