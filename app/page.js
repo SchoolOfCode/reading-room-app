@@ -21,7 +21,7 @@ export default function Login({ searchParams }) {
       return redirect("/login?message=Could not authenticate user");
     }
 
-    return redirect("/");
+    return redirect("/WelcomePage");
   };
 
   const signUp = async (formData) => {
