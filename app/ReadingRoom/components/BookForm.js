@@ -17,7 +17,7 @@ const BookForm = ({ onClose }) => {
     const user = await getCurrentUser();
     setUsers_id(user.id);
     console.log(`users_id currently set as: ${user}`);
-    console.log(user.id);
+    console.log(`this is the id: ${user.id}`);
   };
 
   useEffect(() => {
@@ -54,12 +54,17 @@ const BookForm = ({ onClose }) => {
         console.log(result);
         setSubmissionMessage("You are a champ! Keep up the good work.");
       } else {
-        console.error("Failed to add note. Try later, please.");
+        console.error(
+          "Failed to add note. Try later, please. Error originated in BookForm.js, line 57 triggered"
+        );
       }
 
       onClose();
     } catch (error) {
-      console.error("Error adding note:", error);
+      console.error(
+        "Error adding note: Error originated in BookForm.js, line 62 triggered",
+        error
+      );
     }
   };
 

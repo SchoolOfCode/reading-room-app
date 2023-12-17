@@ -32,13 +32,17 @@ export async function POST(request) {
     );
   } catch (error) {
     // Handling any errors that occur during the execution of the POST request
-    console.error("Error originated in POST request:", error);
+    console.error(
+      "Error originated in POST request: api/reading_notes/route.js",
+      error
+    );
 
     // Returning an error response with an appropriate error message
     return new Response(
       JSON.stringify({
         status: "error",
-        message: "Error creating reading notes",
+        message:
+          "Error creating reading notes. Error originated in BookForm.js, line 41.",
       }),
       {
         status: 500,
