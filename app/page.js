@@ -9,7 +9,6 @@ import {
   FormControl,
   FormLabel,
   Input,
-  Button,
   Divider,
   Image,
   Center,
@@ -109,9 +108,10 @@ export default function Home() {
             </Link>
           </Container>
           <Container
-            align="start"
             display="flex"
             flexDirection="row"
+            justifyContent="center"
+            alignItems="center"
             gap={2}
             fontSize={20}
             fontWeight="bold"
