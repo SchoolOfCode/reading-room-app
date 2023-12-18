@@ -47,10 +47,10 @@ export default function Home() {
         paddingBottom={isMobile ? 5 : 0}
         border="1px solid black"
         boxShadow="rgb(44, 62, 80) 0px -15px 15px -15px, rgb(44, 62, 80) 0px 15px 15px -15px;"
-        ml={2} // Add margin-left
-        mr={2} // Add margin-right
+        ml={2}
+        mr={2}
       >
-        <VStack spacing={4} align="center" w="full" h="100%">
+        <VStack spacing={4} align="center" w="full" h="100%" mt={isMobile ? 0 : 10}>
           <VStack spacing={1} align="center" w="full">
             <Image
               src="RaadingRoomLogo.png"
@@ -58,7 +58,6 @@ export default function Home() {
               fallbackSrc="https://ibb.co/pKDxgyG"
               boxSize="100px"
               objectFit="cover"
-              // mt={5}
               h={150}
               w={150}
             />
@@ -173,7 +172,7 @@ export default function Home() {
             gap={2}
             fontSize={20}
             fontWeight="bold"
-            mt={isMobile ? 0 : 20}
+            mt={isMobile ? 0 : 12}
           >
             <Text>Don't have an account?</Text>
             <Link href="/WelcomePage">
