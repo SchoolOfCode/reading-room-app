@@ -1,13 +1,15 @@
 "use client";
 // Importing the necessary modules and functions
+// Importing the necessary modules and functions
 import { useEffect, useState } from "react";
 import Avatar from "./components/Avatar.js";
 import ReadingNotes from "./components/ReadingNotes.js";
 import Continue from "./components/Continue.js";
+import Welcome from "./components/Welcome.js";
+import { fetchReadingNotes } from "../../FetchRequests/fetchAllDataByNickname.js";
 import { getCurrentUser } from "../ReadingRoom/components/getCurrentUser.js"; // Adjust the import path
 import { VStack, Spinner } from "@chakra-ui/react";
-import { fetchReadingNotes } from "../../FetchRequests/fetchAllDataByNickname.js";
-import Welcome from "./components/Welcome.js";
+
 export default function WelcomePage() {
   // declaring state for sessionNotes, loading or not and to set error if needed
   const [sessionNotes, setSessionNotes] = useState(null);
@@ -57,21 +59,33 @@ export default function WelcomePage() {
   if (error) {
     return <div>Error fetching reading notes: {error.message}</div>;
   }
-  // destructure fetched data to pass down as props
 
-  // Simplify destructuring
-  let { nickname, avatar_img, title, author, notes } = {};
-  if (sessionNotes) {
-    ({
-      data: [{ nickname, avatar_img, title, author, notes }],
-    } = sessionNotes);
+  // Check if sessionNotes is falsy
+  if (!sessionNotes) {
+    return (
+      <VStack as="main" spacing={12} bg="#CAFFBF" p={3} m={0} minHeight="100vh">
+        <div>
+          You haven't added any reading notes yet - head over to The Reading
+          Room to record your progress.
+        </div>
+      </VStack>
+    );
   }
+
+  // ...
+
+  // destructure fetched data to pass down as props
+  let { nickname, avatar_img, title, author, notes } = sessionNotes || {};
 
   return (
     <VStack as="main" spacing={12} bg="#CAFFBF" p={3} m={0} minHeight="100vh">
-      <Avatar avatar={avatar_img} />
-      <Welcome nickname={nickname} />
-      <ReadingNotes title={title} author={author} notes={notes} />
+      <Avatar avatar={avatar_img || "test"} />
+      <Welcome nickname={nickname || "test"} />
+      <ReadingNotes
+        title={title || "test"}
+        author={author || "test"}
+        notes={notes || "test"}
+      />
       <Continue />
     </VStack>
   );

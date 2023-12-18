@@ -39,7 +39,7 @@ export default function Login({ searchParams }) {
 
   return (
     <div>
-      <form onSubmit={(e) => handleFormSubmit(e, signIn)}>
+      <form action={signIn}>
         <label htmlFor="email">Email</label>
         <input name="email" placeholder="you@example.com" required />
         <label htmlFor="password">Password</label>
@@ -49,23 +49,10 @@ export default function Login({ searchParams }) {
           placeholder="••••••••"
           required
         />
-        <button type="submit">Sign In</button>
+        <button>Sign In</button>
+        <button formAction={signUp}>Sign Up</button>
+        {searchParams?.message && <p>{searchParams.message}</p>}
       </form>
-
-      <form onSubmit={(e) => handleFormSubmit(e, signUp)}>
-        <label htmlFor="email">Email</label>
-        <input name="email" placeholder="you@example.com" required />
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          name="password"
-          placeholder="••••••••"
-          required
-        />
-        <button type="submit">Sign Up</button>
-      </form>
-
-      {searchParams?.message && <p>{searchParams.message}</p>}
     </div>
   );
 }
