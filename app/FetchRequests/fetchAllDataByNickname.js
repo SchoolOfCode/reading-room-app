@@ -1,11 +1,11 @@
 // Write async function
 export async function fetchReadingNotes(userInput) {
-  console.log("Fetching all data by user ID");
-  let idToSearch = userInput;
+  console.log("Fetching all data by nickname");
+  let nicknameToSearch = userInput;
   try {
     // Declare variable to store HTTP response
     const response = await fetch(
-      `http://localhost:5002/reading_notes/nickname/${idToSearch}`,
+      `http://localhost:5002/reading_notes/nickname/${nicknameToSearch}`,
       {
         headers: {
           Accept: "application/json",
