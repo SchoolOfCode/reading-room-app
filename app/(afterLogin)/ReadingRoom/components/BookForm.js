@@ -1,25 +1,25 @@
 // DO NOT DELETE THIS FILE FOR THE LOVE OF GOD
 
+import React from 'react';
 import { SubmitButton } from './SubmitButton';
 
 import {
   Container,
   VStack,
-  HStack,
   Heading,
   FormControl,
   FormLabel,
   Input,
   Button,
-  Link,
-  Text,
   useBreakpointValue,
   Textarea,
+  HStack,
+  Text,
 } from '@chakra-ui/react';
 
 import { fonts } from '@/app/fonts';
 
-const BookForm = () => {
+export const BookForm = () => {
   // Variable to guarantee responsiveness on different screen size
   const isMobile = useBreakpointValue({ base: true, md: false });
 
@@ -33,7 +33,7 @@ const BookForm = () => {
         mt={isMobile ? 0 : 10}
         mb={isMobile ? 0 : 10}
       >
-        <VStack spacing={1} align="center" w="full">
+        <VStack spacing={1} align="center" w="100%">
           <Heading
             as="h1"
             size="xl"
@@ -51,7 +51,7 @@ const BookForm = () => {
             Title
           </FormLabel>
           <Input
-            placeholder="Title?"
+            placeholder="Title the book you're exploring 🐉"
             rounded="none"
             variant="filled"
             type="email"
@@ -69,7 +69,7 @@ const BookForm = () => {
             Author
           </FormLabel>
           <Input
-            placeholder="Author?"
+            placeholder="Author of the book you're exploring 🖋️"
             rounded="none"
             variant="filled"
             type="email"
@@ -87,7 +87,7 @@ const BookForm = () => {
             Reading Notes
           </FormLabel>
           <Textarea
-            placeholder="Your reflections?"
+            placeholder="Share your favorite moments and thoughts from today's adventure! 📝"
             rounded="none"
             variant="filled"
             type="email"
@@ -100,12 +100,12 @@ const BookForm = () => {
             }}
           />
         </FormControl>
-        <HStack spacing={4} mt={4}>
+        <HStack spacing={4} mt={4} ml={4} mr={4}>
           <Text fontWeight="bold" fontSize={18}>
             Did you enjoy the reading session?
           </Text>
           <Button colorScheme="green">👍</Button>
-          <Button colorScheme="red"> 👎</Button>
+          <Button colorScheme="red">👎</Button>
         </HStack>
         <Container
           display="flex"
@@ -114,9 +114,7 @@ const BookForm = () => {
           alignItems="center"
           width="100%"
         >
-          <Link href="/WelcomePage">
-            <SubmitButton />
-          </Link>
+          <SubmitButton />
         </Container>
       </VStack>
     </>
