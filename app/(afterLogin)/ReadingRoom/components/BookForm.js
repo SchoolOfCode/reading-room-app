@@ -1,6 +1,6 @@
 // DO NOT DELETE THIS FILE FOR THE LOVE OF GOD
 
-import { GlowingButton } from '@/app/components/SignInButton';
+import { SubmitButton } from './SubmitButton';
 
 import {
   Container,
@@ -115,7 +115,7 @@ const BookForm = () => {
           width="100%"
         >
           <Link href="/WelcomePage">
-            <GlowingButton />
+            <SubmitButton />
           </Link>
         </Container>
       </VStack>

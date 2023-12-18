@@ -104,7 +104,7 @@ export default function Home() {
             width="100%"
           >
             <Link href="/WelcomePage">
-              <GlowingButton />
+              <GlowingButton>Sign up</GlowingButton>
             </Link>
           </Container>
           <Container
