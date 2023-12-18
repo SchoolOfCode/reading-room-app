@@ -53,6 +53,11 @@ export default function Login({ searchParams }) {
         <button formAction={signUp}>Sign Up</button>
         {searchParams?.message && <p>{searchParams.message}</p>}
       </form>
+      <br></br>
+      <p>
+        Once you've signed up, check your email for a confirmation email - then
+        come back here and sign in!
+      </p>
     </div>
   );
 }

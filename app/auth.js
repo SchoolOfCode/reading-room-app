@@ -31,7 +31,6 @@ const authenticateUser = async (formData, isSignUp) => {
       email,
       password,
     });
-
     if (error) {
       return redirect("/login?message=Could not authenticate user");
     }
