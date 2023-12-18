@@ -39,8 +39,8 @@ export default function Home() {
     >
       <Box
         bg="white"
-        w={['auto', '75vh']}
-        h={['auto', '70vh']}
+        maxW={['auto', '75vh']}
+        maxH={['auto', 'auto']}
         borderRadius={10}
         justifyContent="center"
         alignContent="center"
@@ -51,32 +51,32 @@ export default function Home() {
         ml={isMobile ? 2 : 0}
         mr={isMobile ? 2 : 0}
       >
-        <VStack spacing={4} align="center" w="full" h="100%" mt={isMobile ? 0 : 10}>
-          <VStack spacing={1} align="center" w="full">
-            <Image
-              src="RaadingRoomLogo.png"
-              alt="The Reading Room Logo"
-              fallbackSrc="https://ibb.co/pKDxgyG"
-              boxSize="100px"
-              objectFit="cover"
-              h={150}
-              w={150}
-            />
-            <Heading
-              as="h1"
-              size="xl"
-              align="center"
-              width="95%"
-              className={fonts.arvo.className}
-              fontSize={35}
-            >
-              Jolly good to see you again, my friend!
-            </Heading>
-            <Text fontSize={20} align="center" width="95%">
-              Enter your email and password to keep the fun going. 🎉
-            </Text>
-            <Divider h="3px" width="95%" borderColor="#747474"></Divider>
-          </VStack>
+        <VStack spacing={3} align="center" w="auto" h="auto">
+          {/* <VStack spacing={1} align="center" w="full"> */}
+          <Image
+            src="RaadingRoomLogo.png"
+            alt="The Reading Room Logo"
+            fallbackSrc="https://ibb.co/pKDxgyG"
+            boxSize="100px"
+            objectFit="cover"
+            h={150}
+            w={150}
+          />
+          <Heading
+            as="h1"
+            size="xl"
+            align="center"
+            width="95%"
+            className={fonts.arvo.className}
+            fontSize={35}
+          >
+            Jolly good to see you again, my friend!
+          </Heading>
+          <Text fontSize={20} align="center" width="95%">
+            Enter your email and password to keep the fun going. 🎉
+          </Text>
+          <Divider h="3px" width="95%" borderColor="#747474"></Divider>
+          {/* </VStack> */}
           <FormControl width="90%">
             <FormLabel fontSize={18} fontWeight="bold">
               E-mail
@@ -104,7 +104,7 @@ export default function Home() {
             width="100%"
           >
             <Link href="/WelcomePage">
-              <GlowingButton />
+              <GlowingButton>Sign up</GlowingButton>
             </Link>
           </Container>
           <Container
@@ -115,7 +115,8 @@ export default function Home() {
             gap={2}
             fontSize={20}
             fontWeight="bold"
-            mt={isMobile ? 0 : 12}
+            mt={isMobile ? 0 : 8}
+            mb={isMobile ? 0 : 8}
           >
             <Text>Don't have an account?</Text>
             <Link href="/WelcomePage">
@@ -132,7 +133,10 @@ export default function Home() {
         p={4}
         textAlign={isMobile ? 'center' : 'left'}
       >
-        <Center>
+        <Center gap={2}>
+          <Text fontSize={20} fontWeight="bold">
+            Powered by
+          </Text>
           <Image src="the blurb.png" alt="The Blurb" fallbackSrc="" objectFit="cover" h={50} />
         </Center>
       </Box>

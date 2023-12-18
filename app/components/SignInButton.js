@@ -24,9 +24,20 @@ export const GlowingButton = () => (
       webkitFilter: 'blur(5px)',
       width: 'calc(100% + 4px)',
       height: 'calc(100% + 4px)',
-      animation: 'glowing-button 20s linear infinite',
+      animation: 'glowing-button-85 20s linear infinite',
       transition: 'opacity 0.3s ease-in-out',
       borderRadius: '10px',
+      '@keyframes glowing-button-85': {
+        '0%': {
+          backgroundPosition: '0 0',
+        },
+        '50%': {
+          backgroundPosition: '400% 0',
+        },
+        '100%': {
+          backgroundPosition: '0 0',
+        },
+      },
     }}
     _after={{
       zIndex: '-1',
