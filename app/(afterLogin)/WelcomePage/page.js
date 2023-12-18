@@ -4,11 +4,10 @@ import { useEffect, useState } from "react";
 import Avatar from "./components/Avatar.js";
 import ReadingNotes from "./components/ReadingNotes.js";
 import Continue from "./components/Continue.js";
-import { fetchReadingNotes } from "../FetchRequests/fetchAllDataByNickname.js";
 import { getCurrentUser } from "../ReadingRoom/components/getCurrentUser.js"; // Adjust the import path
 import { VStack, Spinner } from "@chakra-ui/react";
 import { fetchReadingNotes } from "../../FetchRequests/fetchAllDataByNickname.js";
-
+import Welcome from "./components/Welcome.js";
 export default function WelcomePage() {
   // declaring state for sessionNotes, loading or not and to set error if needed
   const [sessionNotes, setSessionNotes] = useState(null);
