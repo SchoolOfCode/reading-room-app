@@ -22,8 +22,7 @@ import { fonts } from './fonts';
 import { Link } from '@chakra-ui/next-js';
 
 export default function Home() {
-  // Variable to guarantee responsiveness/decent design on different screen size
-  // First value is for mobile size, second value is for computer size
+  // Variable to guarantee responsiveness on different screen size
   const isMobile = useBreakpointValue({ base: true, md: false });
 
   return (
