@@ -4,9 +4,6 @@
 
 import { Center, VStack } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
-
-import { Center, VStack } from "@chakra-ui/react";
-import { useState, useEffect } from "react";
 import { getCurrentUser } from "./getCurrentUser.js";
 // Define component for the submit form
 const BookForm = ({ onClose }) => {

@@ -39,7 +39,8 @@ export default function WelcomePage() {
         if (currentUsers_id) {
           // Use the users_id as a search query in the GET request
           const notes = await fetchReadingNotes(currentUsers_id);
-          setSessionNotes(notes);
+          setSessionNotes(notes.data[notes.data.length - 1]);
+          console.log(sessionNotes);
         }
       } catch (error) {
         setError(error);
@@ -61,16 +62,16 @@ export default function WelcomePage() {
   }
 
   // Check if sessionNotes is falsy
-  if (!sessionNotes) {
-    return (
-      <VStack as="main" spacing={12} bg="#CAFFBF" p={3} m={0} minHeight="100vh">
-        <div>
-          You haven't added any reading notes yet - head over to The Reading
-          Room to record your progress.
-        </div>
-      </VStack>
-    );
-  }
+  // if (!sessionNotes) {
+  //   return (
+  //     <VStack as="main" spacing={12} bg="#CAFFBF" p={3} m={0} minHeight="100vh">
+  //       <div>
+  //         You haven't added any reading notes yet - head over to The Reading
+  //         Room to record your progress.
+  //       </div>
+  //     </VStack>
+  //   );
+  // }
 
   // ...
 
