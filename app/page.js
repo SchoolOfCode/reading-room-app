@@ -22,7 +22,7 @@ import { fonts } from './fonts';
 import { Link } from '@chakra-ui/next-js';
 
 export default function Home() {
-  // Variable to guarantee responsiveness on different screen size
+  // Variable to guarantee responsiveness/decent design on different screen size
   // First value is for mobile size, second value is for computer size
   const isMobile = useBreakpointValue({ base: true, md: false });
 
@@ -67,15 +67,16 @@ export default function Home() {
               as="h1"
               size="xl"
               align="center"
+              width="95%"
               className={fonts.arvo.className}
               fontSize={35}
             >
               Jolly good to see you again, my friend!
             </Heading>
-            <Text fontSize={20} align="center">
+            <Text fontSize={20} align="center" width="95%">
               Enter your email and password to keep the fun going. 🎉
             </Text>
-            <Divider h="3px" width="95%" borderColor="black"></Divider>
+            <Divider h="3px" width="95%" borderColor="#747474"></Divider>
           </VStack>
           <FormControl width="90%">
             <FormLabel fontSize={18} fontWeight="bold">
