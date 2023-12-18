@@ -1,24 +1,43 @@
-'use client';
-import { useEffect, useState } from 'react';
-import { VStack, Spinner } from '@chakra-ui/react';
-import Welcome from './components/Welcome.js';
-import Avatar from './components/Avatar.js';
-import ReadingNotes from './components/ReadingNotes.js';
-import Continue from './components/Continue.js';
-import { fetchReadingNotes } from '../../FetchRequests/fetchAllDataByNickname.js';
+"use client";
+// Importing the necessary modules and functions
+import { useEffect, useState } from "react";
+import Avatar from "./components/Avatar.js";
+import ReadingNotes from "./components/ReadingNotes.js";
+import Continue from "./components/Continue.js";
+import { fetchReadingNotes } from "../FetchRequests/fetchAllDataByNickname.js";
+import { getCurrentUser } from "../ReadingRoom/components/getCurrentUser.js"; // Adjust the import path
+import { VStack, Spinner } from "@chakra-ui/react";
+import { fetchReadingNotes } from "../../FetchRequests/fetchAllDataByNickname.js";
 
 export default function WelcomePage() {
   // declaring state for sessionNotes, loading or not and to set error if needed
   const [sessionNotes, setSessionNotes] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  // Use effect function to make prompt the user for their nickname, then fetch the reading notes based on that nickname
+  const [currentUsers_id, setCurrentUsers_id] = useState("");
+
+  // obtaining logged-in user's ID
+  const setUser = async () => {
+    try {
+      const user = await getCurrentUser();
+      setCurrentUsers_id(user.id);
+      console.log(`users_id currently set as: ${user.id}`);
+    } catch (error) {
+      setError(error);
+    }
+  };
+
+  useEffect(() => {
+    setUser();
+  }, []);
+
+  // Use effect function to GET data based on currently logged in user's id
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const userInput = prompt("What's your nickname?");
-        if (userInput) {
-          const notes = await fetchReadingNotes(userInput);
+        if (currentUsers_id) {
+          // Use the users_id as a search query in the GET request
+          const notes = await fetchReadingNotes(currentUsers_id);
           setSessionNotes(notes);
         }
       } catch (error) {
@@ -29,7 +48,8 @@ export default function WelcomePage() {
     };
 
     fetchData();
-  }, []);
+  }, [currentUsers_id]); // Include users_id in the dependency array to re-run the effect when users_id changes
+
   // return spinner whilst loading
   if (loading) {
     return <Spinner />;
@@ -39,13 +59,17 @@ export default function WelcomePage() {
     return <div>Error fetching reading notes: {error.message}</div>;
   }
   // destructure fetched data to pass down as props
-  const {
-    status,
-    data: [{ id, date, title, author, notes, users_id, nickname, avatar_img }],
-  } = sessionNotes;
+
+  // Simplify destructuring
+  let { nickname, avatar_img, title, author, notes } = {};
+  if (sessionNotes) {
+    ({
+      data: [{ nickname, avatar_img, title, author, notes }],
+    } = sessionNotes);
+  }
 
   return (
-    <VStack as='main' spacing={12} bg='#CAFFBF' p={3} m={0} minHeight='100vh'>
+    <VStack as="main" spacing={12} bg="#CAFFBF" p={3} m={0} minHeight="100vh">
       <Avatar avatar={avatar_img} />
       <Welcome nickname={nickname} />
       <ReadingNotes title={title} author={author} notes={notes} />
