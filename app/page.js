@@ -48,7 +48,7 @@ export default function Home() {
         alignContent="center"
         p={2}
         paddingBottom={isMobile ? 5 : 0}
-        border="1px solid black"
+        border="1px solid #747474"
         boxShadow="rgb(44, 62, 80) 0px -15px 15px -15px, rgb(44, 62, 80) 0px 15px 15px -15px;"
         ml={isMobile ? 2 : 0}
         mr={isMobile ? 2 : 0}
