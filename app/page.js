@@ -9,6 +9,9 @@ import {
   FormControl,
   FormLabel,
   Input,
+  IconButton,
+  InputGroup,
+  InputRightElement,
   Button,
   Divider,
   Image,
@@ -16,8 +19,52 @@ import {
   useBreakpointValue,
 } from '@chakra-ui/react';
 
+import { useState } from 'react';
+
 import { fonts } from './fonts';
 import { Link } from '@chakra-ui/next-js';
+
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
+
+// We could move this component to a separate file for readability
+function PasswordInput() {
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword((prevShowPassword) => !prevShowPassword);
+  };
+
+  return (
+    <FormControl width="90%">
+      <FormLabel fontSize={18} fontWeight="bold">
+        Password
+      </FormLabel>
+      <InputGroup>
+        <Input
+          placeholder="🔑 Your password"
+          rounded="none"
+          variant="filled"
+          type={showPassword ? 'text' : 'password'}
+          border="none"
+          borderBottom="2px solid #B596C8"
+          borderRadius={5}
+          _focus={{
+            bg: 'blue.50',
+            borderColor: '#B596C8',
+          }}
+        />
+        <InputRightElement>
+          <IconButton
+            aria-label={showPassword ? 'Hide Password' : 'Show Password'}
+            icon={showPassword ? <FaEyeSlash /> : <FaEye />}
+            onClick={togglePasswordVisibility}
+            variant="ghost"
+          />
+        </InputRightElement>
+      </InputGroup>
+    </FormControl>
+  );
+}
 
 export default function Home() {
   // Variable to guarantee responsiveness on different screen size
@@ -93,24 +140,7 @@ export default function Home() {
               }}
             />
           </FormControl>
-          <FormControl width="90%">
-            <FormLabel fontSize={18} fontWeight="bold">
-              Password
-            </FormLabel>
-            <Input
-              placeholder="🔑 Your password"
-              rounded="none"
-              variant="filled"
-              type="password"
-              border="none"
-              borderBottom="2px solid #B596C8"
-              borderRadius={5}
-              _focus={{
-                bg: 'blue.50',
-                borderColor: '#B596C8',
-              }}
-            />
-          </FormControl>
+          <PasswordInput />
           <Container
             display="flex"
             flexDirection="column"
@@ -119,6 +149,7 @@ export default function Home() {
             width="100%"
           >
             <Link href="/WelcomePage">
+              {/* Could move Button component to a separate file for readability */}
               <Button
                 padding="0.6em 2em"
                 borderRadius="10px"
