@@ -82,7 +82,7 @@ export default function WelcomePage() {
       <Avatar avatar={avatar_img || "test"} />
       <Welcome nickname={nickname || "test"} />
       <ReadingNotes
-        title={title || "test"}
+        title={title || false}
         author={author || "test"}
         notes={notes || "test"}
       />
