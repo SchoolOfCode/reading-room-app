@@ -47,8 +47,8 @@ export default function Home() {
         paddingBottom={isMobile ? 5 : 0}
         border="1px solid black"
         boxShadow="rgb(44, 62, 80) 0px -15px 15px -15px, rgb(44, 62, 80) 0px 15px 15px -15px;"
-        ml={2}
-        mr={2}
+        ml={isMobile ? 2 : 0}
+        mr={isMobile ? 2 : 0}
       >
         <VStack spacing={4} align="center" w="full" h="100%" mt={isMobile ? 0 : 10}>
           <VStack spacing={1} align="center" w="full">
