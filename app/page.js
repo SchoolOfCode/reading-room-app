@@ -15,10 +15,13 @@ import {
   Center,
   useBreakpointValue,
 } from '@chakra-ui/react';
+
 import { fonts } from './fonts';
 import { Link } from '@chakra-ui/next-js';
 
 export default function Home() {
+  // Variable to guarantee responsiveness on different screen size
+  // First value is for mobile size, second value is for computer size
   const isMobile = useBreakpointValue({ base: true, md: false });
 
   return (
@@ -31,15 +34,21 @@ export default function Home() {
       flexDirection="column"
       justifyContent="center"
       alignItems="center"
+      p={0}
     >
       <Box
-        w={['full', 'md']}
+        bg="white"
+        w={['auto', '75vh']}
+        h={['auto', '70vh']}
         borderRadius={10}
-        h="100%"
-        minH="100%"
         justifyContent="center"
         alignContent="center"
-        p={0}
+        p={2}
+        paddingBottom={isMobile ? 5 : 0}
+        border="1px solid black"
+        boxShadow="rgb(44, 62, 80) 0px -15px 15px -15px, rgb(44, 62, 80) 0px 15px 15px -15px;"
+        ml={2} // Add margin-left
+        mr={2} // Add margin-right
       >
         <VStack spacing={4} align="center" w="full" h="100%">
           <VStack spacing={1} align="center" w="full">
@@ -58,27 +67,30 @@ export default function Home() {
               size="xl"
               align="center"
               className={fonts.arvo.className}
-              fontSize={40}
-              mt={30}
+              fontSize={35}
             >
               Jolly good to see you again, my friend!
             </Heading>
-            <Text fontSize={18}>Enter your email and password to keep the fun going.</Text>
-            <Divider h="3px" borderColor="black"></Divider>
+            <Text fontSize={20} align="center">
+              Enter your email and password to keep the fun going. 🎉
+            </Text>
+            <Divider h="3px" width="95%" borderColor="black"></Divider>
           </VStack>
           <FormControl width="90%">
             <FormLabel fontSize={18} fontWeight="bold">
               E-mail
             </FormLabel>
             <Input
+              placeholder="📧 Your email address"
               rounded="none"
               variant="filled"
               type="email"
-              borderRadius={10}
-              borderColor="#747474"
+              border="none"
+              borderBottom="2px solid #B596C8"
+              borderRadius={5}
               _focus={{
                 bg: 'blue.50',
-                borderColor: '#747474',
+                borderColor: '#B596C8',
               }}
             />
           </FormControl>
@@ -87,14 +99,16 @@ export default function Home() {
               Password
             </FormLabel>
             <Input
+              placeholder="🔑 Your password"
               rounded="none"
               variant="filled"
               type="password"
-              borderRadius={10}
-              borderColor="#747474"
+              border="none"
+              borderBottom="2px solid #B596C8"
+              borderRadius={5}
               _focus={{
                 bg: 'blue.50',
-                borderColor: '#747474',
+                borderColor: '#B596C8',
               }}
             />
           </FormControl>
@@ -105,23 +119,66 @@ export default function Home() {
             alignItems="center"
             width="100%"
           >
-            <Link href="/WelcomePage" width="30%">
+            <Link href="/WelcomePage">
               <Button
-                width="100%"
-                rounded="none"
+                padding="0.6em 2em"
+                borderRadius="10px"
                 color="white"
-                borderRadius="5px"
-                border="2px solid #747474"
+                bg="#111"
+                position="relative"
+                zIndex="0"
+                userSelect="none"
+                webkitUserSelect="none"
+                touchAction="manipulation"
+                _before={{
+                  content: '""',
+                  background:
+                    'linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000)',
+                  position: 'absolute',
+                  top: '-2px',
+                  left: '-2px',
+                  backgroundSize: '400%',
+                  zIndex: '-1',
+                  filter: 'blur(5px)',
+                  webkitFilter: 'blur(5px)',
+                  width: 'calc(100% + 4px)',
+                  height: 'calc(100% + 4px)',
+                  animation: 'glowing-button 20s linear infinite',
+                  transition: 'opacity 0.3s ease-in-out',
+                  borderRadius: '10px',
+                }}
+                _after={{
+                  zIndex: '-1',
+                  content: '""',
+                  position: 'absolute',
+                  width: '100%',
+                  height: '100%',
+                  background: '#222',
+                  left: '0',
+                  top: '0',
+                  borderRadius: '10px',
+                }}
                 mt={5}
-                h={12}
+                h="40px"
                 fontSize={22}
-                bg="#B596C8"
               >
-                Sign up
+                Sign in
               </Button>
             </Link>
-            <Link href="/WelcomePage" width="30%">
-              <Button
+          </Container>
+          <Container
+            align="start"
+            display="flex"
+            flexDirection="row"
+            gap={2}
+            fontSize={20}
+            fontWeight="bold"
+            mt={isMobile ? 0 : 20}
+          >
+            <Text>Don't have an account?</Text>
+            <Link href="/WelcomePage">
+              <Text color="#C683D7">Sign up</Text>
+              {/* <Button
                 width="100%"
                 rounded="none"
                 color="white"
@@ -129,12 +186,12 @@ export default function Home() {
                 borderRadius="5px"
                 border="2px solid #747474"
                 mt={5}
-                h={12}
+                h={isMobile ? 8 : 12}
                 fontSize={22}
                 bg="#B596C8"
-              >
-                Sign in
-              </Button>
+              > */}
+              {/* Sign in */}
+              {/* </Button> */}
             </Link>
           </Container>
         </VStack>
