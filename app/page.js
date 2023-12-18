@@ -40,7 +40,7 @@ export default function Home() {
       <Box
         bg="white"
         maxW={['auto', '75vh']}
-        maxH={['auto', '70vh']}
+        maxH={['auto', 'auto']}
         borderRadius={10}
         justifyContent="center"
         alignContent="center"
@@ -115,7 +115,8 @@ export default function Home() {
             gap={2}
             fontSize={20}
             fontWeight="bold"
-            mt={isMobile ? 0 : 12}
+            mt={isMobile ? 0 : 8}
+            mb={isMobile ? 0 : 8}
           >
             <Text>Don't have an account?</Text>
             <Link href="/WelcomePage">
@@ -132,7 +133,10 @@ export default function Home() {
         p={4}
         textAlign={isMobile ? 'center' : 'left'}
       >
-        <Center>
+        <Center gap={2}>
+          <Text fontSize={20} fontWeight="bold">
+            Powered by
+          </Text>
           <Image src="the blurb.png" alt="The Blurb" fallbackSrc="" objectFit="cover" h={50} />
         </Center>
       </Box>
