@@ -9,9 +9,6 @@ import {
   FormControl,
   FormLabel,
   Input,
-  IconButton,
-  InputGroup,
-  InputRightElement,
   Button,
   Divider,
   Image,
@@ -19,52 +16,11 @@ import {
   useBreakpointValue,
 } from '@chakra-ui/react';
 
-import { useState } from 'react';
+import PasswordInput from './components/PasswordInput';
+import { GlowingButton } from './components/SignInButton';
 
 import { fonts } from './fonts';
 import { Link } from '@chakra-ui/next-js';
-
-import { FaEye, FaEyeSlash } from 'react-icons/fa';
-
-// We could move this component to a separate file for readability
-function PasswordInput() {
-  const [showPassword, setShowPassword] = useState(false);
-
-  const togglePasswordVisibility = () => {
-    setShowPassword((prevShowPassword) => !prevShowPassword);
-  };
-
-  return (
-    <FormControl width="90%">
-      <FormLabel fontSize={18} fontWeight="bold">
-        Password
-      </FormLabel>
-      <InputGroup>
-        <Input
-          placeholder="🔑 Your password"
-          rounded="none"
-          variant="filled"
-          type={showPassword ? 'text' : 'password'}
-          border="none"
-          borderBottom="2px solid #B596C8"
-          borderRadius={5}
-          _focus={{
-            bg: 'blue.50',
-            borderColor: '#B596C8',
-          }}
-        />
-        <InputRightElement>
-          <IconButton
-            aria-label={showPassword ? 'Hide Password' : 'Show Password'}
-            icon={showPassword ? <FaEyeSlash /> : <FaEye />}
-            onClick={togglePasswordVisibility}
-            variant="ghost"
-          />
-        </InputRightElement>
-      </InputGroup>
-    </FormControl>
-  );
-}
 
 export default function Home() {
   // Variable to guarantee responsiveness on different screen size
@@ -149,51 +105,7 @@ export default function Home() {
             width="100%"
           >
             <Link href="/WelcomePage">
-              {/* Could move Button component to a separate file for readability */}
-              <Button
-                padding="0.6em 2em"
-                borderRadius="10px"
-                color="white"
-                bg="#111"
-                position="relative"
-                zIndex="0"
-                userSelect="none"
-                webkitUserSelect="none"
-                touchAction="manipulation"
-                _before={{
-                  content: '""',
-                  background:
-                    'linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000)',
-                  position: 'absolute',
-                  top: '-2px',
-                  left: '-2px',
-                  backgroundSize: '400%',
-                  zIndex: '-1',
-                  filter: 'blur(5px)',
-                  webkitFilter: 'blur(5px)',
-                  width: 'calc(100% + 4px)',
-                  height: 'calc(100% + 4px)',
-                  animation: 'glowing-button 20s linear infinite',
-                  transition: 'opacity 0.3s ease-in-out',
-                  borderRadius: '10px',
-                }}
-                _after={{
-                  zIndex: '-1',
-                  content: '""',
-                  position: 'absolute',
-                  width: '100%',
-                  height: '100%',
-                  background: '#222',
-                  left: '0',
-                  top: '0',
-                  borderRadius: '10px',
-                }}
-                mt={5}
-                h="40px"
-                fontSize={22}
-              >
-                Sign in
-              </Button>
+              <GlowingButton />
             </Link>
           </Container>
           <Container
@@ -208,20 +120,6 @@ export default function Home() {
             <Text>Don't have an account?</Text>
             <Link href="/WelcomePage">
               <Text color="#C683D7">Sign up</Text>
-              {/* <Button
-                width="100%"
-                rounded="none"
-                color="white"
-                colorScheme="blackAlpha"
-                borderRadius="5px"
-                border="2px solid #747474"
-                mt={5}
-                h={isMobile ? 8 : 12}
-                fontSize={22}
-                bg="#B596C8"
-              > */}
-              {/* Sign in */}
-              {/* </Button> */}
             </Link>
           </Container>
         </VStack>
