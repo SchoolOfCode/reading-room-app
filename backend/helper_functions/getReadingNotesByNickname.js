@@ -9,7 +9,7 @@ export async function getReadingNotesByNickname(userNickname) {
     ON reading_notes.users_id = users.id
     INNER JOIN avatars
     ON reading_notes.users_id = avatars.users_id
-    WHERE users.id = $1`;
+    WHERE users.nickname = $1`;
 
     // Use the pool object to send the query to the database
     const result = await pool.query(queryText, [userNickname]);
