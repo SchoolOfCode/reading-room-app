@@ -39,8 +39,8 @@ export default function Home() {
     >
       <Box
         bg="white"
-        w={['auto', '75vh']}
-        h={['auto', '70vh']}
+        maxW={['auto', '75vh']}
+        maxH={['auto', '70vh']}
         borderRadius={10}
         justifyContent="center"
         alignContent="center"
@@ -51,32 +51,32 @@ export default function Home() {
         ml={isMobile ? 2 : 0}
         mr={isMobile ? 2 : 0}
       >
-        <VStack spacing={4} align="center" w="full" h="100%" mt={isMobile ? 0 : 10}>
-          <VStack spacing={1} align="center" w="full">
-            <Image
-              src="RaadingRoomLogo.png"
-              alt="The Reading Room Logo"
-              fallbackSrc="https://ibb.co/pKDxgyG"
-              boxSize="100px"
-              objectFit="cover"
-              h={150}
-              w={150}
-            />
-            <Heading
-              as="h1"
-              size="xl"
-              align="center"
-              width="95%"
-              className={fonts.arvo.className}
-              fontSize={35}
-            >
-              Jolly good to see you again, my friend!
-            </Heading>
-            <Text fontSize={20} align="center" width="95%">
-              Enter your email and password to keep the fun going. 🎉
-            </Text>
-            <Divider h="3px" width="95%" borderColor="#747474"></Divider>
-          </VStack>
+        <VStack spacing={3} align="center" w="auto" h="auto">
+          {/* <VStack spacing={1} align="center" w="full"> */}
+          <Image
+            src="RaadingRoomLogo.png"
+            alt="The Reading Room Logo"
+            fallbackSrc="https://ibb.co/pKDxgyG"
+            boxSize="100px"
+            objectFit="cover"
+            h={150}
+            w={150}
+          />
+          <Heading
+            as="h1"
+            size="xl"
+            align="center"
+            width="95%"
+            className={fonts.arvo.className}
+            fontSize={35}
+          >
+            Jolly good to see you again, my friend!
+          </Heading>
+          <Text fontSize={20} align="center" width="95%">
+            Enter your email and password to keep the fun going. 🎉
+          </Text>
+          <Divider h="3px" width="95%" borderColor="#747474"></Divider>
+          {/* </VStack> */}
           <FormControl width="90%">
             <FormLabel fontSize={18} fontWeight="bold">
               E-mail

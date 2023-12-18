@@ -1,19 +1,20 @@
 // DO NOT DELETE THIS FILE FOR THE LOVE OF GOD
 
-'use client';
-
 import { GlowingButton } from '@/app/components/SignInButton';
 
 import {
   Container,
-  Box,
   VStack,
+  HStack,
   Heading,
   FormControl,
   FormLabel,
   Input,
+  Button,
   Link,
+  Text,
   useBreakpointValue,
+  Textarea,
 } from '@chakra-ui/react';
 
 import { fonts } from '@/app/fonts';
@@ -24,7 +25,14 @@ const BookForm = () => {
 
   return (
     <>
-      <VStack spacing={4} align="center" w="full" h="100%" mt={isMobile ? 0 : 10}>
+      <VStack
+        spacing={4}
+        align="center"
+        w="full"
+        h="100%"
+        mt={isMobile ? 0 : 10}
+        mb={isMobile ? 0 : 10}
+      >
         <VStack spacing={1} align="center" w="full">
           <Heading
             as="h1"
@@ -33,6 +41,7 @@ const BookForm = () => {
             width="95%"
             className={fonts.arvo.className}
             fontSize={35}
+            mt="20px"
           >
             Fill out your thoughts 🎉
           </Heading>
@@ -42,16 +51,16 @@ const BookForm = () => {
             Title
           </FormLabel>
           <Input
-            placeholder="📧 Your email address"
+            placeholder="Title?"
             rounded="none"
             variant="filled"
             type="email"
             border="none"
-            borderBottom="2px solid #B596C8"
+            borderBottom="2px solid #747474"
             borderRadius={5}
             _focus={{
               bg: 'blue.50',
-              borderColor: '#B596C8',
+              borderBottomColor: '#747474',
             }}
           />
         </FormControl>
@@ -60,16 +69,16 @@ const BookForm = () => {
             Author
           </FormLabel>
           <Input
-            placeholder="📧 Your email address"
+            placeholder="Author?"
             rounded="none"
             variant="filled"
             type="email"
             border="none"
-            borderBottom="2px solid #B596C8"
+            borderBottom="2px solid #747474"
             borderRadius={5}
             _focus={{
               bg: 'blue.50',
-              borderColor: '#B596C8',
+              borderBottomColor: '#747474',
             }}
           />
         </FormControl>
@@ -77,20 +86,27 @@ const BookForm = () => {
           <FormLabel fontSize={18} fontWeight="bold">
             Reading Notes
           </FormLabel>
-          <Input
-            placeholder="📧 Your email address"
+          <Textarea
+            placeholder="Your reflections?"
             rounded="none"
             variant="filled"
             type="email"
             border="none"
-            borderBottom="2px solid #B596C8"
+            borderBottom="2px solid #747474"
             borderRadius={5}
             _focus={{
               bg: 'blue.50',
-              borderColor: '#B596C8',
+              borderBottomColor: '#747474',
             }}
           />
         </FormControl>
+        <HStack spacing={4} mt={4}>
+          <Text fontWeight="bold" fontSize={18}>
+            Did you enjoy the reading session?
+          </Text>
+          <Button colorScheme="green">👍</Button>
+          <Button colorScheme="red"> 👎</Button>
+        </HStack>
         <Container
           display="flex"
           flexDirection="column"

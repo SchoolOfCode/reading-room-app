@@ -34,9 +34,9 @@ const ReadThoughtsButton = () => {
       <Modal isOpen={isOpen} onClose={handleClose}>
         <ModalOverlay />
         <ModalContent
-          bg="white"
-          w={['auto', '75vh']}
-          h={['auto', '70vh']}
+          bg="#FFBF72"
+          maxW={['auto', '75vh']}
+          maxH={['auto', '150vh']}
           borderRadius={10}
           justifyContent="center"
           alignContent="center"
