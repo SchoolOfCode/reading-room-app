@@ -80,8 +80,8 @@ export default function WelcomePage() {
 
   return (
     <VStack as="main" spacing={12} bg="#CAFFBF" p={3} m={0} minHeight="100vh">
-      <Avatar avatar={avatar_img || "test"} />
-      <Welcome nickname={nickname || "test"} />
+      <Avatar avatar={avatar_img || "Miffy.png"} />
+      <Welcome nickname={nickname || "friend!"} />
       <ReadingNotes
         title={title || false}
         author={author || "test"}
