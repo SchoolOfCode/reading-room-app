@@ -12,6 +12,8 @@ import {
   Divider,
   Image,
   Center,
+  InputGroup,
+  InputLeftElement,
   useBreakpointValue,
 } from '@chakra-ui/react';
 
@@ -81,19 +83,23 @@ export default function Home() {
             <FormLabel fontSize={18} fontWeight="bold">
               E-mail
             </FormLabel>
-            <Input
-              placeholder="📧 Your email address"
-              rounded="none"
-              variant="filled"
-              type="email"
-              border="none"
-              borderBottom="2px solid #B596C8"
-              borderRadius={5}
-              _focus={{
-                bg: 'blue.50',
-                borderColor: '#B596C8',
-              }}
-            />
+            <InputGroup>
+              <InputLeftElement pointerEvents="none">📧</InputLeftElement>
+              <Input
+                placeholder="Your email address"
+                rounded="none"
+                variant="filled"
+                type="email"
+                border="none"
+                borderBottom="2px solid #B596C8"
+                borderRadius={5}
+                _focus={{
+                  bg: 'blue.50',
+                  borderColor: '#B596C8',
+                }}
+                required
+              />
+            </InputGroup>
           </FormControl>
           <PasswordInput />
           <Container

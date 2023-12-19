@@ -1,5 +1,3 @@
-'use client';
-
 import {
   FormControl,
   FormLabel,
@@ -7,6 +5,7 @@ import {
   IconButton,
   InputGroup,
   InputRightElement,
+  InputLeftElement,
 } from '@chakra-ui/react';
 
 import { useState } from 'react';
@@ -26,8 +25,9 @@ export default function PasswordInput() {
         Password
       </FormLabel>
       <InputGroup>
+        <InputLeftElement pointerEvents="none">🔑</InputLeftElement>
         <Input
-          placeholder="🔑 Your password"
+          placeholder="Your password"
           rounded="none"
           variant="filled"
           type={showPassword ? 'text' : 'password'}
