@@ -7,9 +7,8 @@ import {
   Modal,
   ModalOverlay,
   ModalContent,
-  ModalHeader,
   ModalCloseButton,
-  ModalBody,
+  useBreakpointValue,
 } from '@chakra-ui/react';
 import BookForm from './BookForm';
 
@@ -24,6 +23,8 @@ const ReadThoughtsButton = () => {
     setIsOpen(false);
   };
 
+  const isMobile = useBreakpointValue({ base: true, md: false });
+
   return (
     <>
       <Heading as="h3" fontSize={18} fontWeight="bold" style={{ color: 'black' }}>
@@ -35,12 +36,22 @@ const ReadThoughtsButton = () => {
 
       <Modal isOpen={isOpen} onClose={handleClose}>
         <ModalOverlay />
-        <ModalContent>
-          <ModalHeader style={{ color: 'black' }}>Fill out your thoughts</ModalHeader>
+        <ModalContent
+          bg="#FFBF72"
+          maxW={['auto', '75vh']}
+          maxH={['auto', '150vh']}
+          borderRadius={10}
+          justifyContent="center"
+          alignContent="center"
+          p={2}
+          paddingBottom={isMobile ? 5 : 0}
+          border="1px solid #747474"
+          boxShadow="rgb(44, 62, 80) 0px -15px 15px -15px, rgb(44, 62, 80) 0px 15px 15px -15px;"
+          ml={isMobile ? 2 : 0}
+          mr={isMobile ? 2 : 0}
+        >
           <ModalCloseButton />
-          <ModalBody>
-            <BookForm onClose={handleClose} color="black" />
-          </ModalBody>
+          <BookForm onClose={handleClose} color="black" />
         </ModalContent>
       </Modal>
     </>
