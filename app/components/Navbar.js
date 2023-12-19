@@ -34,7 +34,7 @@ export default function Navbar() {
             bg='#CAFFBF'
             border='1px solid #747474' // Added border due to light colours blending to the background
             height='7px'
-            mr='2px'
+            mr='5px'
             display={activePage === 'WP' ? 'block' : 'none'}
           />
         </Link>
@@ -50,7 +50,7 @@ export default function Navbar() {
             bg='#FFD6A5'
             border='1px solid #747474'
             height='7px'
-            mr='2px'
+            mr='5px'
             mt='2px'
             display={activePage === 'RR' ? 'block' : 'none'}
           />
@@ -68,7 +68,7 @@ export default function Navbar() {
             bg='#FDFFAB'
             border='1px solid #747474'
             height='7px'
-            mr='2px'
+            mr='5px'
             mt='2px'
             display={activePage === 'A' ? 'block' : 'none'}
           />
