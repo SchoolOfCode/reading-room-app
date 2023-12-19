@@ -28,11 +28,11 @@ const ReadThoughtsButton = () => {
 
   return (
     <>
-      <Heading as="h3" fontSize={18} fontWeight="bold" style={{ color: 'black' }} className={fonts.arvo.className}>
+      {/* <Heading as="h3" fontSize={18} fontWeight="bold" style={{ color: 'black' }} className={fonts.arvo.className}>
         Finished Reading?
-      </Heading>
+      </Heading> */}
       <Button onClick={handleOpen} colorScheme="blackAlpha" color="white" className={fonts.arvo.className}>
-        Write down your thoughts...
+        Finished Reading?
       </Button>
 
       <Modal isOpen={isOpen} onClose={handleClose}>

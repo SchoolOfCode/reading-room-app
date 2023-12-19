@@ -96,6 +96,7 @@ const StopWatch = () => {
         color="#1f1f1f"
         marginBottom="10px"
         className={fonts.arvo.className}
+      
       >
         Want A Challenge? - Time Your Reading
       </Text>
@@ -108,6 +109,7 @@ const StopWatch = () => {
         borderRadius="5px"
         padding="5px"
         className={fonts.arvo.className}
+        bgColor="whitesmoke"
       >
         {formattedHours}:{formattedMinutes}:{formattedSeconds}
       </Text>
@@ -121,7 +123,7 @@ const StopWatch = () => {
               fontSize: "16px",
               color: "#F34213",
               cursor: "pointer",
-              backgroundColor: "#F3E5AB",
+              backgroundColor: "#FFADAD",
             }}
             onClick={pauseStopwatch}
           >
@@ -137,7 +139,7 @@ const StopWatch = () => {
                 fontSize: "16px",
                 color: "#F34213",
                 cursor: "pointer",
-                backgroundColor: "#F3E5AB",
+                backgroundColor: "#CAFFBF",
               }}
               onClick={startStopwatch}
             >
@@ -151,7 +153,7 @@ const StopWatch = () => {
                 fontSize: "16px",
                 color: "#F34213",
                 cursor: "pointer",
-                backgroundColor: "#F3E5AB",
+                backgroundColor: "#BDB2FF",
               }}
               onClick={resetStopwatch}
             >
@@ -168,7 +170,7 @@ const StopWatch = () => {
               fontSize: "16px",
               color: "#F34213",
               cursor: "pointer",
-              backgroundColor: "#F3E5AB",
+              backgroundColor: "#FDFFAB",
             }}
             onClick={resumeStopwatch}
           >
