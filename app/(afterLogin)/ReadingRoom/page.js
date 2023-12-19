@@ -12,13 +12,7 @@ import styles from './ReadingRoom.module.css';
 export default function ReadingRoom() {
   return (
     <div className={styles.Reading_Room_page}>
-      {/* <Container bg="#FFD6A5" minW="100%" align="right" p={5}> */}
-      {/* <Button>
-          <Link className='returnButton' href='/'>
-            Log out
-          </Link>
-        </Button> */}
-      {/* </Container> */}
+      {/* Added 'pt' so that the body doesn't hide behind topbar */}
       <VStack as="main" spacing={10} bg="#FFD6A5" minHeight="100vh" pt="80px">
         <Heading m={5} className={fonts.arvo.className} textAlign="center">
           Welcome to the Reading Room
