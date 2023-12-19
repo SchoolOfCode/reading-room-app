@@ -15,6 +15,8 @@ import {
   Textarea,
   HStack,
   Text,
+  InputGroup,
+  InputLeftElement,
 } from '@chakra-ui/react';
 
 import { fonts } from '@/app/fonts';
@@ -50,56 +52,77 @@ export const BookForm = () => {
           <FormLabel fontSize={18} fontWeight="bold">
             Title
           </FormLabel>
-          <Input
-            placeholder="Title the book you're exploring 🐉"
-            rounded="none"
-            variant="filled"
-            type="email"
-            border="none"
-            borderBottom="2px solid #747474"
-            borderRadius={5}
-            _focus={{
-              bg: 'blue.50',
-              borderBottomColor: '#747474',
-            }}
-          />
+          <InputGroup>
+            <InputLeftElement pointerEvents="none">🐉</InputLeftElement>
+            <Input
+              placeholder="Title of the book you're exploring"
+              rounded="none"
+              variant="filled"
+              type="email"
+              border="none"
+              borderBottom="2px solid #747474"
+              borderRadius={5}
+              _focus={{
+                bg: 'blue.50',
+                borderBottomColor: '#747474',
+              }}
+            />
+          </InputGroup>
         </FormControl>
         <FormControl width="90%">
           <FormLabel fontSize={18} fontWeight="bold">
             Author
           </FormLabel>
-          <Input
-            placeholder="Author of the book you're exploring 🖋️"
-            rounded="none"
-            variant="filled"
-            type="email"
-            border="none"
-            borderBottom="2px solid #747474"
-            borderRadius={5}
-            _focus={{
-              bg: 'blue.50',
-              borderBottomColor: '#747474',
-            }}
-          />
+          <InputGroup>
+            <InputLeftElement pointerEvents="none">🖋️</InputLeftElement>
+            <Input
+              placeholder="Author of the book you're exploring"
+              rounded="none"
+              variant="filled"
+              type="email"
+              border="none"
+              borderBottom="2px solid #747474"
+              borderRadius={5}
+              _focus={{
+                bg: 'blue.50',
+                borderBottomColor: '#747474',
+              }}
+            />
+          </InputGroup>
         </FormControl>
         <FormControl width="90%">
           <FormLabel fontSize={18} fontWeight="bold">
             Reading Notes
           </FormLabel>
-          <Textarea
-            placeholder="Share your favorite moments and thoughts from today's adventure! 📝"
-            rounded="none"
-            variant="filled"
-            type="email"
-            border="none"
-            borderBottom="2px solid #747474"
-            borderRadius={5}
-            _focus={{
-              bg: 'blue.50',
-              borderBottomColor: '#747474',
-            }}
-          />
+          <InputGroup>
+            <InputLeftElement
+              pointerEvents="none"
+              color="gray.500"
+              fontSize="1.2em"
+              position="absolute"
+              zIndex="1"
+              ml="0.1em"
+              mt="0.2em"
+            >
+              📝
+            </InputLeftElement>
+            <Textarea
+              placeholder="Share your favorite moments and thoughts from today's adventure!"
+              rounded="none"
+              variant="filled"
+              type="text"
+              border="none"
+              borderBottom="2px solid #747474"
+              borderRadius={5}
+              pl="2.5em"
+              _focus={{
+                bg: 'blue.50',
+                borderBottomColor: '#747474',
+              }}
+            />
+          </InputGroup>
         </FormControl>
+        ;
         <HStack spacing={4} mt={4} ml={4} mr={4}>
           <Text fontWeight="bold" fontSize={18}>
             Did you enjoy the reading session?
