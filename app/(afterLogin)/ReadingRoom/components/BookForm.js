@@ -1,7 +1,8 @@
 // DO NOT DELETE THIS FILE FOR THE LOVE OF GOD
 
-import React from 'react';
-import { SubmitButton } from './SubmitButton';
+"use client";
+import React from "react";
+import { SubmitButton } from "./SubmitButton";
 
 import {
   Container,
@@ -17,9 +18,9 @@ import {
   Text,
   InputGroup,
   InputLeftElement,
-} from '@chakra-ui/react';
+} from "@chakra-ui/react";
 
-import { fonts } from '@/app/fonts';
+import { fonts } from "@/app/fonts";
 
 export const BookForm = () => {
   // Variable to guarantee responsiveness on different screen size
@@ -63,8 +64,8 @@ export const BookForm = () => {
               borderBottom="2px solid #747474"
               borderRadius={5}
               _focus={{
-                bg: 'blue.50',
-                borderBottomColor: '#747474',
+                bg: "blue.50",
+                borderBottomColor: "#747474",
               }}
             />
           </InputGroup>
@@ -84,8 +85,8 @@ export const BookForm = () => {
               borderBottom="2px solid #747474"
               borderRadius={5}
               _focus={{
-                bg: 'blue.50',
-                borderBottomColor: '#747474',
+                bg: "blue.50",
+                borderBottomColor: "#747474",
               }}
             />
           </InputGroup>
@@ -116,8 +117,8 @@ export const BookForm = () => {
               borderRadius={5}
               pl="2.5em"
               _focus={{
-                bg: 'blue.50',
-                borderBottomColor: '#747474',
+                bg: "blue.50",
+                borderBottomColor: "#747474",
               }}
             />
           </InputGroup>
