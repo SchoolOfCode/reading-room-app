@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import {
+  Heading,
   Button,
   Modal,
   ModalOverlay,
@@ -26,7 +27,9 @@ const ReadThoughtsButton = () => {
 
   return (
     <>
-      <h3 style={{ color: 'black' }}>Done reading? Fill out your thoughts...</h3>
+      <Heading as="h3" fontSize={18} fontWeight="bold" style={{ color: 'black' }}>
+        Done reading?
+      </Heading>
       <Button onClick={handleOpen} colorScheme="blackAlpha" color="white">
         Fill out your thoughts...
       </Button>
