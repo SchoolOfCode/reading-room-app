@@ -19,7 +19,9 @@ import {
   Center,
   InputGroup,
   InputLeftElement,
+  InputRightElement,
   useBreakpointValue,
+  IconButton,
 } from "@chakra-ui/react";
 
 import PasswordInput from "./components/PasswordInput";
@@ -27,6 +29,8 @@ import { GlowingButton } from "./components/SignInButton";
 
 import { fonts } from "./fonts";
 import { Link } from "@chakra-ui/next-js";
+import { useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 export default function Home() {
   const [email, setEmail] = useState("");
