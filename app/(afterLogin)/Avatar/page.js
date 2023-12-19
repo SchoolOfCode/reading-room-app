@@ -1,24 +1,24 @@
 'use client';
 
 import React, { useState } from 'react';
-import Avatar from './components/Avatar';
-import Backdrop from './components/Backdrop';
+import Avatar from './components/Avatar.js';
+import Backdrop from './components/Backdrop.js';
 //import accessories
-import Shades from './components/Shades';
-import PixelShades from './components/Pixelshades';
-import LoveShades from './components/LoveHeartShades';
-import Cap from './components/Cap';
-import Scarf from './components/Scarf';
-import Sunhat from './components/Sunhat';
-import TopHat from './components/Tophat';
+import Shades from './components/Shades.js';
+import PixelShades from './components/Pixelshades.js';
+import LoveShades from './components/LoveHeartShades.js';
+import Cap from './components/Cap.js';
+import Scarf from './components/Scarf.js';
+import Sunhat from './components/Sunhat.js';
+import TopHat from './components/Tophat.js';
 // Avatar wearing accessories
-import AvatarWearingShades from './components/MiffyShades';
-import AvatarWearingLoveShades from './components/MiffyLoveHearts';
-import AvatarWearingPixelShades from './components/MiffyPixelShades';
-import AvatarWearingCap from './components/MiffyCap';
-import AvatarWearingScarf from './components/MiffyScarf';
-import AvatarWearingTopHat from './components/MiffyTopHat';
-import AvatarWearingSunhat from './components/MiffySunhat';
+import AvatarWearingShades from './components/MiffyShades.js';
+import AvatarWearingLoveShades from './components/MiffyLoveHearts.js';
+import AvatarWearingPixelShades from './components/MiffyPixelShades.js';
+import AvatarWearingCap from './components/MiffyCap.js';
+import AvatarWearingScarf from './components/MiffyScarf.js';
+import AvatarWearingTopHat from './components/MiffyTopHat.js';
+import AvatarWearingSunhat from './components/MiffySunhat.js';
 
 const CharacterPage = () => {
   const [characterImage, setCharacterImage] = useState('Miffy.png');
