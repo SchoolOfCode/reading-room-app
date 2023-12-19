@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Avatar from './components/Avatar.js';
 import Backdrop from './components/Backdrop.js';
 //import accessories
@@ -20,10 +20,13 @@ import AvatarWearingScarf from './components/MiffyScarf.js';
 import AvatarWearingTopHat from './components/MiffyTopHat.js';
 import AvatarWearingSunhat from './components/MiffySunhat.js';
 //arrows for navigating through gallery//
+import { FaArrowCircleLeft } from "react-icons/fa";
+import { FaArrowCircleRight } from "react-icons/fa";
+
 
 const CharacterPage = () => {
   const [characterImage, setCharacterImage] = useState('Miffy.png');
-  const [selectedAccessoryIndex, setSelectedAccessoryIndex] = useState(null);
+  const [selectedAccessoryIndex, setSelectedAccessoryIndex] = useState(0);
   const accessories = ['shades', 'loveShades', 'pixelShades', 'cap', 'scarf', 'tophat', 'sunhat'];
 
   const accessoryImages = {
@@ -57,109 +60,87 @@ const CharacterPage = () => {
   };
 
   const handleApplyAccessory = () => {
-    if (selectedAccessoryIndex !== null) {
-      const selectedAccessory = accessories[selectedAccessoryIndex];
-      const imageWithAccessory =
-        wearingAccessoryIndex[
-          `miffyWearing${selectedAccessory.charAt(0).toUpperCase() + selectedAccessory.slice(1)}`
-        ];
-      setCharacterImage(imageWithAccessory || 'Miffy.png');
-    }
+    const selectedAccessory = accessories[selectedAccessoryIndex];
+    const imageWithAccessory = wearingAccessoryIndex[`miffyWearing${selectedAccessory.charAt(0).toUpperCase() + selectedAccessory.slice(1)}`];
+    setCharacterImage(imageWithAccessory || 'Miffy.png');
   };
 
   const handleRemoveAccessory = () => {
     setCharacterImage('Miffy.png');
     setSelectedAccessoryIndex(null);
+    handleApplyAccessory();
   };
-  
+
+  useEffect(() => {
+    const randomIndex = Math.floor(Math.random() * accessories.length);
+    setSelectedAccessoryIndex(randomIndex);
+    handleApplyAccessory('Miffy_shades.png'); 
+  }, []);
+
   return (
     <div style={{ backgroundColor: '#FDFFB6', padding: '2rem' }}>
       <h2 style={{ textAlign: 'center', margin: '5px', fontSize: '2rem' }}>
         Choose an accessory for Miffy
       </h2>
-
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          flexDirection: 'column',
-        }}
-      >
-        {/* Navigation Arrows */}
-        <div style={{ display: 'flex', alignItems: 'center', marginBottom: '20px' }}>
-          <button
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
+        <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px', position: 'relative' }}>
+          <FaArrowCircleLeft
             onClick={handlePrevAccessory}
             style={{
               background: 'none',
               border: 'none',
               fontSize: '2rem',
               cursor: 'pointer',
-              marginRight: '20px',
+              position: 'absolute',
+              left: '-5rem',
+              top: '50%',
+              transform: 'translateY(-50%)',
             }}
-          >
-            &lt;
-          </button>
-
-          {/* Spacing */}
-          <div style={{ width: '100px' }}></div>
-
-          {/* Box for Accessories */}
+          />
+          <div style={{ width: '2rem' }}></div>
           <div
             style={{
               border: '2px solid black',
               borderRadius: '8px',
-              padding: '20px',
+              padding: '2rem',
               position: 'relative',
-              width: 'fit-content', // Adjust this width as needed
+              width: 'fit-content', 
             }}
           >
-            {/* Accessory Display */}
-            {selectedAccessoryIndex !== null && (
-              <img
-                src={`./${accessoryImages[accessories[selectedAccessoryIndex]]}`}
-                alt='Accessory'
-                style={{ width: '100px', height: '100px', margin: '5px' }}
-              />
-            )}
-            {/* Apply and Remove buttons */}
-            {selectedAccessoryIndex !== null && (
-              <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
-                <button onClick={handleApplyAccessory} style={{ margin: '5px' }}>
-                  Apply
-                </button>
-                <button onClick={handleRemoveAccessory} style={{ margin: '5px' }}>
-                  Remove
-                </button>
-              </div>
-            )}
+            <img
+              src={`./${accessoryImages[accessories[selectedAccessoryIndex]]}`}
+              alt='Accessory'
+              style={{ width: '100px', height: '100px', margin: '5px' }}
+            />
           </div>
-
-          {/* Spacing */}
-          <div style={{ width: '100px' }}></div>
-
-          <button
+          <FaArrowCircleRight
             onClick={handleNextAccessory}
             style={{
               background: 'none',
               border: 'none',
               fontSize: '2rem',
               cursor: 'pointer',
-              marginLeft: '20px',
+              position: 'absolute',
+              right: '-5rem',
+              top: '50%',
+              transform: 'translateY(-50%)',
             }}
-          >
-            &gt;
-          </button>
+          />
         </div>
-
-        {/* Miffy Avatar */}
+        {selectedAccessoryIndex !== null && (
+          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
+            <button onClick={handleApplyAccessory} style={{ margin: '5px' }}>
+              Apply
+            </button>
+            <button onClick={handleRemoveAccessory} style={{ margin: '5px' }}>
+              Remove
+            </button>
+          </div>
+        )}
         <div style={{ display: 'flex', justifyContent: 'center', position: 'relative' }}>
-          {/* Background image */}
-          <img src='./Backdrop.png' alt='Background' style={{ position: 'absolute', width: '400px', height: '400px', zIndex: -1, objectFit: 'cover' }} />
-          {/* Miffy avatar */}
           <img src={`./${characterImage}`} alt='Avatar' style={{ width: '400px', height: '400px' }} />
         </div>
-      </div>
+      </div>  
     </div>
   );
 };
