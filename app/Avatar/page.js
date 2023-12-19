@@ -35,73 +35,69 @@ const avatarImagesWithAccessories = {
   loveShades: 'Miffy_lovehearts.png',
   pixelShades: 'Miffy_pixel_shades.png',
   cap: 'Miffy_cap.png',
-  scarf: 'Miffy_scarf_orange.png',
-  topHat: 'Miffy_tophat.png',
+  scarf: 'Miffy_orange_scarf.png',
+  tophat: 'Miffy_top_hat.png',
   sunhat: 'Miffy_Sunhat.png',
 };
 
 const CharacterPage = () => {
-  const [selectedAccessory, setSelectedAccessory] = useState(null);
   const [characterImage, setCharacterImage] = useState('Miffy.png');
-
-  const handleAccessoryClick = (accessory) => {
-    setSelectedAccessory(accessory);
-    setCharacterImage(avatarImagesWithAccessories[accessory] || 'Miffy.png'); // Update character image based on selected accessory
-  };
-
   const accessories = ['shades', 'loveShades', 'pixelShades', 'cap', 'scarf', 'tophat', 'sunhat'];
 
+  const handleAccessoryClick = (accessory) => {
+    setCharacterImage(avatarImagesWithAccessories[accessory] || 'Miffy.png');
+  };
+  const handleRemoveAccessories = () => {
+        setCharacterImage('Miffy.png');
+  };
   return (
-    <div>
-      {/* Render the backdrop with the background image */}
-      <Backdrop backgroundImage="Backdrop.png" />
-
-      {/* Render selected character image */}
-      <img src={characterImage} alt="Avatar" style={{ width: '200px', height: '300px' }} />
-
-      {/* Display accessories */}
-      <div>
-        {/* Render accessories above the avatar */}
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
-          {accessories.slice(0, 4).map((accessory, index) => (
-            <img
-              key={index}
-              src={accessoryImages[accessory]} // Render the accessory images
-              alt={accessory}
-              style={{ width: '50px', height: '50px', cursor: 'pointer', margin: '5px' }}
-              onClick={() => handleAccessoryClick(accessory)}
-            />
-          ))}
-        </div>
-
-        {/* Render avatar with selected accessory */}
-        <div style={{ position: 'relative', textAlign: 'center' }}>
-          {selectedAccessory !== null && (
-            <div style={{ position: 'relative' }}>
-              <img
-                src={avatarImagesWithAccessories[selectedAccessory] || 'Avatar.png'}
-                alt="Avatar"
-                style={{ width: '100px', height: '100px' }}
-              />
-            </div>
-          )}
-        </div>
-
-        {/* Render accessories below the avatar */}
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
-          {accessories.slice(4).map((accessory, index) => (
-            <img
-              key={index}
-              src={accessoryImages[accessory]} // Render the accessory images
-              alt={accessory}
-              style={{ width: '50px', height: '50px', cursor: 'pointer', margin: '5px' }}
-              onClick={() => handleAccessoryClick(accessory)}
-            />
-          ))}
-        </div>
+    <div style={{ backgroundColor: '#FDFFB6', padding: '2rem', position: 'relative' }}>
+      <h2 style={{ textAlign: 'center', margin: '5px', fontSize: '2rem' }}>Choose an accessory for Miffy</h2>
+  
+      {/* Accessories */}
+      <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '2rem' }}>
+        {accessories.map((accessory, index) => (
+          <img
+            key={index}
+            src={accessoryImages[accessory]}
+            alt={accessory}
+            style={{ width: '80px', height: '80px', cursor: 'pointer', margin: '30px' }}
+            onClick={() => handleAccessoryClick(accessory)}
+          />
+        ))}
+      </div>
+  
+      {/* Remove button */}
+      <button
+  style={{
+    backgroundColor: 'grey',
+    color: 'white',
+    border: 'none',
+    padding: '10px',
+    cursor: 'pointer',
+  }}
+  onClick={handleRemoveAccessories} >
+  Remove accessories
+</button>
+  
+      {/* Miffy avatar */}
+      <div style={{ display: 'flex', justifyContent: 'center', position: 'relative' }}>
+        {/* Background image */}
+        <img
+          src="./Backdrop.png" 
+          alt="Background"
+          style={{
+            position: 'absolute',
+            width: '400px',
+            height: '400px',
+            zIndex: -1,
+            objectFit: 'cover',
+          }}
+        />
+        {/* Miffy avatar */}
+        <img src={characterImage} alt="Avatar" style={{ width: '400px', height: '400px' }} />
       </div>
     </div>
   );
-};
-
-export default CharacterPage;
+  }
+  export default CharacterPage;
