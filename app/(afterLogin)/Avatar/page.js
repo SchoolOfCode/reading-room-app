@@ -19,6 +19,7 @@ import AvatarWearingCap from './components/MiffyCap.js';
 import AvatarWearingScarf from './components/MiffyScarf.js';
 import AvatarWearingTopHat from './components/MiffyTopHat.js';
 import AvatarWearingSunhat from './components/MiffySunhat.js';
+//arrows for navigating through gallery//
 
 const CharacterPage = () => {
   const [characterImage, setCharacterImage] = useState('Miffy.png');
@@ -34,6 +35,7 @@ const CharacterPage = () => {
     tophat: 'tophat.png',
     sunhat: 'sunhat.png',
   };
+
   const wearingAccessoryIndex = {
     miffyWearingShades: 'Miffy_shades.png',
     miffyWearingLoveShades: 'Miffy_lovehearts.png',
@@ -69,14 +71,13 @@ const CharacterPage = () => {
     setCharacterImage('Miffy.png');
     setSelectedAccessoryIndex(null);
   };
-
+  
   return (
-    <div style={{ backgroundColor: '#FDFFB6', padding: '2rem', position: 'relative' }}>
+    <div style={{ backgroundColor: '#FDFFB6', padding: '2rem' }}>
       <h2 style={{ textAlign: 'center', margin: '5px', fontSize: '2rem' }}>
         Choose an accessory for Miffy
       </h2>
 
-      {/* Gallery */}
       <div
         style={{
           display: 'flex',
@@ -85,50 +86,78 @@ const CharacterPage = () => {
           flexDirection: 'column',
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
-          <button onClick={handlePrevAccessory}>&lt;</button>
-          {selectedAccessoryIndex !== null && (
-            <img
-              src={`./${accessoryImages[accessories[selectedAccessoryIndex]]}`}
-              alt='Accessory'
-              style={{ width: '100px', height: '100px', margin: '5px' }}
-            />
-          )}
-          <button onClick={handleNextAccessory}>&gt;</button>
+        {/* Navigation Arrows */}
+        <div style={{ display: 'flex', alignItems: 'center', marginBottom: '20px' }}>
+          <button
+            onClick={handlePrevAccessory}
+            style={{
+              background: 'none',
+              border: 'none',
+              fontSize: '2rem',
+              cursor: 'pointer',
+              marginRight: '20px',
+            }}
+          >
+            &lt;
+          </button>
+
+          {/* Spacing */}
+          <div style={{ width: '100px' }}></div>
+
+          {/* Box for Accessories */}
+          <div
+            style={{
+              border: '2px solid black',
+              borderRadius: '8px',
+              padding: '20px',
+              position: 'relative',
+              width: 'fit-content', // Adjust this width as needed
+            }}
+          >
+            {/* Accessory Display */}
+            {selectedAccessoryIndex !== null && (
+              <img
+                src={`./${accessoryImages[accessories[selectedAccessoryIndex]]}`}
+                alt='Accessory'
+                style={{ width: '100px', height: '100px', margin: '5px' }}
+              />
+            )}
+            {/* Apply and Remove buttons */}
+            {selectedAccessoryIndex !== null && (
+              <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
+                <button onClick={handleApplyAccessory} style={{ margin: '5px' }}>
+                  Apply
+                </button>
+                <button onClick={handleRemoveAccessory} style={{ margin: '5px' }}>
+                  Remove
+                </button>
+              </div>
+            )}
+          </div>
+
+          {/* Spacing */}
+          <div style={{ width: '100px' }}></div>
+
+          <button
+            onClick={handleNextAccessory}
+            style={{
+              background: 'none',
+              border: 'none',
+              fontSize: '2rem',
+              cursor: 'pointer',
+              marginLeft: '20px',
+            }}
+          >
+            &gt;
+          </button>
         </div>
 
-        {/* Apply and Remove buttons */}
-        {selectedAccessoryIndex !== null && (
-          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
-            <button onClick={handleApplyAccessory} style={{ margin: '5px' }}>
-              Apply
-            </button>
-            <button onClick={handleRemoveAccessory} style={{ margin: '5px' }}>
-              Remove
-            </button>
-          </div>
-        )}
-
-        {/* Miffy avatar */}
+        {/* Miffy Avatar */}
         <div style={{ display: 'flex', justifyContent: 'center', position: 'relative' }}>
           {/* Background image */}
-          <img
-            src='./Backdrop.png'
-            alt='Background'
-            style={{
-              position: 'absolute',
-              width: '400px',
-              height: '400px',
-              zIndex: -1,
-              objectFit: 'cover',
-            }}
-          />
+          <img src='./Backdrop.png' alt='Background' style={{ position: 'absolute', width: '400px', height: '400px', zIndex: -1, objectFit: 'cover' }} />
           {/* Miffy avatar */}
-          <img
-            src={`./${characterImage}`}
-            alt='Avatar'
-            style={{ width: '400px', height: '400px' }}
-          />
+          <img src={`./${characterImage}`} alt='Avatar' style={{ width: '400px', height: '400px' }} />
         </div>
       </div>
     </div>
