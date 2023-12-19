@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React, { useState } from 'react';
 import Avatar from './components/Avatar';
@@ -34,15 +34,15 @@ const CharacterPage = () => {
     tophat: 'tophat.png',
     sunhat: 'sunhat.png',
   };
-  const wearingAccessoryIndex ={
+  const wearingAccessoryIndex = {
     miffyWearingShades: 'Miffy_shades.png',
     miffyWearingLoveShades: 'Miffy_lovehearts.png',
-    miffyWearingPixelShades: 'Miffy_pixel_shades.png', 
+    miffyWearingPixelShades: 'Miffy_pixel_shades.png',
     miffyWearingCap: 'Miffy_cap.png',
     miffyWearingSunhat: 'Miffy_Sunhat.png',
     miffyWearingTopHat: 'Miffy_top_hat.png',
     miffyWearingScarf: 'Miffy_orange_scarf.png',
-  }
+  };
 
   const handleNextAccessory = () => {
     const nextIndex = (selectedAccessoryIndex + 1) % accessories.length;
@@ -57,7 +57,10 @@ const CharacterPage = () => {
   const handleApplyAccessory = () => {
     if (selectedAccessoryIndex !== null) {
       const selectedAccessory = accessories[selectedAccessoryIndex];
-      const imageWithAccessory = wearingAccessoryIndex[`miffyWearing${selectedAccessory.charAt(0).toUpperCase() + selectedAccessory.slice(1)}`];
+      const imageWithAccessory =
+        wearingAccessoryIndex[
+          `miffyWearing${selectedAccessory.charAt(0).toUpperCase() + selectedAccessory.slice(1)}`
+        ];
       setCharacterImage(imageWithAccessory || 'Miffy.png');
     }
   };
@@ -69,14 +72,27 @@ const CharacterPage = () => {
 
   return (
     <div style={{ backgroundColor: '#FDFFB6', padding: '2rem', position: 'relative' }}>
-      <h2 style={{ textAlign: 'center', margin: '5px', fontSize: '2rem' }}>Choose an accessory for Miffy</h2>
+      <h2 style={{ textAlign: 'center', margin: '5px', fontSize: '2rem' }}>
+        Choose an accessory for Miffy
+      </h2>
 
       {/* Gallery */}
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          flexDirection: 'column',
+        }}
+      >
         <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
           <button onClick={handlePrevAccessory}>&lt;</button>
           {selectedAccessoryIndex !== null && (
-            <img src={`./${accessoryImages[accessories[selectedAccessoryIndex]]}`} alt="Accessory" style={{ width: '100px', height: '100px', margin: '5px' }} />
+            <img
+              src={`./${accessoryImages[accessories[selectedAccessoryIndex]]}`}
+              alt='Accessory'
+              style={{ width: '100px', height: '100px', margin: '5px' }}
+            />
           )}
           <button onClick={handleNextAccessory}>&gt;</button>
         </div>
@@ -84,8 +100,12 @@ const CharacterPage = () => {
         {/* Apply and Remove buttons */}
         {selectedAccessoryIndex !== null && (
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
-            <button onClick={handleApplyAccessory} style={{ margin: '5px' }}>Apply</button>
-            <button onClick={handleRemoveAccessory} style={{ margin: '5px' }}>Remove</button>
+            <button onClick={handleApplyAccessory} style={{ margin: '5px' }}>
+              Apply
+            </button>
+            <button onClick={handleRemoveAccessory} style={{ margin: '5px' }}>
+              Remove
+            </button>
           </div>
         )}
 
@@ -93,8 +113,8 @@ const CharacterPage = () => {
         <div style={{ display: 'flex', justifyContent: 'center', position: 'relative' }}>
           {/* Background image */}
           <img
-            src="./Backdrop.png"
-            alt="Background"
+            src='./Backdrop.png'
+            alt='Background'
             style={{
               position: 'absolute',
               width: '400px',
@@ -104,7 +124,11 @@ const CharacterPage = () => {
             }}
           />
           {/* Miffy avatar */}
-          <img src={`./${characterImage}`} alt="Avatar" style={{ width: '400px', height: '400px' }} />
+          <img
+            src={`./${characterImage}`}
+            alt='Avatar'
+            style={{ width: '400px', height: '400px' }}
+          />
         </div>
       </div>
     </div>
