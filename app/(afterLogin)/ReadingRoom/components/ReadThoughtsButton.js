@@ -11,6 +11,7 @@ import {
   useBreakpointValue,
 } from '@chakra-ui/react';
 import BookForm from './BookForm';
+import { fonts } from "@/app/fonts";
 
 const ReadThoughtsButton = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,11 +28,11 @@ const ReadThoughtsButton = () => {
 
   return (
     <>
-      <Heading as="h3" fontSize={18} fontWeight="bold" style={{ color: 'black' }}>
-        Done reading?
+      <Heading as="h3" fontSize={18} fontWeight="bold" style={{ color: 'black' }} className={fonts.arvo.className}>
+        Finished Reading?
       </Heading>
-      <Button onClick={handleOpen} colorScheme="blackAlpha" color="white">
-        Fill out your thoughts...
+      <Button onClick={handleOpen} colorScheme="blackAlpha" color="white" className={fonts.arvo.className}>
+        Write down your thoughts...
       </Button>
 
       <Modal isOpen={isOpen} onClose={handleClose}>

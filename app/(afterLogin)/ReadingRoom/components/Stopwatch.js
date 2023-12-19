@@ -3,6 +3,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { Container, Flex, Heading, Text, Button } from "@chakra-ui/react";
+import { fonts } from "@/app/fonts";
 
 //function to create useState hook to create a state variable named time and a function setTime to update its value.
 // Create object in use useState with 3 pair (hours, minutes, seconds)
@@ -82,10 +83,20 @@ const StopWatch = () => {
 
   return (
     <Container centerContent bg="#FFD6A5">
-      <Heading as="h1" fontSize="25px" color="#1f1f1f">
+      <Heading
+        as="h1"
+        fontSize="25px"
+        color="#1f1f1f"
+        className={fonts.arvo.className}
+      >
         Stopwatch
       </Heading>
-      <Text fontSize="15px" color="#1f1f1f" marginBottom="10px">
+      <Text
+        fontSize="20px"
+        color="#1f1f1f"
+        marginBottom="10px"
+        className={fonts.arvo.className}
+      >
         Want A Challenge? - Time Your Reading
       </Text>
       <Text
@@ -96,12 +107,14 @@ const StopWatch = () => {
         border="2px solid #1f1f1f"
         borderRadius="5px"
         padding="5px"
+        className={fonts.arvo.className}
       >
         {formattedHours}:{formattedMinutes}:{formattedSeconds}
       </Text>
       <Flex gap="20px">
         {running ? (
           <Button
+            className={fonts.arvo.className}
             style={{
               padding: "10px 20px",
               borderRadius: "5px",
@@ -117,6 +130,7 @@ const StopWatch = () => {
         ) : (
           <>
             <Button
+              className={fonts.arvo.className}
               style={{
                 padding: "10px 20px",
                 borderRadius: "5px",
@@ -130,6 +144,7 @@ const StopWatch = () => {
               Start
             </Button>
             <Button
+              className={fonts.arvo.className}
               style={{
                 padding: "10px 20px",
                 borderRadius: "5px",
@@ -146,6 +161,7 @@ const StopWatch = () => {
         )}
         {!running && (
           <Button
+            className={fonts.arvo.className}
             style={{
               padding: "10px 20px",
               borderRadius: "5px",

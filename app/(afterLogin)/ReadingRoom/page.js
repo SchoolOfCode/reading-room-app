@@ -8,6 +8,7 @@ import StopWatch from './components/Stopwatch.js';
 import { VStack, Button, Heading, Container } from '@chakra-ui/react';
 import { fonts } from '../../fonts.js';
 import styles from './ReadingRoom.module.css';
+import Backdrop from '../Avatar/components/Backdrop.js';
 
 export default function ReadingRoom() {
   return (
@@ -25,6 +26,7 @@ export default function ReadingRoom() {
         </Heading>
         <StopWatch></StopWatch>
         <ReadThoughtsButton />
+        <Backdrop />
       </VStack>
     </div>
   );
