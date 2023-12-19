@@ -1,5 +1,7 @@
 'use client';
 
+// BEFORE MERGING, CHECK THE CHANGES AND KEEP THE ONES ON 'MAIN' BRANCH FOR THE LOVE OF GOD
+
 import {
   Container,
   Heading,
@@ -42,7 +44,7 @@ export default function Home() {
       <Box
         bg="white"
         maxW={['auto', '75vh']}
-        maxH={['auto', 'auto']}
+        maxH="90vh"
         borderRadius={10}
         justifyContent="center"
         alignContent="center"
@@ -61,7 +63,7 @@ export default function Home() {
             fallbackSrc="https://ibb.co/pKDxgyG"
             boxSize="100px"
             objectFit="cover"
-            h={150}
+            h={130}
             w={150}
           />
           <Heading
@@ -70,11 +72,11 @@ export default function Home() {
             align="center"
             width="95%"
             className={fonts.arvo.className}
-            fontSize={35}
+            fontSize={25}
           >
             Jolly good to see you again, my friend!
           </Heading>
-          <Text fontSize={20} align="center" width="95%">
+          <Text fontSize={15} align="center" width="95%">
             Enter your email and password to keep the fun going. 🎉
           </Text>
           <Divider h="3px" width="95%" borderColor="#747474"></Divider>
@@ -119,7 +121,7 @@ export default function Home() {
             justifyContent="center"
             alignItems="center"
             gap={2}
-            fontSize={20}
+            fontSize={15}
             fontWeight="bold"
             mt={isMobile ? 0 : 8}
             mb={isMobile ? 0 : 8}
@@ -140,7 +142,7 @@ export default function Home() {
         textAlign={isMobile ? 'center' : 'left'}
       >
         <Center gap={2}>
-          <Text fontSize={20} fontWeight="bold">
+          <Text fontSize={15} fontWeight="bold">
             Powered by
           </Text>
           <Image src="the blurb.png" alt="The Blurb" fallbackSrc="" objectFit="cover" h={50} />
