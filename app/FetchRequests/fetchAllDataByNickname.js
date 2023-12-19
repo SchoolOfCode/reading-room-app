@@ -5,7 +5,7 @@ export async function fetchReadingNotes(userInput) {
   try {
     // Declare variable to store HTTP response
     const response = await fetch(
-      `http://localhost:5002/reading_notes/nickname/${nicknameToSearch}`,
+      `https://reading-room-back-end.onrender.com/reading_notes/users_id/${idToSearch}`,
       {
         headers: {
           Accept: "application/json",

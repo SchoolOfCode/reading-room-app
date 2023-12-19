@@ -16,10 +16,11 @@ export default function WelcomePage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const userInput = prompt("What's your nickname?");
-        if (userInput) {
-          const notes = await fetchReadingNotes(userInput);
-          setSessionNotes(notes);
+        if (currentUsers_id) {
+          // Use the users_id as a search query in the GET request
+          const notes = await fetchReadingNotes(currentUsers_id);
+          setSessionNotes(notes.data[notes.data.length - 1]);
+          console.log(sessionNotes);
         }
       } catch (error) {
         setError(error);
@@ -40,16 +41,17 @@ export default function WelcomePage() {
   }
 
   // destructure fetched data to pass down as props
-  const {
-    status,
-    data: [{ id, date, title, author, notes, users_id, nickname, avatar_img }],
-  } = sessionNotes;
+  let { nickname, avatar_img, title, author, notes } = sessionNotes || {};
 
   return (
     <VStack as="main" spacing={12} bg="#CAFFBF" p={3} m={0} minHeight="100vh">
-      <Avatar avatar={avatar_img} />
-      <Welcome nickname={nickname} />
-      <ReadingNotes title={title} author={author} notes={notes} />
+      <Avatar avatar={avatar_img || "Miffy.png"} />
+      <Welcome nickname={nickname || "friend!"} />
+      <ReadingNotes
+        title={title || false}
+        author={author || "test"}
+        notes={notes || "test"}
+      />
       <Continue />
     </VStack>
   );

@@ -3,9 +3,9 @@ import pg from "pg";
 
 // retrieving the database connection string from .env
 const connectionString =
-  process.env.databaseURL 
+  process.env.databaseURL ||
   // REMEMBER TO DELETE THE DATABASE URL
- || "postgres://syzdjgkc:XaS6cN2bqDOMC-JSD4SekxMR6Y-WCWsq@flora.db.elephantsql.com/syzdjgkc";
+  "postgres://postgres.ezgfdftocdjhcirnfbtf:tMq9Wt0MuxVWoIvt@aws-0-eu-west-2.pooler.supabase.com:6543/postgres";
 
 // Checking to see if the connection string is not defined
 if (!connectionString) {
