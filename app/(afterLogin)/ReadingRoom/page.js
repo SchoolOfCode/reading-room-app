@@ -5,7 +5,7 @@
 import ReadThoughtsButton from './components/ReadThoughtsButton.js';
 import Link from 'next/link';
 import StopWatch from './components/Stopwatch.js';
-import { VStack, Button, Heading, Container } from '@chakra-ui/react';
+import { VStack, Heading, Container } from '@chakra-ui/react';
 import { fonts } from '../../fonts.js';
 import styles from './ReadingRoom.module.css';
 import Backdrop from '../Avatar/components/Backdrop.js';
@@ -13,15 +13,9 @@ import Backdrop from '../Avatar/components/Backdrop.js';
 export default function ReadingRoom() {
   return (
     <div className={styles.Reading_Room_page}>
-      <Container bg='#FFD6A5' minW='100%' align='right' p={5}>
-        <Button>
-          <Link className='returnButton' href='/'>
-            Log out
-          </Link>
-        </Button>
-      </Container>
-      <VStack as='main' spacing={10} bg='#FFD6A5' minHeight='100vh'>
-        <Heading m={5} className={fonts.arvo.className}>
+      {/* Added 'pt' so that the body doesn't hide behind topbar */}
+      <VStack as="main" spacing={10} bg="#FFD6A5" minHeight="100vh" pt="80px">
+        <Heading m={5} className={fonts.arvo.className} textAlign="center">
           Welcome to the Reading Room
         </Heading>
         <StopWatch></StopWatch>
