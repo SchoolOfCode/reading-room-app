@@ -79,7 +79,10 @@ const CharacterPage = () => {
 
   return (
     <div style={{ backgroundColor: '#FDFFB6', padding: '2rem' }}>
-      <h2 style={{ textAlign: 'center', margin: '5px', fontSize: '2rem' }}>
+        <Heading m={5} className={fonts.arvo.className} textAlign="center">
+          Rewards Room - Congratulations!
+        </Heading>
+      <h2 style={{ textAlign: 'center', margin: '5px', fontSize: '2rem' }} className={fonts.arvo.className} textAlign="center">
         Choose an accessory for Miffy
       </h2>
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
@@ -135,6 +138,7 @@ const CharacterPage = () => {
           color="white"
           bg="#111"
           fontSize={22}
+          className={fonts.arvo.className}
           onClick={handleApplyAccessory}
           position="relative"
           overflow="hidden"
@@ -197,7 +201,8 @@ const CharacterPage = () => {
           borderRadius="10px"
           color="white"
           bg="#111"
-          fontSize={22}
+          fontSize={25}
+          className={fonts.arvo.className}
           onClick={handleRemoveAccessory}
           position="relative"
           overflow="hidden"
