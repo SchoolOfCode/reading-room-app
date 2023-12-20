@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Button } from '@chakra-ui/react';
+import { Button, Heading } from '@chakra-ui/react';
+import { fonts } from '../../fonts.js';
 import Avatar from './components/Avatar.js';
 import Backdrop from './components/Backdrop.js';
 //import accessories
@@ -81,7 +82,10 @@ const CharacterPage = () => {
 
   return (
     <div style={{ backgroundColor: '#FDFFB6', padding: '2rem' }}>
-      <h2 style={{ textAlign: 'center', margin: '5px', fontSize: '2rem' }}>
+        <Heading m={5} className={fonts.arvo.className} textAlign="center">
+          Rewards Room - Congratulations!
+        </Heading>
+      <h2 style={{ textAlign: 'center', margin: '5px', fontSize: '2rem' }} className={fonts.arvo.className} textAlign="center">
         Choose an accessory for Miffy
       </h2>
       <div
@@ -105,10 +109,10 @@ const CharacterPage = () => {
             style={{
               background: 'none',
               border: 'none',
-              fontSize: '2rem',
+              fontSize: '4rem',
               cursor: 'pointer',
               position: 'absolute',
-              left: '-5rem',
+              left: '-2.5rem',
               top: '50%',
               transform: 'translateY(-50%)',
             }}
@@ -117,8 +121,8 @@ const CharacterPage = () => {
           <div
             style={{
               border: '2px solid black',
-              borderRadius: '8px',
-              padding: '2rem',
+              borderRadius: '7px',
+              padding: '2.5rem',
               position: 'relative',
               width: 'fit-content',
             }}
@@ -134,10 +138,10 @@ const CharacterPage = () => {
             style={{
               background: 'none',
               border: 'none',
-              fontSize: '2rem',
+              fontSize: '4rem',
               cursor: 'pointer',
               position: 'absolute',
-              right: '-5rem',
+              right: '-4.3rem',
               top: '50%',
               transform: 'translateY(-50%)',
             }}
