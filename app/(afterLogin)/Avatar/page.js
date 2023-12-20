@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Button, Heading } from '@chakra-ui/react';
+import { fonts } from '../../fonts.js';
 import Avatar from './components/Avatar.js';
 import Backdrop from './components/Backdrop.js';
 //import accessories
