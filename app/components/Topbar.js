@@ -18,7 +18,13 @@ export default function Topbar() {
         <Box>
           <Avatar src="Miffy.png" border="3px solid #747474" boxSize="65px" bg="white">
             <Link href="/">
-              <AvatarBadge as={GiExitDoor} boxSize="40px" bg="#747474" color="red"></AvatarBadge>
+              <AvatarBadge
+                as={GiExitDoor}
+                boxSize="40px"
+                border="3px solid #747474"
+                bg="white"
+                color="#ff6989"
+              ></AvatarBadge>
             </Link>
           </Avatar>
         </Box>
