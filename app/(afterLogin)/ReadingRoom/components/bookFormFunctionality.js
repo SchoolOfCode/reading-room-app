@@ -1,15 +1,16 @@
-("use client");
+('use client');
 
-import { Center, VStack } from "@chakra-ui/react";
-import { useState, useEffect } from "react";
-import { getCurrentUser } from "./getCurrentUser.js";
+import { Center } from '@chakra-ui/react';
+import { useState, useEffect } from 'react';
+import { getCurrentUser } from './getCurrentUser.js';
+
 // Define component for the submit form
-const BookForm = ({ onClose }) => {
+const BookForm = () => {
   // State variables to store the form input values
-  const [title, setTitle] = useState("");
-  const [author, setAuthor] = useState("");
-  const [notes, setNotes] = useState("");
-  const [users_id, setUsers_id] = useState("");
+  const [title, setTitle] = useState('');
+  const [author, setAuthor] = useState('');
+  const [notes, setNotes] = useState('');
+  const [users_id, setUsers_id] = useState('');
 
   const setUser = async () => {
     const user = await getCurrentUser();
@@ -37,10 +38,10 @@ const BookForm = ({ onClose }) => {
     // Error handling
     try {
       // Send a POST request to the 'api/reading_notes' endpoint - see notes
-      const response = await fetch("api/reading_notes", {
-        method: "POST",
+      const response = await fetch('api/reading_notes', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         // Convert form data to JSON and include it in the request body
         body: JSON.stringify({ title, author, notes, users_id }),
@@ -52,14 +53,11 @@ const BookForm = ({ onClose }) => {
         console.log(result);
       } else {
         console.error(
-          "Failed to add note. Try later, please. Error originated in BookForm.js, line 57 triggered"
+          'Failed to add note. Try later, please. Error originated in BookForm.js, line 57 triggered'
         );
       }
     } catch (error) {
-      console.error(
-        "Error adding note: Error originated in BookForm.js, line 62 triggered",
-        error
-      );
+      console.error('Error adding note: Error originated in BookForm.js, line 62 triggered', error);
     }
   };
 
@@ -69,8 +67,7 @@ const BookForm = ({ onClose }) => {
 
     if (submissionMessage) {
       timeoutId = setTimeout(() => {
-        window.location.href =
-          "https://reading-room-app.vercel.app/WelcomePage";
+        window.location.href = 'https://reading-room-app.vercel.app/WelcomePage';
       }, 3000);
     }
 
@@ -78,13 +75,7 @@ const BookForm = ({ onClose }) => {
   }, [submissionMessage]);
 
   return (
-    <Center
-      align="stretch"
-      p={4}
-      borderRadius="md"
-      boxShadow="md"
-      bgColor="#00a4b4"
-    >
+    <Center align="stretch" p={4} borderRadius="md" boxShadow="md" bgColor="#00a4b4">
       <h1>Add a New Note</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="title">Title:</label>
@@ -94,11 +85,10 @@ const BookForm = ({ onClose }) => {
           name="title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          onFocus={() => setSelectedInput("title")}
+          onFocus={() => setSelectedInput('title')}
           style={{
-            color: "black",
-            border:
-              selectedInput === "title" ? "2px solid violet" : "1px solid gray",
+            color: 'black',
+            border: selectedInput === 'title' ? '2px solid violet' : '1px solid gray',
           }}
           required
         />
@@ -111,13 +101,10 @@ const BookForm = ({ onClose }) => {
           name="author"
           value={author}
           onChange={(e) => setAuthor(e.target.value)}
-          onFocus={() => setSelectedInput("author")}
+          onFocus={() => setSelectedInput('author')}
           style={{
-            color: "black",
-            border:
-              selectedInput === "author"
-                ? "2px solid violet"
-                : "1px solid gray",
+            color: 'black',
+            border: selectedInput === 'author' ? '2px solid violet' : '1px solid gray',
           }}
           required
         />
@@ -129,22 +116,19 @@ const BookForm = ({ onClose }) => {
           name="notes"
           value={notes}
           onChange={(e) => setNotes(e.target.value)}
-          onFocus={() => setSelectedInput("notes")}
+          onFocus={() => setSelectedInput('notes')}
           style={{
-            color: "black",
-            border:
-              selectedInput === "notes" ? "2px solid violet" : "1px solid gray",
+            color: 'black',
+            border: selectedInput === 'notes' ? '2px solid violet' : '1px solid gray',
           }}
           rows="4"
           required
         ></textarea>
         <br />
 
-        {submissionMessage && (
-          <p style={{ color: "green" }}>{submissionMessage}</p>
-        )}
+        {submissionMessage && <p style={{ color: 'green' }}>{submissionMessage}</p>}
 
-        <input type="submit" value="Submit" style={{ color: "black" }} />
+        <input type="submit" value="Submit" style={{ color: 'black' }} />
       </form>
     </Center>
   );

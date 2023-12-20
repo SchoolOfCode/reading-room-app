@@ -1,8 +1,9 @@
 // "use client";
-import React, { useState, useEffect } from "react";
-import { SubmitButton } from "./SubmitButton";
-import { getCurrentUser } from "./getCurrentUser.js";
+import React, { useState, useEffect } from 'react';
+import { SubmitButton } from './SubmitButton';
+import { getCurrentUser } from './getCurrentUser.js';
 import {
+  Box,
   Container,
   VStack,
   Heading,
@@ -16,18 +17,19 @@ import {
   Text,
   InputGroup,
   InputLeftElement,
-} from "@chakra-ui/react";
+  Divider,
+} from '@chakra-ui/react';
 
-import { fonts } from "@/app/fonts";
+import { fonts } from '@/app/fonts';
 
 export const BookForm = () => {
   // Variable to guarantee responsiveness on different screen size
   const isMobile = useBreakpointValue({ base: true, md: false });
   // State variables to store the form input values
-  const [title, setTitle] = useState("");
-  const [author, setAuthor] = useState("");
-  const [notes, setNotes] = useState("");
-  const [users_id, setUsers_id] = useState("");
+  const [title, setTitle] = useState('');
+  const [author, setAuthor] = useState('');
+  const [notes, setNotes] = useState('');
+  const [users_id, setUsers_id] = useState('');
   // State variable to track whether the form is submitted
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -39,7 +41,7 @@ export const BookForm = () => {
       console.log(`users_id currently set as: ${user}`);
       console.log(`this is the id: ${user.id}`);
     } catch (error) {
-      console.error("Error fetching current user:", error);
+      console.error('Error fetching current user:', error);
     }
   };
 
@@ -56,10 +58,10 @@ export const BookForm = () => {
     const submitForm = async () => {
       try {
         // Send a POST request to the 'api/reading_notes' endpoint
-        const response = await fetch("api/reading_notes", {
-          method: "POST",
+        const response = await fetch('api/reading_notes', {
+          method: 'POST',
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
           // Convert form data to JSON and include it in the request body
           body: JSON.stringify({ title, author, notes, users_id }),
@@ -71,12 +73,12 @@ export const BookForm = () => {
           console.log(result);
         } else {
           console.error(
-            "Failed to add note. Try later, please. Error originated in BookForm.js, line 74 triggered"
+            'Failed to add note. Try later, please. Error originated in BookForm.js, line 55 triggered'
           );
         }
       } catch (error) {
         console.error(
-          "Error adding note: Error originated in BookForm.js, line 69 triggered",
+          'Error adding note: Error originated in BookForm.js, line 69 triggered',
           error
         );
       } finally {
@@ -120,7 +122,9 @@ export const BookForm = () => {
           >
             Fill out your thoughts 🎉
           </Heading>
+          <Box bg="red"></Box>
         </VStack>
+
         <FormControl width="90%">
           <FormLabel fontSize={18} fontWeight="bold">
             Title
@@ -138,8 +142,8 @@ export const BookForm = () => {
               borderBottom="2px solid #747474"
               borderRadius={5}
               _focus={{
-                bg: "blue.50",
-                borderBottomColor: "#747474",
+                bg: 'blue.50',
+                borderBottomColor: '#747474',
               }}
             />
           </InputGroup>
@@ -160,8 +164,8 @@ export const BookForm = () => {
               borderBottom="2px solid #747474"
               borderRadius={5}
               _focus={{
-                bg: "blue.50",
-                borderBottomColor: "#747474",
+                bg: 'blue.50',
+                borderBottomColor: '#747474',
               }}
             />
           </InputGroup>
@@ -193,8 +197,8 @@ export const BookForm = () => {
               borderRadius={5}
               pl="2.5em"
               _focus={{
-                bg: "blue.50",
-                borderBottomColor: "#747474",
+                bg: 'blue.50',
+                borderBottomColor: '#747474',
               }}
             />
           </InputGroup>
