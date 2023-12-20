@@ -2,11 +2,11 @@ import { getReadingNotesByNickname } from "../helper_functions/getReadingNotesBy
 
 export async function getReadingNotesByNicknameController(req, res) {
   try {
-    const nickname = req.params.nickname;
-    const ReadingNotes = await getReadingNotesByNickname(nickname);
+    const id = req.params.users_id;
+    const ReadingNotes = await getReadingNotesByNickname(id);
     res.status(200).json({ status: "success", data: ReadingNotes });
   } catch (error) {
-    console.error("Error getting reading notes by Nickname:", error);
+    console.error("Error getting reading notes by users_id:", error);
     res.status(500).json({
       status: "error",
       message:

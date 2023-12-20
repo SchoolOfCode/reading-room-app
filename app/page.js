@@ -1,5 +1,10 @@
-'use client';
+// page.js
 
+"use client";
+
+// BEFORE MERGING, CHECK THE CHANGES AND KEEP THE ONES ON 'MAIN' BRANCH FOR THE LOVE OF GOD
+
+import { signIn, signUp } from "./auth.js";
 import {
   Container,
   Heading,
@@ -14,19 +19,37 @@ import {
   Center,
   InputGroup,
   InputLeftElement,
+  InputRightElement,
   useBreakpointValue,
-} from '@chakra-ui/react';
+  IconButton,
+} from "@chakra-ui/react";
 
-import PasswordInput from './components/PasswordInput';
-import { GlowingButton } from './components/SignInButton';
+import PasswordInput from "./components/PasswordInput";
+import { GlowingButton } from "./components/SignInButton";
 
-import { fonts } from './fonts';
-import { Link } from '@chakra-ui/next-js';
+import { fonts } from "./fonts";
+import { Link } from "@chakra-ui/next-js";
+import { useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 export default function Home() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   // Variable to guarantee responsiveness on different screen size
   const isMobile = useBreakpointValue({ base: true, md: false });
+  const [showPassword, setShowPassword] = useState(false);
 
+  const togglePasswordVisibility = () => {
+    setShowPassword((prevShowPassword) => !prevShowPassword);
+  };
+  async function handleSignIn() {
+    const data = { email, password };
+    await signIn(data);
+  }
+  async function handleSignUp() {
+    const data = { email, password };
+    await signUp(data);
+  }
   return (
     <Container
       bg="#9BF6FF"
@@ -41,8 +64,8 @@ export default function Home() {
     >
       <Box
         bg="white"
-        maxW={['auto', '75vh']}
-        maxH={['auto', 'auto']}
+        maxW={["auto", "75vh"]}
+        maxH="90vh"
         borderRadius={10}
         justifyContent="center"
         alignContent="center"
@@ -61,7 +84,7 @@ export default function Home() {
             fallbackSrc="https://ibb.co/pKDxgyG"
             boxSize="100px"
             objectFit="cover"
-            h={150}
+            h={130}
             w={150}
           />
           <Heading
@@ -70,16 +93,16 @@ export default function Home() {
             align="center"
             width="95%"
             className={fonts.arvo.className}
-            fontSize={35}
+            fontSize={25}
           >
             Jolly good to see you again, my friend!
           </Heading>
-          <Text fontSize={20} align="center" width="95%">
+          <Text fontSize={15} align="center" width="95%">
             Enter your email and password to keep the fun going. 🎉
           </Text>
           <Divider h="3px" width="95%" borderColor="#747474"></Divider>
           {/* </VStack> */}
-          <FormControl width="90%">
+          <FormControl action={signIn} width="90%">
             <FormLabel fontSize={18} fontWeight="bold">
               E-mail
             </FormLabel>
@@ -87,6 +110,8 @@ export default function Home() {
               <InputLeftElement pointerEvents="none">📧</InputLeftElement>
               <Input
                 placeholder="Your email address"
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
                 rounded="none"
                 variant="filled"
                 type="email"
@@ -94,14 +119,46 @@ export default function Home() {
                 borderBottom="2px solid #B596C8"
                 borderRadius={5}
                 _focus={{
-                  bg: 'blue.50',
-                  borderColor: '#B596C8',
+                  bg: "blue.50",
+                  borderColor: "#B596C8",
                 }}
                 required
               />
             </InputGroup>
           </FormControl>
-          <PasswordInput />
+
+          <FormControl width="90%">
+            <FormLabel fontSize={18} fontWeight="bold">
+              Password
+            </FormLabel>
+            <InputGroup>
+              <InputLeftElement pointerEvents="none">🔑</InputLeftElement>
+              <Input
+                placeholder="Your password"
+                onChange={(e) => setPassword(e.target.value)}
+                value={password}
+                rounded="none"
+                variant="filled"
+                type={showPassword ? "text" : "password"}
+                border="none"
+                borderBottom="2px solid #B596C8"
+                borderRadius={5}
+                _focus={{
+                  bg: "blue.50",
+                  borderColor: "#B596C8",
+                }}
+              />
+              <InputRightElement>
+                <IconButton
+                  aria-label={showPassword ? "Hide Password" : "Show Password"}
+                  icon={showPassword ? <FaEyeSlash /> : <FaEye />}
+                  onClick={togglePasswordVisibility}
+                  variant="ghost"
+                />
+              </InputRightElement>
+            </InputGroup>
+          </FormControl>
+
           <Container
             display="flex"
             flexDirection="column"
@@ -109,9 +166,9 @@ export default function Home() {
             alignItems="center"
             width="100%"
           >
-            <Link href="/WelcomePage">
-              <GlowingButton>Sign up</GlowingButton>
-            </Link>
+            <span onClick={() => handleSignIn()}>
+              <GlowingButton>Sign in</GlowingButton>
+            </span>
           </Container>
           <Container
             display="flex"
@@ -119,31 +176,38 @@ export default function Home() {
             justifyContent="center"
             alignItems="center"
             gap={2}
-            fontSize={20}
+            fontSize={15}
             fontWeight="bold"
             mt={isMobile ? 0 : 8}
             mb={isMobile ? 0 : 8}
           >
             <Text>Don't have an account?</Text>
-            <Link href="/WelcomePage">
-              <Text color="#C683D7">Sign up</Text>
-            </Link>
+
+            <Text onClick={() => handleSignUp()} color="#C683D7">
+              Sign up
+            </Text>
           </Container>
         </VStack>
       </Box>
       <Box
-        w={['full', 'md']}
+        w={["full", "md"]}
         position="absolute"
         bottom={0}
         left={0}
         p={4}
-        textAlign={isMobile ? 'center' : 'left'}
+        textAlign={isMobile ? "center" : "left"}
       >
         <Center gap={2}>
-          <Text fontSize={20} fontWeight="bold">
+          <Text fontSize={15} fontWeight="bold">
             Powered by
           </Text>
-          <Image src="the blurb.png" alt="The Blurb" fallbackSrc="" objectFit="cover" h={50} />
+          <Image
+            src="the blurb.png"
+            alt="The Blurb"
+            fallbackSrc=""
+            objectFit="cover"
+            h={50}
+          />
         </Center>
       </Box>
     </Container>

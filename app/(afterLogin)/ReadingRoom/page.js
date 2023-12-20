@@ -12,14 +12,14 @@ import styles from './ReadingRoom.module.css';
 export default function ReadingRoom() {
   return (
     <div className={styles.Reading_Room_page}>
-      <Container bg='#FFD6A5' minW='100%' align='right' p={5}>
-        <Button>
+      <Container bg="#FFD6A5" minW="100%" align="right" p={5}>
+        {/* <Button>
           <Link className='returnButton' href='/'>
             Log out
           </Link>
-        </Button>
+        </Button> */}
       </Container>
-      <VStack as='main' spacing={10} bg='#FFD6A5' minHeight='100vh'>
+      <VStack as="main" spacing={10} bg="#FFD6A5" minHeight="100vh">
         <Heading m={5} className={fonts.arvo.className}>
           Welcome to the Reading Room
         </Heading>

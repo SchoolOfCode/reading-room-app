@@ -1,7 +1,7 @@
 import { pool } from "../database/index.js";
 
 // Create a helper function to query all the data from reading_notes table
-export async function getReadingNotesByNickname(userNickname) {
+export async function getReadingNotesByNickname(userId) {
   try {
     // Define the SQL query to fetch reading notes for a specific user
     const queryText = `SELECT * FROM reading_notes
@@ -12,7 +12,7 @@ export async function getReadingNotesByNickname(userNickname) {
     WHERE users.nickname = $1`;
 
     // Use the pool object to send the query to the database
-    const result = await pool.query(queryText, [userNickname]);
+    const result = await pool.query(queryText, [userId]);
 
     // The rows property of the result object contains the retrieved records
     return result.rows;
