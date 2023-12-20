@@ -24,6 +24,7 @@ const authenticateUser = async (data, isSignUp) => {
     });
 
     if (error) {
+      console.log("top error");
       return redirect("/login?message=Could not authenticate user");
     }
   } else {
@@ -32,6 +33,7 @@ const authenticateUser = async (data, isSignUp) => {
       password,
     });
     if (error) {
+      console.log("bottom error");
       return redirect("/login?message=Could not authenticate user");
     }
   }

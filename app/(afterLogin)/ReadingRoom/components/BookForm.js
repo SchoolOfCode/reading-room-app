@@ -71,7 +71,7 @@ export const BookForm = () => {
           console.log(result);
         } else {
           console.error(
-            "Failed to add note. Try later, please. Error originated in BookForm.js, line 55 triggered"
+            "Failed to add note. Try later, please. Error originated in BookForm.js, line 74 triggered"
           );
         }
       } catch (error) {
