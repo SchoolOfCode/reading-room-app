@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { Button } from '@chakra-ui/react';
 import Avatar from './components/Avatar.js';
 import Backdrop from './components/Backdrop.js';
 //import accessories
@@ -66,9 +67,8 @@ const CharacterPage = () => {
   };
 
   const handleRemoveAccessory = () => {
-    setCharacterImage('Miffy.png');
-    setSelectedAccessoryIndex(null);
-    handleApplyAccessory();
+    setCharacterImage('Miffy.png'); 
+    setSelectedAccessoryIndex(0); 
   };
 
   useEffect(() => {
@@ -129,12 +129,132 @@ const CharacterPage = () => {
         </div>
         {selectedAccessoryIndex !== null && (
           <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
-            <button onClick={handleApplyAccessory} style={{ margin: '5px' }}>
-              Apply
-            </button>
-            <button onClick={handleRemoveAccessory} style={{ margin: '5px' }}>
-              Remove
-            </button>
+           <Button
+          padding="0.6em 2em"
+          borderRadius="10px"
+          color="white"
+          bg="#111"
+          fontSize={22}
+          onClick={handleApplyAccessory}
+          position="relative"
+          overflow="hidden"
+          style={{
+            position: 'relative',
+            background: 'black', // Set the button background color to black
+            border: '3px solid transparent', // Set a solid transparent border
+            backgroundImage: 'linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000)', // Apply the rainbow gradient as a background image for the border
+            borderRadius: '10px', // Maintain the button's border-radius
+            zIndex: '0',
+            userSelect: 'none',
+            WebkitUserSelect: 'none',
+            touchAction: 'manipulation',
+          }}
+          _before={{
+            content: '""',
+            background:
+              'linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000)',
+            position: 'absolute',
+            top: '-2px',
+            left: '-2px',
+            backgroundSize: '400%',
+            zIndex: '-1',
+            filter: 'blur(5px)',
+            WebkitFilter: 'blur(5px)',
+            width: 'calc(100% + 4px)',
+            height: 'calc(100% + 4px)',
+            animation: 'glowing-button-85 20s linear infinite',
+            transition: 'opacity 0.3s ease-in-out',
+            borderRadius: '10px',
+            '@keyframes glowing-button-85': {
+              '0%': {
+                backgroundPosition: '0 0',
+              },
+              '50%': {
+                backgroundPosition: '400% 0',
+              },
+              '100%': {
+                backgroundPosition: '0 0',
+              },
+            },
+          }}
+          _after={{
+            zIndex: '-1',
+            content: '""',
+            position: 'absolute',
+            width: '100%',
+            height: '100%',
+            background: '#222',
+            left: '0',
+            top: '0',
+            borderRadius: '10px',
+          }}
+          mt={3}
+        >
+          Apply
+        </Button>
+        <Button
+          padding="0.6em 2em"
+          borderRadius="10px"
+          color="white"
+          bg="#111"
+          fontSize={22}
+          onClick={handleRemoveAccessory}
+          position="relative"
+          overflow="hidden"
+          style={{
+            position: 'relative',
+            background: 'black', // Set the button background color to black
+            border: '3px solid transparent', // Set a solid transparent border
+            backgroundImage: 'linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000)', // Apply the rainbow gradient as a background image for the border
+            borderRadius: '10px', // Maintain the button's border-radius
+            zIndex: '0',
+            userSelect: 'none',
+            WebkitUserSelect: 'none',
+            touchAction: 'manipulation',
+          }}
+          _before={{
+            content: '""',
+            background:
+              'linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000)',
+            position: 'absolute',
+            top: '-2px',
+            left: '-2px',
+            backgroundSize: '400%',
+            zIndex: '-1',
+            filter: 'blur(5px)',
+            WebkitFilter: 'blur(5px)',
+            width: 'calc(100% + 4px)',
+            height: 'calc(100% + 4px)',
+            animation: 'glowing-button-85 20s linear infinite',
+            transition: 'opacity 0.3s ease-in-out',
+            borderRadius: '10px',
+            '@keyframes glowing-button-85': {
+              '0%': {
+                backgroundPosition: '0 0',
+              },
+              '50%': {
+                backgroundPosition: '400% 0',
+              },
+              '100%': {
+                backgroundPosition: '0 0',
+              },
+            },
+          }}
+          _after={{
+            zIndex: '-1',
+            content: '""',
+            position: 'absolute',
+            width: '100%',
+            height: '100%',
+            background: '#222',
+            left: '0',
+            top: '0',
+            borderRadius: '10px',
+          }}
+          mt={3}
+        >
+          Remove
+        </Button>
           </div>
         )}
         <div style={{ display: 'flex', justifyContent: 'center', position: 'relative' }}>
