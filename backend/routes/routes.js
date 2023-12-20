@@ -20,7 +20,7 @@ userRoutes.get("/nickname/:nickname", getUserByNicknameController);
 readingRoomRoutes.get("/", getReadingNotesControllers);
 readingRoomRoutes.get("/id/:id", getReadingNotesByIdController);
 readingRoomRoutes.get(
-  "/nickname/:nickname",
+  "/users_id/:users_id",
   getReadingNotesByNicknameController
 );
 readingRoomRoutes.post("/", createReadingNotesControllers);
