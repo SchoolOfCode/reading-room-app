@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Button } from '@chakra-ui/react';
+import { Button, Heading } from '@chakra-ui/react';
 import Avatar from './components/Avatar.js';
 import Backdrop from './components/Backdrop.js';
 //import accessories
