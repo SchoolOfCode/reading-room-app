@@ -89,10 +89,10 @@ const CharacterPage = () => {
             style={{
               background: 'none',
               border: 'none',
-              fontSize: '2rem',
+              fontSize: '4rem',
               cursor: 'pointer',
               position: 'absolute',
-              left: '-5rem',
+              left: '-2.5rem',
               top: '50%',
               transform: 'translateY(-50%)',
             }}
@@ -101,8 +101,8 @@ const CharacterPage = () => {
           <div
             style={{
               border: '2px solid black',
-              borderRadius: '8px',
-              padding: '2rem',
+              borderRadius: '7px',
+              padding: '2.5rem',
               position: 'relative',
               width: 'fit-content', 
             }}
@@ -118,10 +118,10 @@ const CharacterPage = () => {
             style={{
               background: 'none',
               border: 'none',
-              fontSize: '2rem',
+              fontSize: '4rem',
               cursor: 'pointer',
               position: 'absolute',
-              right: '-5rem',
+              right: '-4.3rem',
               top: '50%',
               transform: 'translateY(-50%)',
             }}
