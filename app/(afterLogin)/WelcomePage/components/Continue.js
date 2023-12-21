@@ -10,7 +10,13 @@ export default function Continue() {
   return (
     <>
       <pageWrapper>
-        <Text mb={"-45px"} as="h3" fontSize="2xl" fontWeight="900">
+        <Text
+          mb={"-45px"}
+          as="h3"
+          fontSize="2xl"
+          fontWeight="900"
+          textAlign="center"
+        >
           {`Grab your favourite book\nand let's dive into its world!`}
         </Text>
       </pageWrapper>
