@@ -33,5 +33,10 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# dotenv environment variable files
+.env
+.env.local
+
+
 package-lock.json
 .babelrc
