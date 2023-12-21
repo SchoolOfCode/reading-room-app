@@ -58,9 +58,9 @@ export default function Home() {
       minWidth="100%"
       display="flex"
       flexDirection="column"
-      // justifyContent="center"
-      // alignItems="center"
-      pt={10}
+      justifyContent="center"
+      alignItems="center"
+      p={0}
     >
       <Box
         bg="white"
@@ -191,9 +191,9 @@ export default function Home() {
       </Box>
       <Box
         w={["full", "md"]}
-        position="relative"
-        // bottom={0}
-        // left={0}
+        position="absolute"
+        bottom={0}
+        left={0}
         p={4}
         textAlign={isMobile ? "center" : "left"}
       >
