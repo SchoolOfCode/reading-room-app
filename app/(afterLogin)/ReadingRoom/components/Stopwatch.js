@@ -1,9 +1,9 @@
 // index.js
-'use client';
+"use client";
 
-import { useState, useRef, useEffect } from 'react';
-import { Container, Flex, Heading, Text, Button } from '@chakra-ui/react';
-import { fonts } from '@/app/fonts';
+import { useState, useRef, useEffect } from "react";
+import { Container, Flex, Heading, Text, Button } from "@chakra-ui/react";
+import { fonts } from "@/app/fonts";
 
 //function to create useState hook to create a state variable named time and a function setTime to update its value.
 // Create object in use useState with 3 pair (hours, minutes, seconds)
@@ -16,7 +16,8 @@ const StopWatch = () => {
   //create a mutable useRef function to reference the current time to the nearest second
   const startStopwatch = () => {
     startTimeRef.current =
-      Date.now() - (time.hours * 3600 + time.minutes * 60 + time.seconds) * 1000;
+      Date.now() -
+      (time.hours * 3600 + time.minutes * 60 + time.seconds) * 1000;
     //create a mutable useRef function to reference the current interval
     intervalRef.current = setInterval(() => {
       setTime((prevTime) => {
@@ -48,7 +49,8 @@ const StopWatch = () => {
 
   const resumeStopwatch = () => {
     startTimeRef.current =
-      Date.now() - (time.hours * 3600 + time.minutes * 60 + time.seconds) * 1000;
+      Date.now() -
+      (time.hours * 3600 + time.minutes * 60 + time.seconds) * 1000;
     intervalRef.current = setInterval(() => {
       setTime((prevTime) => {
         const seconds = prevTime.seconds + 1;
@@ -65,9 +67,9 @@ const StopWatch = () => {
   };
 
   // Declare number of place values for each measure of time
-  const formattedSeconds = `${time.seconds}`.padStart(2, '0');
-  const formattedMinutes = `${time.minutes}`.padStart(2, '0');
-  const formattedHours = `${time.hours}`.padStart(2, '0');
+  const formattedSeconds = `${time.seconds}`.padStart(2, "0");
+  const formattedMinutes = `${time.minutes}`.padStart(2, "0");
+  const formattedHours = `${time.hours}`.padStart(2, "0");
 
   // Function with in useEffect Hook the structure the compoment
   useEffect(() => {
@@ -80,40 +82,57 @@ const StopWatch = () => {
   }, [running]);
 
   return (
-    <Container centerContent bg='#FFD6A5'>
-      <Heading as='h1' fontSize='4xl' color='#1f1f1f' className={fonts.arvo.className}>
+    <Container centerContent bg="#FFD6A5">
+      <Heading
+        as="h1"
+        fontSize="4xl"
+        color="#1f1f1f"
+        className={fonts.arvo.className}
+      >
         Stopwatch
       </Heading>
-      <Text fontSize='20px' color='#1f1f1f' marginBottom='10px' className={fonts.arvo.className}>
+      <Text
+        fontSize="20px"
+        color="#1f1f1f"
+        marginBottom="10px"
+        className={fonts.arvo.className}
+        textAlign="center"
+      >
         Time flies when you're having fun!
       </Text>
-      <Text fontSize='20px' color='#1f1f1f' marginBottom='10px' className={fonts.arvo.className}>
-        Keep track of it by using the timer.
+      <Text
+        fontSize="20px"
+        color="#1f1f1f"
+        marginBottom="10px"
+        className={fonts.arvo.className}
+        textAlign="center"
+      >
+        Keep track of it with the timer.
       </Text>
       <Text
-        fontSize='64px'
-        color='#1f1f1f'
-        fontWeight='bold'
-        marginBottom='20px'
-        border='2px solid #1f1f1f'
-        borderRadius='5px'
-        padding='5px'
+        fontSize="64px"
+        color="#1f1f1f"
+        fontWeight="bold"
+        marginBottom="20px"
+        border="2px solid #1f1f1f"
+        borderRadius="5px"
+        padding="5px"
         className={fonts.arvo.className}
-        bgColor='whitesmoke'
+        bgColor="whitesmoke"
       >
         {formattedHours}:{formattedMinutes}:{formattedSeconds}
       </Text>
-      <Flex gap='20px'>
+      <Flex gap="20px">
         {running ? (
           <Button
             className={fonts.arvo.className}
             style={{
-              padding: '10px 20px',
-              borderRadius: '5px',
-              fontSize: '16px',
-              color: '#F34213',
-              cursor: 'pointer',
-              backgroundColor: '#FFADAD',
+              padding: "10px 20px",
+              borderRadius: "5px",
+              fontSize: "16px",
+              color: "#F34213",
+              cursor: "pointer",
+              backgroundColor: "#FFADAD",
             }}
             onClick={pauseStopwatch}
           >
@@ -124,12 +143,12 @@ const StopWatch = () => {
             <Button
               className={fonts.arvo.className}
               style={{
-                padding: '10px 20px',
-                borderRadius: '5px',
-                fontSize: '16px',
-                color: '#F34213',
-                cursor: 'pointer',
-                backgroundColor: '#CAFFBF',
+                padding: "10px 20px",
+                borderRadius: "5px",
+                fontSize: "16px",
+                color: "#F34213",
+                cursor: "pointer",
+                backgroundColor: "#CAFFBF",
               }}
               onClick={startStopwatch}
             >
@@ -138,12 +157,12 @@ const StopWatch = () => {
             <Button
               className={fonts.arvo.className}
               style={{
-                padding: '10px 20px',
-                borderRadius: '5px',
-                fontSize: '16px',
-                color: '#F34213',
-                cursor: 'pointer',
-                backgroundColor: '#BDB2FF',
+                padding: "10px 20px",
+                borderRadius: "5px",
+                fontSize: "16px",
+                color: "#F34213",
+                cursor: "pointer",
+                backgroundColor: "#BDB2FF",
               }}
               onClick={resetStopwatch}
             >
@@ -155,12 +174,12 @@ const StopWatch = () => {
           <Button
             className={fonts.arvo.className}
             style={{
-              padding: '10px 20px',
-              borderRadius: '5px',
-              fontSize: '16px',
-              color: '#F34213',
-              cursor: 'pointer',
-              backgroundColor: '#FDFFAB',
+              padding: "10px 20px",
+              borderRadius: "5px",
+              fontSize: "16px",
+              color: "#F34213",
+              cursor: "pointer",
+              backgroundColor: "#FDFFAB",
             }}
             onClick={resumeStopwatch}
           >
