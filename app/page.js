@@ -181,7 +181,7 @@ export default function Home() {
             mt={isMobile ? 0 : 8}
             mb={isMobile ? 0 : 8}
           >
-            <Text>Don't have an account?</Text>
+            <Text>Enter your details above to </Text>
 
             <Text onClick={() => handleSignUp()} color="#C683D7">
               Sign up
