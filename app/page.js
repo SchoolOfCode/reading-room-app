@@ -190,10 +190,10 @@ export default function Home() {
         </VStack>
       </Box>
       <Box
-        w={["full", "md"]}
-        position="absolute"
-        bottom={0}
-        left={0}
+        // w={["full", "md"]}
+        // position="absolute"
+        // bottom={0}
+        // left={0}
         p={4}
         textAlign={isMobile ? "center" : "left"}
       >
