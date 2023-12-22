@@ -92,8 +92,22 @@ const CharacterPage = () => {
   }, []);
 
   return (
-    <div style={{ backgroundColor: "#FDFFB6", padding: "2rem" }}>
-      <Heading m={5} className={fonts.arvo.className} textAlign="center">
+    <div
+      style={{
+        backgroundColor: "#FDFFB6",
+        padding: "2rem",
+        height: "auto",
+        width: "auto",
+
+        // maxHeight: "100vh",
+      }}
+    >
+      <Heading
+        m={5}
+        mt={10}
+        className={fonts.arvo.className}
+        textAlign="center"
+      >
         Rewards Room - Congratulations!
       </Heading>
       <h2

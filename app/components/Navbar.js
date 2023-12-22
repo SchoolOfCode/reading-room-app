@@ -1,18 +1,18 @@
-'use client';
+"use client";
 
-import { Container, Flex, Icon, Box } from '@chakra-ui/react';
-import { Link } from '@chakra-ui/next-js';
+import { Container, Flex, Icon, Box } from "@chakra-ui/react";
+import { Link } from "@chakra-ui/next-js";
 // import { FaBookOpen,FaPaw, FaHome } from 'react-icons/fa';
 // import { FaBookOpen } from 'react-icons/fa6';
 
 // Ideas for icons
-import { HiBuildingStorefront } from 'react-icons/hi2';
-import { GiPawPrint } from 'react-icons/gi';
-import { GiSpellBook } from 'react-icons/gi';
-import { useState } from 'react';
+import { HiBuildingStorefront } from "react-icons/hi2";
+import { GiPawPrint } from "react-icons/gi";
+import { GiSpellBook } from "react-icons/gi";
+import { useState } from "react";
 
 export default function Navbar() {
-  const [activePage, setActivePage] = useState('');
+  const [activePage, setActivePage] = useState("");
 
   // Function to update the activePage state
   const handleSetActivePage = (page) => {
@@ -20,57 +20,64 @@ export default function Navbar() {
   };
 
   return (
-    <Container bg='#DDD9D1' position='fixed' bottom='0' minWidth='100%' minHeight='10%' pt='5px'>
-      <Flex justify='space-around' align='center'>
-        <Link href='/WelcomePage' height='75px'>
+    <Container
+      bg="#DDD9D1"
+      position="fixed"
+      bottom="0"
+      minWidth="100%"
+      minHeight="10%"
+      pt="5px"
+    >
+      <Flex justify="space-around" align="center">
+        <Link href="/WelcomePage" height="75px">
           <Icon
             as={HiBuildingStorefront}
-            color='#747474'
-            height='90%'
-            width='90%'
-            onClick={() => handleSetActivePage('WP')}
+            color="#747474"
+            height="90%"
+            width="90%"
+            onClick={() => handleSetActivePage("WP")}
           />
           <Box
-            bg='#CAFFBF'
-            border='1px solid #747474' // Added border due to light colours blending to the background
-            height='7px'
-            mr='5px'
-            display={activePage === 'WP' ? 'block' : 'none'}
+            bg="#CAFFBF"
+            border="1px solid #747474" // Added border due to light colours blending to the background
+            height="7px"
+            mr="5px"
+            display={activePage === "WP" ? "block" : "none"}
           />
         </Link>
-        <Link href='/ReadingRoom' height='75px'>
+        <Link href="/ReadingRoom" height="75px">
           <Icon
             as={GiSpellBook}
-            color='#747474'
-            height='90%'
-            width='90%'
-            onClick={() => handleSetActivePage('RR')}
+            color="#747474"
+            height="90%"
+            width="90%"
+            onClick={() => handleSetActivePage("RR")}
           />
           <Box
-            bg='#FFD6A5'
-            border='1px solid #747474'
-            height='7px'
-            mr='5px'
-            mt='2px'
-            display={activePage === 'RR' ? 'block' : 'none'}
+            bg="#FFD6A5"
+            border="1px solid #747474"
+            height="7px"
+            mr="5px"
+            mt="2px"
+            display={activePage === "RR" ? "block" : "none"}
           />
         </Link>
 
-        <Link href='/Avatar' height='75px'>
+        <Link href="/Avatar" height="75px">
           <Icon
             as={GiPawPrint}
-            color='#747474'
-            height='90%'
-            width='90%'
-            onClick={() => handleSetActivePage('A')}
+            color="#747474"
+            height="90%"
+            width="90%"
+            onClick={() => handleSetActivePage("A")}
           />
           <Box
-            bg='#FDFFAB'
-            border='1px solid #747474'
-            height='7px'
-            mr='5px'
-            mt='2px'
-            display={activePage === 'A' ? 'block' : 'none'}
+            bg="#FDFFAB"
+            border="1px solid #747474"
+            height="7px"
+            mr="5px"
+            mt="2px"
+            display={activePage === "A" ? "block" : "none"}
           />
         </Link>
       </Flex>

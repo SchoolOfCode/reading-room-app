@@ -61,7 +61,7 @@ export default function Home() {
       // justifyContent="center"
       alignItems="center"
       pt={10}
-      mx="auto"
+      mx="auto" //
     >
       <Box
         bg="white"
