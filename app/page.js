@@ -59,8 +59,9 @@ export default function Home() {
       display="flex"
       flexDirection="column"
       // justifyContent="center"
-      // alignItems="center"
+      alignItems="center"
       pt={10}
+      mx="auto"
     >
       <Box
         bg="white"
