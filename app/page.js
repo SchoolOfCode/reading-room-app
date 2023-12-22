@@ -58,9 +58,9 @@ export default function Home() {
       minWidth="100%"
       display="flex"
       flexDirection="column"
-      justifyContent="center"
-      alignItems="center"
-      p={0}
+      // justifyContent="center"
+      // alignItems="center"
+      pt={10}
     >
       <Box
         bg="white"
@@ -190,8 +190,8 @@ export default function Home() {
         </VStack>
       </Box>
       <Box
-        // w={["full", "md"]}
-        // position="absolute"
+        w={["full", "md"]}
+        position="relative"
         // bottom={0}
         // left={0}
         p={4}
