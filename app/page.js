@@ -33,6 +33,7 @@ import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 export default function Home() {
+  window.handleSignInCalled = false;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   // Variable to guarantee responsiveness on different screen size
@@ -45,7 +46,10 @@ export default function Home() {
   async function handleSignIn() {
     const data = { email, password };
     await signIn(data);
+    // Set a flag indicating that handleSignIn has been called
+    window.handleSignInCalled = true;
   }
+  window.handleSignIn = handleSignIn;
   async function handleSignUp() {
     const data = { email, password };
     await signUp(data);
@@ -110,6 +114,7 @@ export default function Home() {
             <InputGroup>
               <InputLeftElement pointerEvents="none">📧</InputLeftElement>
               <Input
+                id="emailInputBox"
                 placeholder="Your email address"
                 onChange={(e) => setEmail(e.target.value)}
                 value={email}
@@ -135,6 +140,7 @@ export default function Home() {
             <InputGroup>
               <InputLeftElement pointerEvents="none">🔑</InputLeftElement>
               <Input
+                id="passwordInputBox"
                 placeholder="Your password"
                 onChange={(e) => setPassword(e.target.value)}
                 value={password}
@@ -168,7 +174,7 @@ export default function Home() {
             width="100%"
           >
             <span onClick={() => handleSignIn()}>
-              <GlowingButton>Sign in</GlowingButton>
+              <GlowingButton label="signIn">Sign in</GlowingButton>
             </span>
           </Container>
           <Container

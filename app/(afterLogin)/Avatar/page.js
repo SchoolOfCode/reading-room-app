@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Button, Heading } from "@chakra-ui/react";
+import { Button, Heading, VStack } from "@chakra-ui/react";
 import { fonts } from "../../fonts.js";
 import Avatar from "./components/Avatar.js";
 import Backdrop from "./components/Backdrop.js";
@@ -92,15 +92,14 @@ const CharacterPage = () => {
   }, []);
 
   return (
-    <div
-      style={{
-        backgroundColor: "#FDFFB6",
-        padding: "2rem",
-        height: "auto",
-        width: "auto",
+    <VStack
+      as="main"
+      spacing={10}
+      bg="#FDFFB6"
+      minHeight="100%"
+      mb="10%"
 
-        // maxHeight: "100vh",
-      }}
+      // maxHeight: "100vh",
     >
       <Heading
         m={5}
@@ -311,7 +310,7 @@ const CharacterPage = () => {
           />
         </div>
       </div>
-    </div>
+    </VStack>
   );
 };
 
