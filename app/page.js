@@ -33,7 +33,6 @@ import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 export default function Home() {
-  window.handleSignInCalled = false;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   // Variable to guarantee responsiveness on different screen size
@@ -43,13 +42,16 @@ export default function Home() {
   const togglePasswordVisibility = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
   };
+  // Flag setting handleSignIn to false
+  // window.handleSignInCalled = false;
+  // handleSignIn function
   async function handleSignIn() {
     const data = { email, password };
     await signIn(data);
     // Set a flag indicating that handleSignIn has been called
-    window.handleSignInCalled = true;
+    // window.handleSignInCalled = true;
   }
-  window.handleSignIn = handleSignIn;
+  // window.handleSignIn = handleSignIn;
   async function handleSignUp() {
     const data = { email, password };
     await signUp(data);

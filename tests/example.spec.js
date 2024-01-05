@@ -25,15 +25,23 @@ test("To navigate through to welcome page", async ({ page }) => {
 
   // Wait for the handleSignIn function to be available
   console.log("Before waitForFunction");
-  await page.waitForFunction(() => typeof window.handleSignIn === "function");
-  console.log("After waitForFunction");
+  // the below waitForFunction times out
+  // await page.waitForFunction(() => typeof window.handleSignIn === "function");
+  console.log("After waitForFunction"); // This never runs
 
   // Call the handleSignIn function
-  await page.evaluate(() => window.handleSignIn());
+  // await page.evaluate(() => window.handleSignIn());
 
   // Wait for the navigation to the welcome page
   await page.waitForURL("http://localhost:3000/WelcomePage");
 
   // Verify that the URL is now the welcome page
   expect(page.url()).toBe("http://localhost:3000/WelcomePage");
+
+  const welcomeHeading = await page.locator("#welcomeText");
+  // console.log(welcomeHeading);
+  await expect(welcomeHeading).toHaveText("Welcome back, Jacob", {
+    timeout: 10000,
+  });
+  // expect();
 });
