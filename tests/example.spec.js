@@ -57,14 +57,14 @@ test("To navigate through to welcome page", async ({ page }) => {
   );
 
   // // testing latest reading note
-  // const textContent1 = await page
-  //   .locator("div")
-  //   .filter({ hasText: "Last time you read Vita" })
-  //   .nth(1);
+  const textContent1 = await page
+    .locator("div")
+    .filter({ hasText: "Last time you read Vita" })
+    .nth(1);
 
-  // await expect(textContent1).toHaveText(
-  //   "Last time you read Vita Nostra by Maryna and Serhiy Dyachenko. You wrote: \"Incredible Slavic fantasy which surpasses a reader's concept of a novel.\" - keep going, you're doing great!"
-  // );
+  await expect(textContent1).toHaveText(
+    "Last time you read Vita Nostra by Maryna and Serhiy Dyachenko. You wrote: \"Incredible Slavic fantasy which surpasses a reader's concept of a novel.\" - keep going, you're doing great!"
+  );
 
   // navigate to reading room
   const readingRoomLink = page.getByRole("link").nth(2);
@@ -136,4 +136,33 @@ test("To navigate through to welcome page", async ({ page }) => {
   await expect(textContent2).toHaveText(
     `Last time you read ${titleInput} by ${authorInput}. You wrote: "${ReadingNoteInput}" - keep going, you're doing great!`
   );
+
+  // readd the original reading note so that the test works each time it is run.
+  await page.goto("http://localhost:3000/ReadingRoom");
+  finishedReadingButton.click();
+  await page.waitForTimeout(1000);
+  expect(popUpHeading).toHaveText("Fill out your thoughts 🎉");
+  titleInput = "Vita Nostra";
+  authorInput = "Maryna and Serhiy Dyachenko";
+  ReadingNoteInput =
+    "Incredible Slavic fantasy which surpasses a reader's concept of a novel.";
+  await titleBox.fill(titleInput);
+  await authorBox.fill(authorInput);
+  await noteBox.fill(ReadingNoteInput);
+  expect(titleBox).toHaveValue("Vita Nostra");
+  expect(authorBox).toHaveValue("Maryna and Serhiy Dyachenko");
+  expect(noteBox).toHaveValue(
+    "Incredible Slavic fantasy which surpasses a reader's concept of a novel."
+  );
+  await submitButton.click();
+  await page.waitForTimeout(4000);
+  await page.goto("http://localhost:3000/WelcomePage");
+  await expect(welcomeHeading).toHaveText("Welcome back, Jacob", {
+    timeout: 10000,
+  });
+
+  await expect(textContent1).toHaveText(
+    "Last time you read Vita Nostra by Maryna and Serhiy Dyachenko. You wrote: \"Incredible Slavic fantasy which surpasses a reader's concept of a novel.\" - keep going, you're doing great!"
+  );
+  //
 });
