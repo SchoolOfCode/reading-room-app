@@ -76,11 +76,34 @@ test("To navigate through to welcome page", async ({ page }) => {
 
   // stopwatch tests
   const startButton = page.getByRole("button", { name: "Start" });
-
   startButton.click();
   await page.waitForTimeout(3000);
   const pauseButton = page.getByRole("button", { name: "Pause" });
   pauseButton.click();
   const timer2secs = page.getByText(":00:02");
   expect(timer2secs).toHaveText("00:00:02");
+
+  // Adding Reading Notes Test
+  const finishedReadingButton = page.getByRole("button", {
+    name: "Finished Reading?",
+  });
+  finishedReadingButton.click();
+  await page.waitForTimeout(1000);
+  const popUpHeading = page.getByRole("heading", {
+    name: "Fill out your thoughts 🎉",
+  });
+  expect(popUpHeading).toHaveText("Fill out your thoughts 🎉");
+
+  let titleInput = "Mr Happy";
+  let authorInput = "Roger Hargreaves";
+  let ReadingNoteInput =
+    "A lovely book with a strong message. It makes me feel happy!";
+
+  const titleBox = page.getByPlaceholder("Title of the book you're");
+  const authorBox = page.getByPlaceholder("Author of the book you're");
+  const noteBox = page.getByPlaceholder("Share your favourite moments");
+
+  await titleBox.fill(titleInput);
+  await authorBox.fill(authorInput);
+  await noteBox.fill(ReadingNoteInput);
 });
