@@ -38,6 +38,7 @@ test("To navigate through to welcome page", async ({ page }) => {
   // Verify that the URL is now the welcome page
   expect(page.url()).toBe("http://localhost:3000/WelcomePage");
 
+  // Testing elements on welcome page
   const welcomeHeading = await page.getByRole("heading", {
     name: "Welcome back, Jacob",
   });
@@ -45,5 +46,22 @@ test("To navigate through to welcome page", async ({ page }) => {
   await expect(welcomeHeading).toHaveText("Welcome back, Jacob", {
     timeout: 10000,
   });
-  // expect();
+
+  //continue message test
+  const continueMessage = await page.getByRole("heading", {
+    name: "Grab your favourite book and let's dive into its world!",
+  });
+  await expect(continueMessage).toHaveText(
+    "Grab your favourite book and let's dive into its world!"
+  );
+
+  // testing latest reading note
+  const textContent1 = await page
+    .locator("div")
+    .filter({ hasText: "Last time you read Vita" })
+    .nth(1);
+
+  await expect(textContent1).toHaveText(
+    "Last time you read Vita Nostra by Maryna and Serhiy Dyachenko. You wrote: \"Incredible Slavic fantasy which surpasses a reader's concept of a novel.\" - keep going, you're doing great!"
+  );
 });

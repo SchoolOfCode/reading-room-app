@@ -10,20 +10,22 @@ export default function ReadingNotes({ title, author, notes }) {
   return (
     <div className={styles.pageWrapper}>
       <HStack>
-        <Icon as={FaQuoteLeft} color="#1f1f1f" boxSize={30} />
-        <Text m={"1rem"} border="0" fontSize="2xl" textAlign="center">
-          {title ? (
-            <>
-              Last time you read{" "}
-              <span style={{ fontWeight: "bold" }}>{title}</span> by{" "}
-              <span style={{ fontWeight: "bold" }}>{author}</span>. You wrote: "
-              <span style={{ fontWeight: "bold" }}>{notes}</span>" - keep going,
-              you're doing great!
-            </>
-          ) : (
-            "Your reading notes will be displayed here"
-          )}
-        </Text>
+        <span id="readingNote">
+          <Icon as={FaQuoteLeft} color="#1f1f1f" boxSize={30} />
+          <Text m={"1rem"} border="0" fontSize="2xl" textAlign="center">
+            {title ? (
+              <>
+                Last time you read{" "}
+                <span style={{ fontWeight: "bold" }}>{title}</span> by{" "}
+                <span style={{ fontWeight: "bold" }}>{author}</span>. You wrote:
+                "<span style={{ fontWeight: "bold" }}>{notes}</span>" - keep
+                going, you're doing great!
+              </>
+            ) : (
+              "Your reading notes will be displayed here"
+            )}
+          </Text>
+        </span>
         <Icon as={FaQuoteRight} color="#1f1f1f" boxSize={30} />
       </HStack>
     </div>
