@@ -1,9 +1,17 @@
-'use client';
+"use client";
 
-import { Avatar, AvatarBadge, Box, Container, Flex, Image, VStack } from '@chakra-ui/react';
-import Link from 'next/link';
+import {
+  Avatar,
+  AvatarBadge,
+  Box,
+  Container,
+  Flex,
+  Image,
+  VStack,
+} from "@chakra-ui/react";
+import Link from "next/link";
 
-import { GiExitDoor } from 'react-icons/gi';
+import { GiExitDoor } from "react-icons/gi";
 
 export default function Topbar() {
   return (
@@ -16,9 +24,15 @@ export default function Topbar() {
           </Box>
         </VStack>
         <Box>
-          <Avatar src="Miffy.png" border="3px solid #747474" boxSize="65px" bg="white">
+          <Avatar
+            src="Miffy.png"
+            border="3px solid #747474"
+            boxSize="65px"
+            bg="white"
+          >
             <Link href="/">
               <AvatarBadge
+                title="avatarBadge"
                 as={GiExitDoor}
                 boxSize="40px"
                 border="3px solid #747474"

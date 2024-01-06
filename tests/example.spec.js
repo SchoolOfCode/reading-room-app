@@ -47,7 +47,8 @@ test("To navigate through to welcome page", async ({ page }) => {
   await expect(welcomeHeading).toHaveText("Welcome back, Jacob", {
     timeout: 10000,
   });
-
+  //getting avatar img
+  // const avatarImg = page.getByAltText("User Avatar");
   //continue message test
   const continueMessage = await page.getByRole("heading", {
     name: "Grab your favourite book and let's dive into its world!",
@@ -164,5 +165,61 @@ test("To navigate through to welcome page", async ({ page }) => {
   await expect(textContent1).toHaveText(
     "Last time you read Vita Nostra by Maryna and Serhiy Dyachenko. You wrote: \"Incredible Slavic fantasy which surpasses a reader's concept of a novel.\" - keep going, you're doing great!"
   );
-  //
+
+  //Testing Rewards Room
+  const rewardsRoomButton = page.getByRole("link").nth(3);
+  await rewardsRoomButton.click();
+  await page.goto("http://localhost:3000/Avatar");
+
+  // Testing different images
+  const RRtitle = page.getByRole("heading", {
+    name: "Choose an accessory for Miffy",
+  });
+  expect(RRtitle).toHaveText("Choose an accessory for Miffy");
+
+  const rightArrow = page.locator("svg:nth-child(4)");
+  const leftArrow = page.locator("div > svg").first();
+  const applyButton = page.getByRole("button", { name: "Apply" });
+  const removeButton = page.getByRole("button", { name: "Remove" });
+  // cycling both directions through the accessories and applying them all. Remove accessories thrown in there too.
+  await removeButton.click();
+  await applyButton.click();
+  await removeButton.click();
+  await leftArrow.click();
+  await applyButton.click();
+  await leftArrow.click();
+  await applyButton.click();
+  await leftArrow.click();
+  await applyButton.click();
+  await leftArrow.click();
+  await applyButton.click();
+  await leftArrow.click();
+  await applyButton.click();
+  await leftArrow.click();
+  await applyButton.click();
+  await leftArrow.click();
+  await applyButton.click();
+  await leftArrow.click();
+  await applyButton.click();
+  await rightArrow.click();
+  await applyButton.click();
+  await rightArrow.click();
+  await applyButton.click();
+  await rightArrow.click();
+  await applyButton.click();
+  await rightArrow.click();
+  await applyButton.click();
+  await rightArrow.click();
+  await applyButton.click();
+  await rightArrow.click();
+  await applyButton.click();
+  await rightArrow.click();
+  await applyButton.click();
+  await removeButton.click();
+
+  // Navigating back to welcome page
+  const welcomePageButton = page.getByRole("link").nth(1);
+  await page.goto("http://localhost:3000/WelcomePage");
+  const logOutButton = page.getByRole("link").first();
+  await page.goto("http://localhost:3000/");
 });
