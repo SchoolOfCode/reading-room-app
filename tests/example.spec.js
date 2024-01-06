@@ -1,5 +1,6 @@
 // @ts-check
 import { test, expect } from "@playwright/test";
+import { read } from "fs";
 
 test("To navigate through to welcome page", async ({ page }) => {
   // Expect a title "to contain" a substring.
@@ -64,4 +65,22 @@ test("To navigate through to welcome page", async ({ page }) => {
   await expect(textContent1).toHaveText(
     "Last time you read Vita Nostra by Maryna and Serhiy Dyachenko. You wrote: \"Incredible Slavic fantasy which surpasses a reader's concept of a novel.\" - keep going, you're doing great!"
   );
+
+  // navigate to reading room
+  const readingRoomLink = page.getByRole("link").nth(2);
+  readingRoomLink.click();
+  await page.goto("http://localhost:3000/ReadingRoom");
+
+  // Verify that the URL is now the Reading Room
+  expect(page.url()).toBe("http://localhost:3000/ReadingRoom");
+
+  // stopwatch tests
+  const startButton = page.getByRole("button", { name: "Start" });
+
+  startButton.click();
+  await page.waitForTimeout(3000);
+  const pauseButton = page.getByRole("button", { name: "Pause" });
+  pauseButton.click();
+  const timer2secs = page.getByText(":00:02");
+  expect(timer2secs).toHaveText("00:00:02");
 });
