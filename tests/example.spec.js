@@ -38,7 +38,9 @@ test("To navigate through to welcome page", async ({ page }) => {
   // Verify that the URL is now the welcome page
   expect(page.url()).toBe("http://localhost:3000/WelcomePage");
 
-  const welcomeHeading = await page.locator("#welcomeText");
+  const welcomeHeading = await page.getByRole("heading", {
+    name: "Welcome back, Jacob",
+  });
   // console.log(welcomeHeading);
   await expect(welcomeHeading).toHaveText("Welcome back, Jacob", {
     timeout: 10000,
