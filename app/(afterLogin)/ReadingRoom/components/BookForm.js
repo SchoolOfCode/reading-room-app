@@ -186,7 +186,7 @@ export const BookForm = () => {
               📝
             </InputLeftElement>
             <Textarea
-              placeholder="Share your favourite moments and thoughts from today's adventure!"
+              placeholder="Share your favorite moments and thoughts from today's adventure!"
               rounded="none"
               variant="filled"
               value={notes}
