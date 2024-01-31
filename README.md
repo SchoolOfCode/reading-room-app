@@ -1,6 +1,6 @@
 # The Reading Room
 
-As part of the [School of Code](https://schoolofcode.co.uk/) bootcamp, we have been divided in dev teams of 6 to work on a project from ideation to deployment.
+As part of the [School of Code](https://schoolofcode.co.uk/) bootcamp, we have been divided in dev teams of 6 to work on a project from ideation to deployment in 4 weeks.
 
 Our team, **The Blurb**, set as a goal to helps kids (and their educators) to develop healthy and long lasting reading habits.
 
