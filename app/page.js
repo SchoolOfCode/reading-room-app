@@ -26,7 +26,6 @@ import {
 
 import PasswordInput from "./components/PasswordInput";
 import { GlowingButton } from "./components/SignInButton";
-import SignInBar from './components/SignInBar.js';
 
 import { fonts } from "./fonts";
 import { Link } from "@chakra-ui/next-js";
@@ -64,7 +63,6 @@ export default function Home() {
       pt={10}
       mx="auto" //
     >
-        <SignInBar />
       <Box
         bg="white"
         maxW={["auto", "75vh"]}
